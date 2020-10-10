@@ -15,6 +15,7 @@ import Eth.Sentry.Wallet as WalletSentry
 import Eth.Types exposing (Address, TxHash)
 import Eth.Utils
 import Helpers.Element as EH exposing (DisplayProfile(..))
+import Helpers.Time as TimeHelpers
 import Json.Decode
 import Json.Encode
 import List.Extra
@@ -29,7 +30,9 @@ import Url exposing (Url)
 
 init : Flags -> Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
-  ( { currentTime = flags.nowInMillis }
+  ( { currentTime = flags.nowInMillis
+    , currentBucket = (getCurrentBucketId flags.nowInMillis)
+    }
   , Cmd.none
   )
 

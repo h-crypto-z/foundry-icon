@@ -10,6 +10,10 @@ import TokenValue exposing (TokenValue)
 testMode =
     False
 
+bucketSaleBucketInterval : Time.Posix
+bucketSaleBucketInterval =
+    Time.millisToPosix <| 1000 * 60 * 60 * 7
+
 
 httpProviderUrl : String
 httpProviderUrl =

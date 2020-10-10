@@ -3,6 +3,7 @@ module Types exposing (..)
 import Array exposing (Array)
 import Browser
 import Browser.Navigation
+import Config
 import Dict exposing (Dict)
 import Eth.Sentry.Event as EventSentry exposing (EventSentry)
 import Eth.Sentry.Tx as TxSentry exposing (TxSentry)
@@ -10,6 +11,7 @@ import Eth.Sentry.Wallet as WalletSentry exposing (WalletSentry)
 import Eth.Types exposing (Address, Hex, Tx, TxHash, TxReceipt)
 import Eth.Utils
 import Helpers.Element as EH
+import Helpers.Time as TimeHelpers
 import Http
 import List.Extra
 import Time
@@ -27,7 +29,10 @@ type alias Flags =
 
 
 type alias Model = 
-    { currentTime : Int }
+    { currentTime : Int
+    , currentBucket : Int
+    --, bucketInterval : TimeHelpers.HumanReadableInterval
+    }
 
 
 type Msg 
@@ -35,3 +40,12 @@ type Msg
     | UrlChanged Url
     | NoOp
 
+
+getCurrentBucketId : Int -> Int
+getCurrentBucketId now =
+    (TimeHelpers.sub (Time.millisToPosix now) (Time.millisToPosix 1592568000000)
+        |> TimeHelpers.posixToSeconds
+    )
+        // (Config.bucketSaleBucketInterval
+                |> TimeHelpers.posixToSeconds
+           )
