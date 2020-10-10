@@ -35,8 +35,9 @@ type alias Model =
 type Msg 
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url
+    | Tick Time.Posix
+    | Resize Int Int
     | NoOp
-
 
 getCurrentBucketId : Int -> Int
 getCurrentBucketId now =
@@ -50,7 +51,7 @@ getCurrentBucketId now =
 
 getBucketRemainingTimeText : Int -> Int -> String
 getBucketRemainingTimeText bucketId now =
-    TimeHelpers.toConciseIntervalString 
+    TimeHelpers.toHumanReadableString 
         (TimeHelpers.sub            
             (getBucketEndTime bucketId)
             (Time.millisToPosix now)

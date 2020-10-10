@@ -147,6 +147,14 @@ toHumanReadableInterval t =
                        )
            )
 
+toHumanReadableString : Time.Posix -> String
+toHumanReadableString t = 
+    let
+        hri =
+            toHumanReadableInterval t
+    in
+        String.fromInt hri.hours ++ "h " ++ String.fromInt hri.min ++ "m " ++ String.fromInt hri.sec ++ "s"
+
 
 toConciseIntervalString : Time.Posix -> String
 toConciseIntervalString t =
@@ -159,7 +167,7 @@ toConciseIntervalString t =
 
     else if hri.hours > 0 then
         String.fromInt hri.hours ++ "h " ++ String.fromInt hri.min ++ "m"
-
+        
     else if hri.min > 0 then
         String.fromInt hri.min ++ "m " ++ String.fromInt hri.sec ++ "s"
 

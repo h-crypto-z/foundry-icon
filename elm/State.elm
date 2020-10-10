@@ -36,13 +36,22 @@ init flags url key =
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update _ model =
-  ( model, Cmd.none )
+update msg model =
+    case msg of
+        Tick i -> ({model | currentTime = Time.posixToMillis i}, Cmd.none)
+
+        LinkClicked i -> (model, Cmd.none)
+
+        UrlChanged i -> (model, Cmd.none)
+
+        Resize i j -> (model, Cmd.none)
+
+        NoOp -> (model, Cmd.none)
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+    Time.every 1000 Tick
 
 
 port walletSentryPort : (Json.Decode.Value -> msg) -> Sub msg
