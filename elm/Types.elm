@@ -29,10 +29,7 @@ type alias Flags =
 
 
 type alias Model = 
-    { currentTime : Int
-    , currentBucket : Int
-    --, bucketInterval : TimeHelpers.HumanReadableInterval
-    }
+    { currentTime : Int }
 
 
 type Msg 
@@ -49,3 +46,25 @@ getCurrentBucketId now =
         // (Config.bucketSaleBucketInterval
                 |> TimeHelpers.posixToSeconds
            )
+
+
+getBucketRemainingTimeText : Int -> Int -> String
+getBucketRemainingTimeText bucketId now =
+    TimeHelpers.toConciseIntervalString 
+        (TimeHelpers.sub            
+            (getBucketEndTime bucketId)
+            (Time.millisToPosix now)
+        )
+
+
+getBucketStartTime : Int -> Time.Posix
+getBucketStartTime bucketId = 
+    Time.millisToPosix 
+            (Config.saleStarted + (bucketId * (Time.posixToMillis Config.bucketSaleBucketInterval) )  )
+
+
+getBucketEndTime : Int -> Time.Posix
+getBucketEndTime bucketId =
+    TimeHelpers.add
+        (getBucketStartTime bucketId)
+        (Config.bucketSaleBucketInterval)

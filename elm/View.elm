@@ -69,12 +69,12 @@ body model =
             , Element.column
                 [ Element.padding 20 ]
                 [ textSmall "BUCKET #"
-                , textLarge (String.fromInt 0)
+                , textLarge (String.fromInt (getCurrentBucketId model.currentTime))
                 ]
             , Element.column
                 [ Element.padding 20 ]
                 [ textSmall "TIME LEFT"
-                , textLarge "99H59M59S"
+                , textLarge (getBucketRemainingTimeText (getCurrentBucketId model.currentTime) model.currentTime)
                 ]
             , Element.column
                 [ ]
@@ -93,16 +93,6 @@ body model =
                         (columnItems "0.00002" "0.00001")
                     ]
                 ]
-            ]
-        , Element.row
-            []
-            [ Element.text "Timestamp: "
-            , Element.text (String.fromInt model.currentTime)
-            ]
-        , Element.row
-            []
-            [ Element.text "Sale started: "
-            , Element.text (String.fromInt Config.saleStarted)
             ]
         ]
 

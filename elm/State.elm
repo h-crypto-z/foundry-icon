@@ -30,9 +30,7 @@ import Url exposing (Url)
 
 init : Flags -> Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
-  ( { currentTime = flags.nowInMillis
-    , currentBucket = (getCurrentBucketId flags.nowInMillis)
-    }
+  ( { currentTime = flags.nowInMillis }
   , Cmd.none
   )
 
