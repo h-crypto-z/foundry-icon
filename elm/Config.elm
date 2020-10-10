@@ -15,6 +15,11 @@ bucketSaleBucketInterval =
     Time.millisToPosix <| 1000 * 60 * 60 * 7
 
 
+saleStarted : Int
+saleStarted = 
+    1592568000000
+
+
 httpProviderUrl : String
 httpProviderUrl =
     if testMode then

@@ -94,6 +94,16 @@ body model =
                     ]
                 ]
             ]
+        , Element.row
+            []
+            [ Element.text "Timestamp: "
+            , Element.text (String.fromInt model.currentTime)
+            ]
+        , Element.row
+            []
+            [ Element.text "Sale started: "
+            , Element.text (String.fromInt Config.saleStarted)
+            ]
         ]
 
 textExtraLarge : String -> Element Msg

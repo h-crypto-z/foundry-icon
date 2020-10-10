@@ -43,7 +43,7 @@ type Msg
 
 getCurrentBucketId : Int -> Int
 getCurrentBucketId now =
-    (TimeHelpers.sub (Time.millisToPosix now) (Time.millisToPosix 1592568000000)
+    (TimeHelpers.sub (Time.millisToPosix now) (Time.millisToPosix Config.saleStarted)
         |> TimeHelpers.posixToSeconds
     )
         // (Config.bucketSaleBucketInterval
