@@ -1,6 +1,7 @@
 module View exposing (root)
 
 import Browser
+import Config
 import Dict exposing (Dict)
 import Dict.Extra
 import Element exposing (Attribute, Element)
@@ -61,11 +62,14 @@ body model =
         ]
         [ Element.row
             [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0}]
-            [ textExtraLarge "BUY FRY"
+            [ Element.newTabLink [ Element.Font.color Theme.lightBlue ]
+                { url = Config.uniswapPoolLink
+                , label = (textExtraLarge "BUY FRY")
+                }
             , Element.column
                 [ Element.padding 20 ]
                 [ textSmall "BUCKET #"
-                , textLarge "[bucketNr]"
+                , textLarge (String.fromInt 0)
                 ]
             , Element.column
                 [ Element.padding 20 ]
