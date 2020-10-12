@@ -68,12 +68,12 @@ body model =
             , Element.column
                 [ Element.padding 20 ]
                 [ textSmall "BUCKET #"
-                , textLarge (String.fromInt (getCurrentBucketId model.currentTime))
+                , textLarge <| String.fromInt model.currentBucketId
                 ]
             , Element.column
                 [ Element.padding 20 ]
                 [ textSmall "TIME LEFT"
-                , textLarge (getBucketRemainingTimeText (getCurrentBucketId model.currentTime) model.currentTime)
+                , textLarge <| getBucketRemainingTimeText model.currentBucketId model.currentTime
                 ]
             , Element.column
                 []
@@ -89,7 +89,7 @@ body model =
                         [ Element.padding 5
                         , Element.alignRight
                         ]
-                        (columnItems (TokenValue.toConciseString (calcEffectivePricePerToken model.currentBucketTotalEntered)) "0.00001")
+                        (columnItems (TokenValue.toConciseString <| calcEffectivePricePerToken model.currentBucketTotalEntered) "0.00001")
                     ]
                 ]
             ]

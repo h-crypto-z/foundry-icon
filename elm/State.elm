@@ -33,7 +33,7 @@ import Url exposing (Url)
 init : Flags -> Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
     ( { currentTime = flags.nowInMillis
-      , currentBucketId = 0
+      , currentBucketId = getCurrentBucketId flags.nowInMillis
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
       }
     , Cmd.none
@@ -48,7 +48,12 @@ update msg model =
                 cmd =
                     fetchTotalValueEnteredCmd model.currentBucketId
             in
-            ( { model | currentTime = Time.posixToMillis i }, cmd )
+            ( { model
+                | currentTime = Time.posixToMillis i
+                , currentBucketId = getCurrentBucketId <| Time.posixToMillis i
+              }
+            , cmd
+            )
 
         LinkClicked i ->
             ( model, Cmd.none )
@@ -69,6 +74,10 @@ update msg model =
                     ( model, Cmd.none )
 
                 Ok valueEntered ->
+                    let
+                        _ =
+                            Debug.log "Value entered: " ( bucketId, valueEntered )
+                    in
                     ( { model | currentBucketTotalEntered = valueEntered }, Cmd.none )
 
         NoOp ->
