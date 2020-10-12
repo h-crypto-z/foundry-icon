@@ -32,39 +32,38 @@ import Tuple3
 import Types exposing (..)
 
 
-
 root : Model -> Browser.Document Msg
 root model =
     { title = "Dashboard - Foundry"
     , body =
         [ Element.layout
-            ([ Element.width Element.fill
-             , Element.Background.color Theme.blue
-             , Element.htmlAttribute <| Html.Attributes.style "height" "100vh"
-             , Element.Font.family
+            [ Element.width Element.fill
+            , Element.Background.color Theme.blue
+            , Element.htmlAttribute <| Html.Attributes.style "height" "100vh"
+            , Element.Font.family
                 [ Element.Font.typeface "DM Sans"
-                , Element.Font.sansSerif                
+                , Element.Font.sansSerif
                 ]
-             , Element.Font.color EH.white
-             ]
-            )
+            , Element.Font.color EH.white
+            ]
           <|
             body model
         ]
     }
 
+
 body : Model -> Element Msg
 body model =
-    Element.column 
+    Element.column
         [ Element.Background.color Theme.softRed
         , Element.width Element.fill
         , Element.Border.rounded 50
         ]
         [ Element.row
-            [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0}]
+            [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0 } ]
             [ Element.newTabLink [ Element.Font.color Theme.lightBlue ]
                 { url = Config.uniswapPoolLink
-                , label = (textExtraLarge "BUY FRY")
+                , label = textExtraLarge "BUY FRY"
                 }
             , Element.column
                 [ Element.padding 20 ]
@@ -77,7 +76,7 @@ body model =
                 , textLarge (getBucketRemainingTimeText (getCurrentBucketId model.currentTime) model.currentTime)
                 ]
             , Element.column
-                [ ]
+                []
                 [ textSmall "PRICE"
                 , Element.row
                     []
@@ -88,39 +87,45 @@ body model =
                         ]
                     , Element.column
                         [ Element.padding 5
-                        , Element.alignRight 
+                        , Element.alignRight
                         ]
-                        (columnItems "0.00002" "0.00001")
+                        (columnItems (TokenValue.toConciseString (calcEffectivePricePerToken (fetchTotalValueEnteredCmd (getCurrentBucketId model.currentTime)))) "0.00001")
                     ]
                 ]
             ]
         ]
 
+
 textExtraLarge : String -> Element Msg
 textExtraLarge txt =
-    Element.el 
+    Element.el
         [ Element.Font.size 32
         , Element.padding 5
-        , Element.Font.bold ]
-     <|
+        , Element.Font.bold
+        ]
+    <|
         Element.text txt
 
 
 textLarge : String -> Element Msg
-textLarge txt = 
+textLarge txt =
     Element.el
         [ Element.Font.size 16
-        , Element.padding 5 ]
-     <|
-        Element.text txt        
+        , Element.padding 5
+        ]
+    <|
+        Element.text txt
+
 
 textSmall : String -> Element Msg
-textSmall txt = 
+textSmall txt =
     Element.el
         [ Element.Font.size 8
-        , Element.padding 5 ]
-     <|
+        , Element.padding 5
+        ]
+    <|
         Element.text txt
+
 
 columnLeft : String -> String -> Int -> Element Msg
 columnLeft str1 str2 padding =
@@ -131,8 +136,8 @@ columnLeft str1 str2 padding =
         ]
 
 
-columnItems : String -> String -> List(Element Msg)
+columnItems : String -> String -> List (Element Msg)
 columnItems str1 str2 =
-        [ textLarge str1
-        , textLarge str2
-        ]
+    [ textLarge str1
+    , textLarge str2
+    ]

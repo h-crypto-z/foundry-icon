@@ -1,9 +1,10 @@
 module TokenValue exposing (..)
 
+-- import Helpers.Eth as EthHelpers
+
 import BigInt exposing (BigInt)
 import FormatFloat exposing (..)
 import Helpers.BigInt as BigIntHelpers
-import Helpers.Eth as EthHelpers
 import Json.Decode
 import Json.Encode
 import MaybeDebugLog exposing (maybeDebugLog)
@@ -286,13 +287,3 @@ removeUnnecessaryZerosAndDots numString =
 
     else
         numString
-
-
-maxTokenValue : TokenValue
-maxTokenValue =
-    tokenValue EthHelpers.maxUintValue
-
-
-isMaxTokenValue : TokenValue -> Bool
-isMaxTokenValue tv =
-    compare tv maxTokenValue == EQ

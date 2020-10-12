@@ -2,10 +2,16 @@ module Helpers.Eth exposing (..)
 
 import Array
 import BigInt exposing (BigInt)
+import Config
 import Eth.Net
 import Eth.Sentry.Tx as TxSentry
 import Eth.Types exposing (Address, HttpProvider, Tx, TxHash, WebsocketProvider)
 import Eth.Utils
+
+
+appHttpProvider : HttpProvider
+appHttpProvider =
+    Config.mainnetHttpProviderUrl
 
 
 addressIfNot0x0 : Address -> Maybe Address

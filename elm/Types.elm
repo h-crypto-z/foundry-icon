@@ -1,9 +1,11 @@
 module Types exposing (..)
 
 import Array exposing (Array)
+import BigInt exposing (BigInt)
 import Browser
 import Browser.Navigation
 import Config
+import Contracts.BucketSale.Wrappers as BucketSaleWrappers
 import Dict exposing (Dict)
 import Eth.Sentry.Event as EventSentry exposing (EventSentry)
 import Eth.Sentry.Tx as TxSentry exposing (TxSentry)
@@ -28,16 +30,20 @@ type alias Flags =
     }
 
 
-type alias Model = 
-    { currentTime : Int }
+type alias Model =
+    { currentTime : Int
+    , currentBucketTotalEntered : TokenValue
+    }
 
 
-type Msg 
+type Msg
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url
     | Tick Time.Posix
     | Resize Int Int
+    | BucketValueEnteredFetched Int (Result Http.Error TokenValue)
     | NoOp
+
 
 getCurrentBucketId : Int -> Int
 getCurrentBucketId now =
@@ -51,21 +57,35 @@ getCurrentBucketId now =
 
 getBucketRemainingTimeText : Int -> Int -> String
 getBucketRemainingTimeText bucketId now =
-    TimeHelpers.toHumanReadableString 
-        (TimeHelpers.sub            
+    TimeHelpers.toHumanReadableString
+        (TimeHelpers.sub
             (getBucketEndTime bucketId)
             (Time.millisToPosix now)
         )
 
 
 getBucketStartTime : Int -> Time.Posix
-getBucketStartTime bucketId = 
-    Time.millisToPosix 
-            (Config.saleStarted + (bucketId * (Time.posixToMillis Config.bucketSaleBucketInterval) )  )
+getBucketStartTime bucketId =
+    Time.millisToPosix
+        (Config.saleStarted + (bucketId * Time.posixToMillis Config.bucketSaleBucketInterval))
 
 
 getBucketEndTime : Int -> Time.Posix
 getBucketEndTime bucketId =
     TimeHelpers.add
         (getBucketStartTime bucketId)
-        (Config.bucketSaleBucketInterval)
+        Config.bucketSaleBucketInterval
+
+
+calcEffectivePricePerToken : TokenValue -> TokenValue
+calcEffectivePricePerToken totalValueEntered =
+    TokenValue.toFloatWithWarning totalValueEntered
+        / (TokenValue.toFloatWithWarning <| Config.bucketSaleTokensPerBucket)
+        |> TokenValue.fromFloatWithWarning
+
+
+fetchTotalValueEnteredCmd : Int -> TokenValue
+fetchTotalValueEnteredCmd id =
+    BucketSaleWrappers.getTotalValueEnteredForBucket
+        id
+        (BucketValueEnteredFetched id)

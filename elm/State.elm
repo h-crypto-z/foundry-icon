@@ -1,10 +1,11 @@
-port module State exposing (init, update, subscriptions)
+port module State exposing (init, subscriptions, update)
 
 import Array exposing (Array)
 import Browser
 import Browser.Events
 import Browser.Navigation
 import Config
+import Contracts.BucketSale.Generated.BucketSale exposing (currentBucket)
 import Dict exposing (Dict)
 import Eth
 import Eth.Decode
@@ -28,30 +29,51 @@ import TokenValue exposing (TokenValue)
 import Types exposing (..)
 import Url exposing (Url)
 
+
 init : Flags -> Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
-  ( { currentTime = flags.nowInMillis }
-  , Cmd.none
-  )
+    ( { currentTime = flags.nowInMillis
+      , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
+      }
+    , Cmd.none
+    )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Tick i -> ({model | currentTime = Time.posixToMillis i}, Cmd.none)
+        Tick i ->
+            ( { model | currentTime = Time.posixToMillis i }, Cmd.none )
 
-        LinkClicked i -> (model, Cmd.none)
+        LinkClicked i ->
+            ( model, Cmd.none )
 
-        UrlChanged i -> (model, Cmd.none)
+        UrlChanged i ->
+            ( model, Cmd.none )
 
-        Resize i j -> (model, Cmd.none)
+        Resize i j ->
+            ( model, Cmd.none )
 
-        NoOp -> (model, Cmd.none)
+        BucketValueEnteredFetched bucketId fetchResult ->
+            case fetchResult of
+                Err httpErr ->
+                    let
+                        _ =
+                            Debug.log "http error when fetching total bucket value entered" ( bucketId, fetchResult )
+                    in
+                    ( model, Cmd.none )
+
+                Ok valueEntered ->
+                    ( { model | currentBucketTotalEntered = valueEntered }, Cmd.none )
+
+        NoOp ->
+            ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Time.every 1000 Tick
+    Sub.batch
+        [ Time.every 1000 Tick ]
 
 
 port walletSentryPort : (Json.Decode.Value -> msg) -> Sub msg

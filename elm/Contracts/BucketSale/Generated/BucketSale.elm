@@ -1,36 +1,39 @@
 module Contracts.BucketSale.Generated.BucketSale exposing
-    ( -- Buy
-    -- , Entered
-    -- , Exited
-    -- , agreeToTermsAndConditionsListedInThisContractAndEnterSale
-    -- , bucketCount
-    -- , 
-    bucketPeriod
-    -- , bucketSupply
-    -- , buckets
-    -- , buyerReferralRewardPerc
-    -- , buys
-    -- , buysDecoder
-    -- , calculateExitableTokens
-    , currentBucket
-    -- , enteredDecoder
-    -- , enteredEvent
-    -- , exit
-    -- , exitedDecoder
-    -- , exitedEvent
-    -- , referredTotal
-    -- , referrerReferralRewardPerc
-    -- , startOfSale
-    -- , termsAndConditions
-    -- , tokenOnSale
-    -- , tokenSoldFor
-    -- , totalExitedTokens
-    -- , treasury
+    (  -- Buy
+       -- , Entered
+       -- , Exited
+       -- , agreeToTermsAndConditionsListedInThisContractAndEnterSale
+       -- , bucketCount
+       -- ,
+       bucketPeriod
+       -- , bucketSupply
+
+    ,  buckets
+       -- , buyerReferralRewardPerc
+       -- , buys
+       -- , buysDecoder
+       -- , calculateExitableTokens
+
+    ,  currentBucket
+       -- , enteredDecoder
+       -- , enteredEvent
+       -- , exit
+       -- , exitedDecoder
+       -- , exitedEvent
+       -- , referredTotal
+       -- , referrerReferralRewardPerc
+       -- , startOfSale
+       -- , termsAndConditions
+       -- , tokenOnSale
+       -- , tokenSoldFor
+       -- , totalExitedTokens
+       -- , treasury
+
     )
 
+import BigInt exposing (BigInt)
 import Eth.Abi.Decode as D exposing (abiDecode, andMap, data, toElmDecoder, topic)
 import Eth.Abi.Encode as E exposing (Encoding(..), abiEncode)
-import BigInt exposing (BigInt)
 import Eth.Types exposing (..)
 import Eth.Utils as U
 import Json.Decode as Decode exposing (Decoder, succeed)
@@ -45,8 +48,6 @@ import Json.Decode.Pipeline exposing (custom)
 
 -}
 -- agreeToTermsAndConditionsListedInThisContractAndEnterSale(address,uint256,uint256,address) function
-
-
 -- agreeToTermsAndConditionsListedInThisContractAndEnterSale : Address -> Address -> BigInt -> BigInt -> Address -> Call ()
 -- agreeToTermsAndConditionsListedInThisContractAndEnterSale contractAddress buyer_ bucketId_ amount_ referrer_ =
 --     { to = Just contractAddress
@@ -58,11 +59,7 @@ import Json.Decode.Pipeline exposing (custom)
 --     , nonce = Nothing
 --     , decoder = Decode.succeed ()
 --     }
-
-
 -- bucketCount() function
-
-
 -- bucketCount : Address -> Call BigInt
 -- bucketCount contractAddress =
 --     { to = Just contractAddress
@@ -74,8 +71,6 @@ import Json.Decode.Pipeline exposing (custom)
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- bucketPeriod() function
 
 
@@ -92,9 +87,8 @@ bucketPeriod contractAddress =
     }
 
 
+
 -- bucketSupply() function
-
-
 -- bucketSupply : Address -> Call BigInt
 -- bucketSupply contractAddress =
 --     { to = Just contractAddress
@@ -106,27 +100,24 @@ bucketPeriod contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- buckets(uint256) function
 
 
--- buckets : Address -> BigInt -> Call BigInt
--- buckets contractAddress a_ =
---     { to = Just contractAddress
---     , from = Nothing
---     , gas = Nothing
---     , gasPrice = Nothing
---     , value = Nothing
---     , data = Just <| E.functionCall "9b51fb0d" [ E.uint a_ ]
---     , nonce = Nothing
---     , decoder = toElmDecoder D.uint
---     }
+buckets : Address -> BigInt -> Call BigInt
+buckets contractAddress a_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "9b51fb0d" [ E.uint a_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder D.uint
+    }
+
 
 
 -- buyerReferralRewardPerc() function
-
-
 -- buyerReferralRewardPerc : Address -> Call BigInt
 -- buyerReferralRewardPerc contractAddress =
 --     { to = Just contractAddress
@@ -138,17 +129,11 @@ bucketPeriod contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- buys(uint256,address) function
-
-
 -- type alias Buy =
 --     { valueEntered : BigInt
 --     , buyerTokensExited : BigInt
 --     }
-
-
 -- buys : Address -> BigInt -> Address -> Call Buy
 -- buys contractAddress a_ b_ =
 --     { to = Just contractAddress
@@ -160,19 +145,13 @@ bucketPeriod contractAddress =
 --     , nonce = Nothing
 --     , decoder = buysDecoder
 --     }
-
-
 -- buysDecoder : Decoder Buy
 -- buysDecoder =
 --     abiDecode Buy
 --         |> andMap D.uint
 --         |> andMap D.uint
 --         |> toElmDecoder
-
-
 -- calculateExitableTokens(uint256,address) function
-
-
 -- calculateExitableTokens : Address -> BigInt -> Address -> Call BigInt
 -- calculateExitableTokens contractAddress bucketId_ buyer_ =
 --     { to = Just contractAddress
@@ -184,8 +163,6 @@ bucketPeriod contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- currentBucket() function
 
 
@@ -202,9 +179,8 @@ currentBucket contractAddress =
     }
 
 
+
 -- exit(uint256,address) function
-
-
 -- exit : Address -> BigInt -> Address -> Call ()
 -- exit contractAddress bucketId_ buyer_ =
 --     { to = Just contractAddress
@@ -216,11 +192,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = Decode.succeed ()
 --     }
-
-
 -- referredTotal(address) function
-
-
 -- referredTotal : Address -> Address -> Call BigInt
 -- referredTotal contractAddress a_ =
 --     { to = Just contractAddress
@@ -232,11 +204,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- referrerReferralRewardPerc(address) function
-
-
 -- referrerReferralRewardPerc : Address -> Address -> Call BigInt
 -- referrerReferralRewardPerc contractAddress referrerAddress_ =
 --     { to = Just contractAddress
@@ -248,11 +216,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- startOfSale() function
-
-
 -- startOfSale : Address -> Call BigInt
 -- startOfSale contractAddress =
 --     { to = Just contractAddress
@@ -264,11 +228,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- termsAndConditions() function
-
-
 -- termsAndConditions : Address -> Call String
 -- termsAndConditions contractAddress =
 --     { to = Just contractAddress
@@ -280,11 +240,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.string
 --     }
-
-
 -- tokenOnSale() function
-
-
 -- tokenOnSale : Address -> Call Address
 -- tokenOnSale contractAddress =
 --     { to = Just contractAddress
@@ -296,11 +252,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.address
 --     }
-
-
 -- tokenSoldFor() function
-
-
 -- tokenSoldFor : Address -> Call Address
 -- tokenSoldFor contractAddress =
 --     { to = Just contractAddress
@@ -312,11 +264,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.address
 --     }
-
-
 -- totalExitedTokens() function
-
-
 -- totalExitedTokens : Address -> Call BigInt
 -- totalExitedTokens contractAddress =
 --     { to = Just contractAddress
@@ -328,11 +276,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.uint
 --     }
-
-
 -- treasury() function
-
-
 -- treasury : Address -> Call Address
 -- treasury contractAddress =
 --     { to = Just contractAddress
@@ -344,11 +288,7 @@ currentBucket contractAddress =
 --     , nonce = Nothing
 --     , decoder = toElmDecoder D.address
 --     }
-
-
 -- Entered(address,uint256,address,uint256,uint256,address,uint256) event
-
-
 -- type alias Entered =
 --     { sender : Address
 --     , bucketId : BigInt
@@ -358,23 +298,19 @@ currentBucket contractAddress =
 --     , referrer : Address
 --     , referrerReferralReward : BigInt
 --     }
-
-
 -- enteredEvent : Address -> Maybe Address -> Maybe Address -> LogFilter
--- enteredEvent contractAddress buyer_ referrer_ = 
+-- enteredEvent contractAddress buyer_ referrer_ =
 --     { fromBlock = LatestBlock
 --     , toBlock = LatestBlock
 --     , address = contractAddress
---     , topics = 
+--     , topics =
 --         [ Just <| U.unsafeToHex "161e0456cd3270520befa83f5fdd74084ad38cd70a096dcf24ccf7edc368b04f"
 --         , Maybe.map (abiEncode << E.address) buyer_
 --         , Maybe.map (abiEncode << E.address) referrer_
 --         ]
 --     }
-
-
 -- enteredDecoder : Decoder Entered
--- enteredDecoder = 
+-- enteredDecoder =
 --     Decode.succeed Entered
 --         |> custom (data 0 D.address)
 --         |> custom (data 1 D.uint)
@@ -383,35 +319,25 @@ currentBucket contractAddress =
 --         |> custom (data 3 D.uint)
 --         |> custom (topic 2 D.address)
 --         |> custom (data 4 D.uint)
-
-
 -- Exited(uint256,address,uint256) event
-
-
 -- type alias Exited =
 --     { bucketId : BigInt
 --     , buyer : Address
 --     , tokensExited : BigInt
 --     }
-
-
 -- exitedEvent : Address -> Maybe Address -> LogFilter
--- exitedEvent contractAddress buyer_ = 
+-- exitedEvent contractAddress buyer_ =
 --     { fromBlock = LatestBlock
 --     , toBlock = LatestBlock
 --     , address = contractAddress
---     , topics = 
+--     , topics =
 --         [ Just <| U.unsafeToHex "0808b45a422e0acd47a625c74fff3eb8d6d4dd063e0845deb1e57581c27b32f5"
 --         , Maybe.map (abiEncode << E.address) buyer_
 --         ]
 --     }
-
-
 -- exitedDecoder : Decoder Exited
--- exitedDecoder = 
+-- exitedDecoder =
 --     Decode.succeed Exited
 --         |> custom (data 0 D.uint)
 --         |> custom (topic 1 D.address)
 --         |> custom (data 1 D.uint)
-
-
