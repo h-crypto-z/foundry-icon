@@ -84,4 +84,4 @@ foundrySaleLink =
 
 uniswapGraphQL : String
 uniswapGraphQL =
-    "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2"
+    "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2/graphql"

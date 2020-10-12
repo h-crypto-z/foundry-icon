@@ -35,6 +35,9 @@ init flags url key =
     ( { currentTime = flags.nowInMillis
       , currentBucketId = getCurrentBucketId flags.nowInMillis
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
+      , currentEthPriceUsd = 0.0
+      , currentDaiPriceEth = 0.0
+      , currentFryPriceEth = 0.0
       }
     , Cmd.none
     )
@@ -47,12 +50,15 @@ update msg model =
             let
                 cmd =
                     fetchTotalValueEnteredCmd model.currentBucketId
+
+                cmd2 =
+                    fetchUniswapGraphInfo
             in
             ( { model
                 | currentTime = Time.posixToMillis i
                 , currentBucketId = getCurrentBucketId <| Time.posixToMillis i
               }
-            , cmd
+            , Cmd.batch [ cmd, cmd2 ]
             )
 
         LinkClicked i ->
@@ -74,11 +80,25 @@ update msg model =
                     ( model, Cmd.none )
 
                 Ok valueEntered ->
+                    ( { model | currentBucketTotalEntered = valueEntered }, Cmd.none )
+
+        DataReceived fetchResult ->
+            case fetchResult of
+                Err httpErr ->
                     let
                         _ =
-                            Debug.log "Value entered: " ( bucketId, valueEntered )
+                            Debug.log "http error when fetching data from Uniswap graph" fetchResult
                     in
-                    ( { model | currentBucketTotalEntered = valueEntered }, Cmd.none )
+                    ( model, Cmd.none )
+
+                Ok data ->
+                    ( { model
+                        | currentDaiPriceEth = data.daiPrice
+                        , currentFryPriceEth = data.fryPrice
+                        , currentEthPriceUsd = data.ethPrice
+                      }
+                    , Cmd.none
+                    )
 
         NoOp ->
             ( model, Cmd.none )

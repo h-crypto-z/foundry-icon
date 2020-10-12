@@ -15,7 +15,10 @@ import Eth.Types exposing (Address, Hex, Tx, TxHash, TxReceipt)
 import Eth.Utils
 import Helpers.Element as EH
 import Helpers.Time as TimeHelpers
+import Html.Attributes exposing (required)
 import Http
+import Json.Decode exposing (Decoder, field, float, int, map3)
+import Json.Encode
 import List.Extra
 import Time
 import TokenValue exposing (TokenValue)
@@ -35,6 +38,9 @@ type alias Model =
     { currentTime : Int
     , currentBucketId : Int
     , currentBucketTotalEntered : TokenValue
+    , currentEthPriceUsd : Float
+    , currentDaiPriceEth : Float
+    , currentFryPriceEth : Float
     }
 
 
@@ -44,7 +50,44 @@ type Msg
     | Tick Time.Posix
     | Resize Int Int
     | BucketValueEnteredFetched Int (Result Http.Error TokenValue)
+    | DataReceived (Result Http.Error GraphQlInfo)
     | NoOp
+
+
+type alias GraphQlInfo =
+    { ethPrice : Float
+    , daiPrice : Float
+    , fryPrice : Float
+    }
+
+
+
+-- {
+--   "data": {
+--     "bundle": {
+--       "ethPrice": "371.589792074740403253429188923292"
+--     },
+--     "token": {
+--       "derivedETH": "0.00001778586954269887951194800608117371"
+--     },
+--     "tokens": [
+--       {
+--         "derivedETH": "0.002708888895018976277243627345705594"
+--       }
+--     ]
+--   }
+-- }
+
+
+graphJson : Decoder GraphQlInfo
+graphJson =
+    map3 GraphQlInfo
+        -- eth
+        (field "data" (field "bundle" (field "ethPrice" float)))
+        -- dai
+        (field "data" (field "token" (field "derivedEth" float)))
+        -- fry
+        (field "data" (field "tokens" (field "derivedEth" float)))
 
 
 getCurrentBucketId : Int -> Int
@@ -79,9 +122,10 @@ getBucketEndTime bucketId =
         Config.bucketSaleBucketInterval
 
 
-calcEffectivePricePerToken : TokenValue -> TokenValue
-calcEffectivePricePerToken totalValueEntered =
+calcEffectivePricePerToken : TokenValue -> Float -> TokenValue
+calcEffectivePricePerToken totalValueEntered daiEthValue =
     TokenValue.toFloatWithWarning totalValueEntered
+        * daiEthValue
         / (TokenValue.toFloatWithWarning <| Config.bucketSaleTokensPerBucket)
         |> TokenValue.fromFloatWithWarning
 
@@ -91,3 +135,12 @@ fetchTotalValueEnteredCmd id =
     BucketSaleWrappers.getTotalValueEnteredForBucket
         id
         (BucketValueEnteredFetched id)
+
+
+fetchUniswapGraphInfo : Cmd Msg
+fetchUniswapGraphInfo =
+    Http.post
+        { url = Config.uniswapGraphQL
+        , body = Http.stringBody "application/json" "{bundle (id: 1){ethPrice},tokens(where: {name: \"Dai Stablecoin\"}){derivedETH}  ,token(id: \"0x6c972b70c533e2e045f333ee28b9ffb8d717be69\"){derivedETH}}"
+        , expect = Http.expectJson DataReceived graphJson
+        }
