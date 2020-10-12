@@ -5,6 +5,7 @@ import BigInt exposing (BigInt)
 import Browser
 import Browser.Navigation
 import Config
+import Contracts.BucketSale.Generated.BucketSale exposing (currentBucket)
 import Contracts.BucketSale.Wrappers as BucketSaleWrappers
 import Dict exposing (Dict)
 import Eth.Sentry.Event as EventSentry exposing (EventSentry)
@@ -32,6 +33,7 @@ type alias Flags =
 
 type alias Model =
     { currentTime : Int
+    , currentBucketId : Int
     , currentBucketTotalEntered : TokenValue
     }
 
@@ -84,7 +86,7 @@ calcEffectivePricePerToken totalValueEntered =
         |> TokenValue.fromFloatWithWarning
 
 
-fetchTotalValueEnteredCmd : Int -> TokenValue
+fetchTotalValueEnteredCmd : Int -> Cmd Msg
 fetchTotalValueEnteredCmd id =
     BucketSaleWrappers.getTotalValueEnteredForBucket
         id

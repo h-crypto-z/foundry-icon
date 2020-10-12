@@ -33,6 +33,7 @@ import Url exposing (Url)
 init : Flags -> Url -> Browser.Navigation.Key -> ( Model, Cmd Msg )
 init flags url key =
     ( { currentTime = flags.nowInMillis
+      , currentBucketId = 0
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
       }
     , Cmd.none
@@ -43,7 +44,11 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Tick i ->
-            ( { model | currentTime = Time.posixToMillis i }, Cmd.none )
+            let
+                cmd =
+                    fetchTotalValueEnteredCmd model.currentBucketId
+            in
+            ( { model | currentTime = Time.posixToMillis i }, cmd )
 
         LinkClicked i ->
             ( model, Cmd.none )

@@ -89,7 +89,7 @@ body model =
                         [ Element.padding 5
                         , Element.alignRight
                         ]
-                        (columnItems (TokenValue.toConciseString (calcEffectivePricePerToken (fetchTotalValueEnteredCmd (getCurrentBucketId model.currentTime)))) "0.00001")
+                        (columnItems (TokenValue.toConciseString (calcEffectivePricePerToken model.currentBucketTotalEntered)) "0.00001")
                     ]
                 ]
             ]
