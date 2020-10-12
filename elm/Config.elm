@@ -70,3 +70,18 @@ bucketSaleAddress =
 uniswapPoolLink : String
 uniswapPoolLink =
     "https://uniswap.info/token/0x6c972b70c533e2e045f333ee28b9ffb8d717be69"
+
+
+uniswapTradeLink : String
+uniswapTradeLink =
+    "https://app.uniswap.org/#/swap?outputCurrency=0x6c972b70c533e2e045f333ee28b9ffb8d717be69&inputCurrency=ETH"
+
+
+foundrySaleLink : String
+foundrySaleLink =
+    "https://sale.foundrydao.com"
+
+
+uniswapGraphQL : String
+uniswapGraphQL =
+    "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2"
