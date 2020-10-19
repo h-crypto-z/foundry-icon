@@ -36,7 +36,7 @@ init flags url key =
       , currentBucketId = getCurrentBucketId flags.nowInMillis
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
       , currentEthPriceUsd = 0.0
-      , currentDaiPriceEth = 0.0
+      , currentDaiPriceEth = 1.0
       , currentFryPriceEth = 0.0
       }
     , Cmd.none
@@ -52,7 +52,8 @@ update msg model =
                     fetchTotalValueEnteredCmd model.currentBucketId
 
                 cmd2 =
-                    fetchUniswapGraphInfo
+                    --fetchUniswapGraphInfo
+                    Cmd.none
             in
             ( { model
                 | currentTime = Time.posixToMillis i

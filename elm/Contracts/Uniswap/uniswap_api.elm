@@ -1,15 +1,40 @@
 module Contracts.uniswap_api exposing
-    ( PairCreated
-    , allPairs
-    , allPairsLength
-    , createPair
-    , feeTo
-    , feeToSetter
-    , getPair
-    , pairCreatedDecoder
-    , pairCreatedEvent
-    , setFeeTo
-    , setFeeToSetter
+    ( AddLiquidity
+    , AddLiquidityETH
+    , RemoveLiquidity
+    , RemoveLiquidityETH
+    , RemoveLiquidityETHWithPermit
+    , RemoveLiquidityWithPermit
+    , WETH
+    , addLiquidity
+    , addLiquidityDecoder
+    , addLiquidityETH
+    , addLiquidityETHDecoder
+    , factory
+    , getAmountIn
+    , getAmountOut
+    , getAmountsIn
+    , getAmountsOut
+    , quote
+    , removeLiquidity
+    , removeLiquidityDecoder
+    , removeLiquidityETH
+    , removeLiquidityETHDecoder
+    , removeLiquidityETHSupportingFeeOnTransferTokens
+    , removeLiquidityETHWithPermit
+    , removeLiquidityETHWithPermitDecoder
+    , removeLiquidityETHWithPermitSupportingFeeOnTransferTokens
+    , removeLiquidityWithPermit
+    , removeLiquidityWithPermitDecoder
+    , swapETHForExactTokens
+    , swapExactETHForTokens
+    , swapExactETHForTokensSupportingFeeOnTransferTokens
+    , swapExactTokensForETH
+    , swapExactTokensForETHSupportingFeeOnTransferTokens
+    , swapExactTokensForTokens
+    , swapExactTokensForTokensSupportingFeeOnTransferTokens
+    , swapTokensForExactETH
+    , swapTokensForExactTokens
     )
 
 import Eth.Abi.Decode as D exposing (abiDecode, andMap, data, toElmDecoder, topic)
@@ -28,164 +53,475 @@ import Json.Decode.Pipeline exposing (custom)
    Compatible with elm-ethereum v4.0.0
 
 -}
--- allPairs(uint256) function
+-- WETH() function
 
 
-allPairs : Address -> BigInt -> Call Address
-allPairs contractAddress a_ =
+WETH : Address -> Call Address
+WETH contractAddress =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "1e3dd18b" [ E.uint a_ ]
+    , data = Just <| E.functionCall "ad5c4648" []
     , nonce = Nothing
     , decoder = toElmDecoder D.address
     }
 
 
--- allPairsLength() function
+-- addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256) function
 
 
-allPairsLength : Address -> Call BigInt
-allPairsLength contractAddress =
+type alias AddLiquidity =
+    { amountA : BigInt
+    , amountB : BigInt
+    , liquidity : BigInt
+    }
+
+
+addLiquidity : Address -> Address -> Address -> BigInt -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Call AddLiquidity
+addLiquidity contractAddress tokenA_ tokenB_ amountADesired_ amountBDesired_ amountAMin_ amountBMin_ to_ deadline_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "574f2ba3" []
+    , data = Just <| E.functionCall "e8e33700" [ E.address tokenA_, E.address tokenB_, E.uint amountADesired_, E.uint amountBDesired_, E.uint amountAMin_, E.uint amountBMin_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = addLiquidityDecoder
+    }
+
+
+addLiquidityDecoder : Decoder AddLiquidity
+addLiquidityDecoder =
+    abiDecode AddLiquidity
+        |> andMap D.uint
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- addLiquidityETH(address,uint256,uint256,uint256,address,uint256) function
+
+
+type alias AddLiquidityETH =
+    { amountToken : BigInt
+    , amountETH : BigInt
+    , liquidity : BigInt
+    }
+
+
+addLiquidityETH : Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Call AddLiquidityETH
+addLiquidityETH contractAddress token_ amountTokenDesired_ amountTokenMin_ amountETHMin_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "f305d719" [ E.address token_, E.uint amountTokenDesired_, E.uint amountTokenMin_, E.uint amountETHMin_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = addLiquidityETHDecoder
+    }
+
+
+addLiquidityETHDecoder : Decoder AddLiquidityETH
+addLiquidityETHDecoder =
+    abiDecode AddLiquidityETH
+        |> andMap D.uint
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- factory() function
+
+
+factory : Address -> Call Address
+factory contractAddress =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "c45a0155" []
+    , nonce = Nothing
+    , decoder = toElmDecoder D.address
+    }
+
+
+-- getAmountIn(uint256,uint256,uint256) function
+
+
+getAmountIn : Address -> BigInt -> BigInt -> BigInt -> Call BigInt
+getAmountIn contractAddress amountOut_ reserveIn_ reserveOut_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "85f8c259" [ E.uint amountOut_, E.uint reserveIn_, E.uint reserveOut_ ]
     , nonce = Nothing
     , decoder = toElmDecoder D.uint
     }
 
 
--- createPair(address,address) function
+-- getAmountOut(uint256,uint256,uint256) function
 
 
-createPair : Address -> Address -> Address -> Call Address
-createPair contractAddress tokenA_ tokenB_ =
+getAmountOut : Address -> BigInt -> BigInt -> BigInt -> Call BigInt
+getAmountOut contractAddress amountIn_ reserveIn_ reserveOut_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "c9c65396" [ E.address tokenA_, E.address tokenB_ ]
+    , data = Just <| E.functionCall "054d50d4" [ E.uint amountIn_, E.uint reserveIn_, E.uint reserveOut_ ]
     , nonce = Nothing
-    , decoder = toElmDecoder D.address
+    , decoder = toElmDecoder D.uint
     }
 
 
--- feeTo() function
+-- getAmountsIn(uint256,address[]) function
 
 
-feeTo : Address -> Call Address
-feeTo contractAddress =
+getAmountsIn : Address -> BigInt -> List (Address) -> Call List (BigInt)
+getAmountsIn contractAddress amountOut_ path_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "017e7e58" []
+    , data = Just <| E.functionCall "1f00ca74" [ E.uint amountOut_, (E.list << List.map E.address) path_ ]
     , nonce = Nothing
-    , decoder = toElmDecoder D.address
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
     }
 
 
--- feeToSetter() function
+-- getAmountsOut(uint256,address[]) function
 
 
-feeToSetter : Address -> Call Address
-feeToSetter contractAddress =
+getAmountsOut : Address -> BigInt -> List (Address) -> Call List (BigInt)
+getAmountsOut contractAddress amountIn_ path_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "094b7415" []
+    , data = Just <| E.functionCall "d06ca61f" [ E.uint amountIn_, (E.list << List.map E.address) path_ ]
     , nonce = Nothing
-    , decoder = toElmDecoder D.address
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
     }
 
 
--- getPair(address,address) function
+-- quote(uint256,uint256,uint256) function
 
 
-getPair : Address -> Address -> Address -> Call Address
-getPair contractAddress a_ b_ =
+quote : Address -> BigInt -> BigInt -> BigInt -> Call BigInt
+quote contractAddress amountA_ reserveA_ reserveB_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "e6a43905" [ E.address a_, E.address b_ ]
+    , data = Just <| E.functionCall "ad615dec" [ E.uint amountA_, E.uint reserveA_, E.uint reserveB_ ]
     , nonce = Nothing
-    , decoder = toElmDecoder D.address
+    , decoder = toElmDecoder D.uint
     }
 
 
--- setFeeTo(address) function
+-- removeLiquidity(address,address,uint256,uint256,uint256,address,uint256) function
 
 
-setFeeTo : Address -> Address -> Call ()
-setFeeTo contractAddress feeTo_ =
+type alias RemoveLiquidity =
+    { amountA : BigInt
+    , amountB : BigInt
+    }
+
+
+removeLiquidity : Address -> Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Call RemoveLiquidity
+removeLiquidity contractAddress tokenA_ tokenB_ liquidity_ amountAMin_ amountBMin_ to_ deadline_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "f46901ed" [ E.address feeTo_ ]
+    , data = Just <| E.functionCall "baa2abde" [ E.address tokenA_, E.address tokenB_, E.uint liquidity_, E.uint amountAMin_, E.uint amountBMin_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = removeLiquidityDecoder
+    }
+
+
+removeLiquidityDecoder : Decoder RemoveLiquidity
+removeLiquidityDecoder =
+    abiDecode RemoveLiquidity
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- removeLiquidityETH(address,uint256,uint256,uint256,address,uint256) function
+
+
+type alias RemoveLiquidityETH =
+    { amountToken : BigInt
+    , amountETH : BigInt
+    }
+
+
+removeLiquidityETH : Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Call RemoveLiquidityETH
+removeLiquidityETH contractAddress token_ liquidity_ amountTokenMin_ amountETHMin_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "02751cec" [ E.address token_, E.uint liquidity_, E.uint amountTokenMin_, E.uint amountETHMin_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = removeLiquidityETHDecoder
+    }
+
+
+removeLiquidityETHDecoder : Decoder RemoveLiquidityETH
+removeLiquidityETHDecoder =
+    abiDecode RemoveLiquidityETH
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- removeLiquidityETHSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256) function
+
+
+removeLiquidityETHSupportingFeeOnTransferTokens : Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Call BigInt
+removeLiquidityETHSupportingFeeOnTransferTokens contractAddress token_ liquidity_ amountTokenMin_ amountETHMin_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "af2979eb" [ E.address token_, E.uint liquidity_, E.uint amountTokenMin_, E.uint amountETHMin_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder D.uint
+    }
+
+
+-- removeLiquidityETHWithPermit(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32) function
+
+
+type alias RemoveLiquidityETHWithPermit =
+    { amountToken : BigInt
+    , amountETH : BigInt
+    }
+
+
+removeLiquidityETHWithPermit : Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Bool -> BigInt -> Hex -> Hex -> Call RemoveLiquidityETHWithPermit
+removeLiquidityETHWithPermit contractAddress token_ liquidity_ amountTokenMin_ amountETHMin_ to_ deadline_ approveMax_ v_ r_ s_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "ded9382a" [ E.address token_, E.uint liquidity_, E.uint amountTokenMin_, E.uint amountETHMin_, E.address to_, E.uint deadline_, E.bool approveMax_, E.uint v_, (E.staticBytes 32) r_, (E.staticBytes 32) s_ ]
+    , nonce = Nothing
+    , decoder = removeLiquidityETHWithPermitDecoder
+    }
+
+
+removeLiquidityETHWithPermitDecoder : Decoder RemoveLiquidityETHWithPermit
+removeLiquidityETHWithPermitDecoder =
+    abiDecode RemoveLiquidityETHWithPermit
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- removeLiquidityETHWithPermitSupportingFeeOnTransferTokens(address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32) function
+
+
+removeLiquidityETHWithPermitSupportingFeeOnTransferTokens : Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Bool -> BigInt -> Hex -> Hex -> Call BigInt
+removeLiquidityETHWithPermitSupportingFeeOnTransferTokens contractAddress token_ liquidity_ amountTokenMin_ amountETHMin_ to_ deadline_ approveMax_ v_ r_ s_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "5b0d5984" [ E.address token_, E.uint liquidity_, E.uint amountTokenMin_, E.uint amountETHMin_, E.address to_, E.uint deadline_, E.bool approveMax_, E.uint v_, (E.staticBytes 32) r_, (E.staticBytes 32) s_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder D.uint
+    }
+
+
+-- removeLiquidityWithPermit(address,address,uint256,uint256,uint256,address,uint256,bool,uint8,bytes32,bytes32) function
+
+
+type alias RemoveLiquidityWithPermit =
+    { amountA : BigInt
+    , amountB : BigInt
+    }
+
+
+removeLiquidityWithPermit : Address -> Address -> Address -> BigInt -> BigInt -> BigInt -> Address -> BigInt -> Bool -> BigInt -> Hex -> Hex -> Call RemoveLiquidityWithPermit
+removeLiquidityWithPermit contractAddress tokenA_ tokenB_ liquidity_ amountAMin_ amountBMin_ to_ deadline_ approveMax_ v_ r_ s_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "2195995c" [ E.address tokenA_, E.address tokenB_, E.uint liquidity_, E.uint amountAMin_, E.uint amountBMin_, E.address to_, E.uint deadline_, E.bool approveMax_, E.uint v_, (E.staticBytes 32) r_, (E.staticBytes 32) s_ ]
+    , nonce = Nothing
+    , decoder = removeLiquidityWithPermitDecoder
+    }
+
+
+removeLiquidityWithPermitDecoder : Decoder RemoveLiquidityWithPermit
+removeLiquidityWithPermitDecoder =
+    abiDecode RemoveLiquidityWithPermit
+        |> andMap D.uint
+        |> andMap D.uint
+        |> toElmDecoder
+
+
+-- swapETHForExactTokens(uint256,address[],address,uint256) function
+
+
+swapETHForExactTokens : Address -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapETHForExactTokens contractAddress amountOut_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "fb3bdb41" [ E.uint amountOut_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
+    }
+
+
+-- swapExactETHForTokens(uint256,address[],address,uint256) function
+
+
+swapExactETHForTokens : Address -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapExactETHForTokens contractAddress amountOutMin_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "7ff36ab5" [ E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
+    }
+
+
+-- swapExactETHForTokensSupportingFeeOnTransferTokens(uint256,address[],address,uint256) function
+
+
+swapExactETHForTokensSupportingFeeOnTransferTokens : Address -> BigInt -> List (Address) -> Address -> BigInt -> Call ()
+swapExactETHForTokensSupportingFeeOnTransferTokens contractAddress amountOutMin_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "b6f9de95" [ E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
     , nonce = Nothing
     , decoder = Decode.succeed ()
     }
 
 
--- setFeeToSetter(address) function
+-- swapExactTokensForETH(uint256,uint256,address[],address,uint256) function
 
 
-setFeeToSetter : Address -> Address -> Call ()
-setFeeToSetter contractAddress feeToSetter_ =
+swapExactTokensForETH : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapExactTokensForETH contractAddress amountIn_ amountOutMin_ path_ to_ deadline_ =
     { to = Just contractAddress
     , from = Nothing
     , gas = Nothing
     , gasPrice = Nothing
     , value = Nothing
-    , data = Just <| E.functionCall "a2e74af6" [ E.address feeToSetter_ ]
+    , data = Just <| E.functionCall "18cbafe5" [ E.uint amountIn_, E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
+    }
+
+
+-- swapExactTokensForETHSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256) function
+
+
+swapExactTokensForETHSupportingFeeOnTransferTokens : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call ()
+swapExactTokensForETHSupportingFeeOnTransferTokens contractAddress amountIn_ amountOutMin_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "791ac947" [ E.uint amountIn_, E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
     , nonce = Nothing
     , decoder = Decode.succeed ()
     }
 
 
--- PairCreated(address,address,address,uint256) event
+-- swapExactTokensForTokens(uint256,uint256,address[],address,uint256) function
 
 
-type alias PairCreated =
-    { token0 : Address
-    , token1 : Address
-    , pair : Address
-    , v3 : BigInt
+swapExactTokensForTokens : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapExactTokensForTokens contractAddress amountIn_ amountOutMin_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "38ed1739" [ E.uint amountIn_, E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
     }
 
 
-pairCreatedEvent : Address -> Maybe Address -> Maybe Address -> LogFilter
-pairCreatedEvent contractAddress token0_ token1_ = 
-    { fromBlock = LatestBlock
-    , toBlock = LatestBlock
-    , address = contractAddress
-    , topics = 
-        [ Just <| U.unsafeToHex "0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9"
-        , Maybe.map (abiEncode << E.address) token0_
-        , Maybe.map (abiEncode << E.address) token1_
-        ]
+-- swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256,uint256,address[],address,uint256) function
+
+
+swapExactTokensForTokensSupportingFeeOnTransferTokens : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call ()
+swapExactTokensForTokensSupportingFeeOnTransferTokens contractAddress amountIn_ amountOutMin_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "5c11d795" [ E.uint amountIn_, E.uint amountOutMin_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = Decode.succeed ()
     }
 
 
-pairCreatedDecoder : Decoder PairCreated
-pairCreatedDecoder = 
-    Decode.succeed PairCreated
-        |> custom (topic 1 D.address)
-        |> custom (topic 2 D.address)
-        |> custom (data 0 D.address)
-        |> custom (data 1 D.uint)
+-- swapTokensForExactETH(uint256,uint256,address[],address,uint256) function
+
+
+swapTokensForExactETH : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapTokensForExactETH contractAddress amountOut_ amountInMax_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "4a25d94a" [ E.uint amountOut_, E.uint amountInMax_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
+    }
+
+
+-- swapTokensForExactTokens(uint256,uint256,address[],address,uint256) function
+
+
+swapTokensForExactTokens : Address -> BigInt -> BigInt -> List (Address) -> Address -> BigInt -> Call List (BigInt)
+swapTokensForExactTokens contractAddress amountOut_ amountInMax_ path_ to_ deadline_ =
+    { to = Just contractAddress
+    , from = Nothing
+    , gas = Nothing
+    , gasPrice = Nothing
+    , value = Nothing
+    , data = Just <| E.functionCall "8803dbee" [ E.uint amountOut_, E.uint amountInMax_, (E.list << List.map E.address) path_, E.address to_, E.uint deadline_ ]
+    , nonce = Nothing
+    , decoder = toElmDecoder (D.dynamicArray D.uint)
+    }
 
 

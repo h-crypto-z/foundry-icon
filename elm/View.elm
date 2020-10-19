@@ -95,6 +95,11 @@ body model =
                             )
                             (TokenValue.toConciseString <| TokenValue.fromFloatWithWarning (model.currentFryPriceEth * model.currentEthPriceUsd))
                         )
+                    , Element.column
+                        []
+                        [ textLarge "DAI/FRY"
+                        , textLarge "DAI/FRY"
+                        ]
                     ]
                 ]
             ]
