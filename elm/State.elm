@@ -52,8 +52,9 @@ update msg model =
                     fetchTotalValueEnteredCmd model.currentBucketId
 
                 cmd2 =
-                    --fetchUniswapGraphInfo
-                    Cmd.none
+                    fetchUniswapGraphInfo
+
+                --Cmd.none
             in
             ( { model
                 | currentTime = Time.posixToMillis i

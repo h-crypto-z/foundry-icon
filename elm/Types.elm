@@ -139,8 +139,12 @@ fetchTotalValueEnteredCmd id =
 
 fetchUniswapGraphInfo : Cmd Msg
 fetchUniswapGraphInfo =
-    Http.post
-        { url = Config.uniswapGraphQL
+    Http.request
+        { method = "POST"
+        , url = Config.uniswapGraphQL
         , body = Http.stringBody "application/json" "{bundle (id: 1){ethPrice},tokens(where: {name: \"Dai Stablecoin\"}){derivedETH}  ,token(id: \"0x6c972b70c533e2e045f333ee28b9ffb8d717be69\"){derivedETH}}"
         , expect = Http.expectJson DataReceived graphJson
+        , headers = [ Http.header "Access-Control-Allow-Origin" "*" ]
+        , timeout = Nothing
+        , tracker = Nothing
         }
