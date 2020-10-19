@@ -22,6 +22,10 @@ import Json.Encode
 import List.Extra
 import Time
 import TokenValue exposing (TokenValue)
+import UniSwapGraph.Bundle as Bundle
+import UniSwapGraph.Query as Query
+import UniSwapGraph.Scalar exposing (Id(..))
+import UniSwapGraph.Token as Token
 import Url exposing (Url)
 
 
@@ -61,22 +65,27 @@ type alias GraphQlInfo =
     }
 
 
+type alias TokenData =
+    { derivedETH : Float }
 
--- {
---   "data": {
---     "bundle": {
---       "ethPrice": "371.589792074740403253429188923292"
---     },
---     "token": {
---       "derivedETH": "0.00001778586954269887951194800608117371"
---     },
---     "tokens": [
---       {
---         "derivedETH": "0.002708888895018976277243627345705594"
---       }
---     ]
---   }
--- }
+
+type alias BundleData =
+    { ethPrice : Float }
+
+
+queryFry : SelectionSet (Maybe Token) RootQuery
+queryFry =
+    Query.token { id = Id Config.fryTokenAddress }
+
+
+queryDai : SelectionSet (Maybe Token) RootQuery
+queryDai =
+    Query.token { id = Id Config.daiContractAddress }
+
+
+queryEth : SelectionSet (Maybe Bundle) RootQuery
+queryEth =
+    Query.bundle { id = Id "1" }
 
 
 graphJson : Decoder GraphQlInfo
