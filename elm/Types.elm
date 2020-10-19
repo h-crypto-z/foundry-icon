@@ -22,10 +22,10 @@ import Json.Encode
 import List.Extra
 import Time
 import TokenValue exposing (TokenValue)
-import UniSwapGraph.Bundle as Bundle
+import UniSwapGraph.Object.Bundle as Bundle
+import UniSwapGraph.Object.Token as Token
 import UniSwapGraph.Query as Query
 import UniSwapGraph.Scalar exposing (Id(..))
-import UniSwapGraph.Token as Token
 import Url exposing (Url)
 
 
