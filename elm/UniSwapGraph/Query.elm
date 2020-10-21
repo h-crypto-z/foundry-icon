@@ -11,6 +11,7 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode exposing (Decoder)
+import ScalarCodecs
 import UniSwapGraph.Enum.Bundle_orderBy
 import UniSwapGraph.Enum.Burn_orderBy
 import UniSwapGraph.Enum.LiquidityPositionSnapshot_orderBy
@@ -31,7 +32,6 @@ import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
-import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
@@ -40,7 +40,7 @@ type alias UniswapFactoryOptionalArguments =
 
 
 type alias UniswapFactoryRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -62,7 +62,7 @@ uniswapFactory fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "uniswapFactory" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "uniswapFactory" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias UniswapFactoriesOptionalArguments =
@@ -101,7 +101,7 @@ type alias TokenOptionalArguments =
 
 
 type alias TokenRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -123,7 +123,7 @@ token fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "token" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "token" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias TokensOptionalArguments =
@@ -162,7 +162,7 @@ type alias PairOptionalArguments =
 
 
 type alias PairRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -184,7 +184,7 @@ pair fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "pair" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "pair" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias PairsOptionalArguments =
@@ -223,7 +223,7 @@ type alias UserOptionalArguments =
 
 
 type alias UserRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -245,7 +245,7 @@ user fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "user" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "user" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias UsersOptionalArguments =
@@ -284,7 +284,7 @@ type alias LiquidityPositionOptionalArguments =
 
 
 type alias LiquidityPositionRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -306,7 +306,7 @@ liquidityPosition fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "liquidityPosition" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "liquidityPosition" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias LiquidityPositionsOptionalArguments =
@@ -345,7 +345,7 @@ type alias LiquidityPositionSnapshotOptionalArguments =
 
 
 type alias LiquidityPositionSnapshotRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -367,7 +367,7 @@ liquidityPositionSnapshot fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "liquidityPositionSnapshot" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "liquidityPositionSnapshot" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias LiquidityPositionSnapshotsOptionalArguments =
@@ -406,7 +406,7 @@ type alias TransactionOptionalArguments =
 
 
 type alias TransactionRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -428,7 +428,7 @@ transaction fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "transaction" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "transaction" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias TransactionsOptionalArguments =
@@ -467,7 +467,7 @@ type alias MintOptionalArguments =
 
 
 type alias MintRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -489,7 +489,7 @@ mint fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "mint" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "mint" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias MintsOptionalArguments =
@@ -528,7 +528,7 @@ type alias BurnOptionalArguments =
 
 
 type alias BurnRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -550,7 +550,7 @@ burn fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "burn" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "burn" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias BurnsOptionalArguments =
@@ -589,7 +589,7 @@ type alias SwapOptionalArguments =
 
 
 type alias SwapRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -611,7 +611,7 @@ swap fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "swap" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "swap" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias SwapsOptionalArguments =
@@ -650,7 +650,7 @@ type alias BundleOptionalArguments =
 
 
 type alias BundleRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -672,7 +672,7 @@ bundle fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "bundle" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "bundle" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias BundlesOptionalArguments =
@@ -711,7 +711,7 @@ type alias UniswapDayDataOptionalArguments =
 
 
 type alias UniswapDayDataRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -733,7 +733,7 @@ uniswapDayData fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "uniswapDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "uniswapDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias UniswapDayDatasOptionalArguments =
@@ -772,7 +772,7 @@ type alias PairHourDataOptionalArguments =
 
 
 type alias PairHourDataRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -794,7 +794,7 @@ pairHourData fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "pairHourData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "pairHourData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias PairHourDatasOptionalArguments =
@@ -833,7 +833,7 @@ type alias PairDayDataOptionalArguments =
 
 
 type alias PairDayDataRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -855,7 +855,7 @@ pairDayData fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "pairDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "pairDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias PairDayDatasOptionalArguments =
@@ -894,7 +894,7 @@ type alias TokenDayDataOptionalArguments =
 
 
 type alias TokenDayDataRequiredArguments =
-    { id : UniSwapGraph.ScalarCodecs.Id }
+    { id : ScalarCodecs.Id }
 
 
 {-|
@@ -916,7 +916,7 @@ tokenDayData fillInOptionals requiredArgs object_ =
             [ Argument.optional "block" filledInOptionals.block UniSwapGraph.InputObject.encodeBlock_height ]
                 |> List.filterMap identity
     in
-    Object.selectionForCompositeField "tokenDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
+    Object.selectionForCompositeField "tokenDayData" (optionalArgs ++ [ Argument.required "id" requiredArgs.id (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) ]) object_ (identity >> Decode.nullable)
 
 
 type alias TokenDayDatasOptionalArguments =

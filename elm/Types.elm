@@ -13,6 +13,9 @@ import Eth.Sentry.Tx as TxSentry exposing (TxSentry)
 import Eth.Sentry.Wallet as WalletSentry exposing (WalletSentry)
 import Eth.Types exposing (Address, Hex, Tx, TxHash, TxReceipt)
 import Eth.Utils
+import Graphql.Http
+import Graphql.Operation exposing (RootQuery)
+import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
 import Helpers.Element as EH
 import Helpers.Time as TimeHelpers
 import Html.Attributes exposing (required)
@@ -22,10 +25,11 @@ import Json.Encode
 import List.Extra
 import Time
 import TokenValue exposing (TokenValue)
+import UniSwapGraph.Object exposing (..)
 import UniSwapGraph.Object.Bundle as Bundle
-import UniSwapGraph.Object.Token as Token
 import UniSwapGraph.Query as Query
 import UniSwapGraph.Scalar exposing (Id(..))
+import UniSwapGraph.ScalarCodecs exposing (..)
 import Url exposing (Url)
 
 
@@ -54,6 +58,7 @@ type Msg
     | Tick Time.Posix
     | Resize Int Int
     | BucketValueEnteredFetched Int (Result Http.Error TokenValue)
+    | FetchedEthPrice (Result (Graphql.Http.Error (Maybe Bundle)) (Maybe Bundle))
       --| DataReceived (Result Http.Error GraphQlInfo)
     | NoOp
 
@@ -65,27 +70,36 @@ type alias GraphQlInfo =
     }
 
 
-type alias TokenData =
-    { derivedETH : Float }
-
-
-type alias BundleData =
+type alias Bundle =
     { ethPrice : Float }
-
-
-queryFry : SelectionSet (Maybe Token) RootQuery
-queryFry =
-    Query.token { id = Id Config.fryTokenAddress }
-
-
-queryDai : SelectionSet (Maybe Token) RootQuery
-queryDai =
-    Query.token { id = Id Config.daiContractAddress }
 
 
 queryEth : SelectionSet (Maybe Bundle) RootQuery
 queryEth =
-    Query.bundle { id = Id "1" }
+    Query.bundle identity { id = Id "1" } resultEth
+
+
+resultEth : SelectionSet Bundle UniSwapGraph.Object.Bundle
+resultEth =
+    SelectionSet.map Bundle
+        Bundle.ethPrice
+
+
+fetchEthPrice : Cmd Msg
+fetchEthPrice =
+    Query.bundle identity { id = Id "1" } resultEth
+        |> Graphql.Http.queryRequest Config.uniswapGraphQL
+        |> Graphql.Http.send FetchedEthPrice
+
+
+fetchDaiPrice : Cmd Msg
+fetchDaiPrice =
+    Cmd.none
+
+
+fetchFryPrice : Cmd Msg
+fetchFryPrice =
+    Cmd.none
 
 
 graphJson : Decoder GraphQlInfo

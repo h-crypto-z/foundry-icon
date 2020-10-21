@@ -10,10 +10,10 @@ import Graphql.Internal.Encode as Encode exposing (Value)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
+import ScalarCodecs
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
-import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
@@ -30,7 +30,7 @@ buildBlock_height fillOptionals =
 
 
 type alias Block_heightOptionalFields =
-    { hash : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
+    { hash : OptionalArgument ScalarCodecs.Bytes
     , number : OptionalArgument Int
     }
 
@@ -38,7 +38,7 @@ type alias Block_heightOptionalFields =
 {-| Type for the Block\_height input object.
 -}
 type alias Block_height =
-    { hash : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
+    { hash : OptionalArgument ScalarCodecs.Bytes
     , number : OptionalArgument Int
     }
 
@@ -48,7 +48,7 @@ type alias Block_height =
 encodeBlock_height : Block_height -> Value
 encodeBlock_height input =
     Encode.maybeObject
-        [ ( "hash", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.hash ), ( "number", Encode.int |> Encode.optional input.number ) ]
+        [ ( "hash", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.hash ), ( "number", Encode.int |> Encode.optional input.number ) ]
 
 
 buildBundle_filter :
@@ -64,44 +64,44 @@ buildBundle_filter fillOptionals =
 
 
 type alias Bundle_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , ethPrice : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , ethPrice_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , ethPrice : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_not : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , ethPrice_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the Bundle\_filter input object.
 -}
 type alias Bundle_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , ethPrice : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , ethPrice_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , ethPrice_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , ethPrice : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_not : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , ethPrice_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , ethPrice_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -110,7 +110,7 @@ type alias Bundle_filter =
 encodeBundle_filter : Bundle_filter -> Value
 encodeBundle_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "ethPrice", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice ), ( "ethPrice_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_not ), ( "ethPrice_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_gt ), ( "ethPrice_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_lt ), ( "ethPrice_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_gte ), ( "ethPrice_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_lte ), ( "ethPrice_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.ethPrice_in ), ( "ethPrice_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.ethPrice_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "ethPrice", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice ), ( "ethPrice_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_not ), ( "ethPrice_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_gt ), ( "ethPrice_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_lt ), ( "ethPrice_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_gte ), ( "ethPrice_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.ethPrice_lte ), ( "ethPrice_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.ethPrice_in ), ( "ethPrice_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.ethPrice_not_in ) ]
 
 
 buildBurn_filter :
@@ -126,14 +126,14 @@ buildBurn_filter fillOptionals =
 
 
 type alias Burn_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -148,14 +148,14 @@ type alias Burn_filterOptionalFields =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -170,90 +170,90 @@ type alias Burn_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , liquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , liquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , needsComplete : OptionalArgument Bool
     , needsComplete_not : OptionalArgument Bool
     , needsComplete_in : OptionalArgument (List Bool)
     , needsComplete_not_in : OptionalArgument (List Bool)
-    , feeTo : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , feeTo : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the Burn\_filter input object.
 -}
 type alias Burn_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -268,14 +268,14 @@ type alias Burn_filter =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -290,76 +290,76 @@ type alias Burn_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , liquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , liquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , needsComplete : OptionalArgument Bool
     , needsComplete_not : OptionalArgument Bool
     , needsComplete_in : OptionalArgument (List Bool)
     , needsComplete_not_in : OptionalArgument (List Bool)
-    , feeTo : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , feeTo : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -368,7 +368,7 @@ type alias Burn_filter =
 encodeBurn_filter : Burn_filter -> Value
 encodeBurn_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "liquidity", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity ), ( "liquidity_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_not ), ( "liquidity_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gt ), ( "liquidity_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lt ), ( "liquidity_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gte ), ( "liquidity_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lte ), ( "liquidity_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_in ), ( "liquidity_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_not_in ), ( "sender", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0 ), ( "amount0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_not ), ( "amount0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gt ), ( "amount0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lt ), ( "amount0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gte ), ( "amount0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lte ), ( "amount0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_in ), ( "amount0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_not_in ), ( "amount1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1 ), ( "amount1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_not ), ( "amount1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gt ), ( "amount1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lt ), ( "amount1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gte ), ( "amount1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lte ), ( "amount1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_in ), ( "amount1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_not_in ), ( "to", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "logIndex", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ), ( "needsComplete", Encode.bool |> Encode.optional input.needsComplete ), ( "needsComplete_not", Encode.bool |> Encode.optional input.needsComplete_not ), ( "needsComplete_in", (Encode.bool |> Encode.list) |> Encode.optional input.needsComplete_in ), ( "needsComplete_not_in", (Encode.bool |> Encode.list) |> Encode.optional input.needsComplete_not_in ), ( "feeTo", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo ), ( "feeTo_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not ), ( "feeTo_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_in ), ( "feeTo_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_not_in ), ( "feeTo_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_contains ), ( "feeTo_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not_contains ), ( "feeLiquidity", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity ), ( "feeLiquidity_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_not ), ( "feeLiquidity_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gt ), ( "feeLiquidity_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lt ), ( "feeLiquidity_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gte ), ( "feeLiquidity_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lte ), ( "feeLiquidity_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_in ), ( "feeLiquidity_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "liquidity", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity ), ( "liquidity_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_not ), ( "liquidity_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gt ), ( "liquidity_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lt ), ( "liquidity_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gte ), ( "liquidity_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lte ), ( "liquidity_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_in ), ( "liquidity_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_not_in ), ( "sender", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0 ), ( "amount0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_not ), ( "amount0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gt ), ( "amount0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lt ), ( "amount0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gte ), ( "amount0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lte ), ( "amount0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_in ), ( "amount0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_not_in ), ( "amount1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1 ), ( "amount1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_not ), ( "amount1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gt ), ( "amount1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lt ), ( "amount1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gte ), ( "amount1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lte ), ( "amount1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_in ), ( "amount1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_not_in ), ( "to", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "logIndex", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ), ( "needsComplete", Encode.bool |> Encode.optional input.needsComplete ), ( "needsComplete_not", Encode.bool |> Encode.optional input.needsComplete_not ), ( "needsComplete_in", (Encode.bool |> Encode.list) |> Encode.optional input.needsComplete_in ), ( "needsComplete_not_in", (Encode.bool |> Encode.list) |> Encode.optional input.needsComplete_not_in ), ( "feeTo", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo ), ( "feeTo_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not ), ( "feeTo_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_in ), ( "feeTo_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_not_in ), ( "feeTo_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_contains ), ( "feeTo_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not_contains ), ( "feeLiquidity", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity ), ( "feeLiquidity_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_not ), ( "feeLiquidity_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gt ), ( "feeLiquidity_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lt ), ( "feeLiquidity_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gte ), ( "feeLiquidity_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lte ), ( "feeLiquidity_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_in ), ( "feeLiquidity_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_not_in ) ]
 
 
 buildLiquidityPositionSnapshot_filter :
@@ -384,14 +384,14 @@ buildLiquidityPositionSnapshot_filter fillOptionals =
 
 
 type alias LiquidityPositionSnapshot_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , liquidityPosition : OptionalArgument String
     , liquidityPosition_not : OptionalArgument String
     , liquidityPosition_gt : OptionalArgument String
@@ -450,76 +450,76 @@ type alias LiquidityPositionSnapshot_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , token0PriceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0PriceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1PriceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1PriceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenTotalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenTotalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , token0PriceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0PriceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1PriceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1PriceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenTotalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenTotalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the LiquidityPositionSnapshot\_filter input object.
 -}
 type alias LiquidityPositionSnapshot_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , liquidityPosition : OptionalArgument String
     , liquidityPosition_not : OptionalArgument String
     , liquidityPosition_gt : OptionalArgument String
@@ -578,62 +578,62 @@ type alias LiquidityPositionSnapshot_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , token0PriceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0PriceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0PriceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1PriceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1PriceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1PriceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenTotalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenTotalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenTotalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , token0PriceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0PriceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0PriceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1PriceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1PriceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1PriceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenTotalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenTotalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenTotalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -642,7 +642,7 @@ type alias LiquidityPositionSnapshot_filter =
 encodeLiquidityPositionSnapshot_filter : LiquidityPositionSnapshot_filter -> Value
 encodeLiquidityPositionSnapshot_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "liquidityPosition", Encode.string |> Encode.optional input.liquidityPosition ), ( "liquidityPosition_not", Encode.string |> Encode.optional input.liquidityPosition_not ), ( "liquidityPosition_gt", Encode.string |> Encode.optional input.liquidityPosition_gt ), ( "liquidityPosition_lt", Encode.string |> Encode.optional input.liquidityPosition_lt ), ( "liquidityPosition_gte", Encode.string |> Encode.optional input.liquidityPosition_gte ), ( "liquidityPosition_lte", Encode.string |> Encode.optional input.liquidityPosition_lte ), ( "liquidityPosition_in", (Encode.string |> Encode.list) |> Encode.optional input.liquidityPosition_in ), ( "liquidityPosition_not_in", (Encode.string |> Encode.list) |> Encode.optional input.liquidityPosition_not_in ), ( "liquidityPosition_contains", Encode.string |> Encode.optional input.liquidityPosition_contains ), ( "liquidityPosition_not_contains", Encode.string |> Encode.optional input.liquidityPosition_not_contains ), ( "liquidityPosition_starts_with", Encode.string |> Encode.optional input.liquidityPosition_starts_with ), ( "liquidityPosition_not_starts_with", Encode.string |> Encode.optional input.liquidityPosition_not_starts_with ), ( "liquidityPosition_ends_with", Encode.string |> Encode.optional input.liquidityPosition_ends_with ), ( "liquidityPosition_not_ends_with", Encode.string |> Encode.optional input.liquidityPosition_not_ends_with ), ( "timestamp", Encode.int |> Encode.optional input.timestamp ), ( "timestamp_not", Encode.int |> Encode.optional input.timestamp_not ), ( "timestamp_gt", Encode.int |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", Encode.int |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", Encode.int |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", Encode.int |> Encode.optional input.timestamp_lte ), ( "timestamp_in", (Encode.int |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", (Encode.int |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "block", Encode.int |> Encode.optional input.block ), ( "block_not", Encode.int |> Encode.optional input.block_not ), ( "block_gt", Encode.int |> Encode.optional input.block_gt ), ( "block_lt", Encode.int |> Encode.optional input.block_lt ), ( "block_gte", Encode.int |> Encode.optional input.block_gte ), ( "block_lte", Encode.int |> Encode.optional input.block_lte ), ( "block_in", (Encode.int |> Encode.list) |> Encode.optional input.block_in ), ( "block_not_in", (Encode.int |> Encode.list) |> Encode.optional input.block_not_in ), ( "user", Encode.string |> Encode.optional input.user ), ( "user_not", Encode.string |> Encode.optional input.user_not ), ( "user_gt", Encode.string |> Encode.optional input.user_gt ), ( "user_lt", Encode.string |> Encode.optional input.user_lt ), ( "user_gte", Encode.string |> Encode.optional input.user_gte ), ( "user_lte", Encode.string |> Encode.optional input.user_lte ), ( "user_in", (Encode.string |> Encode.list) |> Encode.optional input.user_in ), ( "user_not_in", (Encode.string |> Encode.list) |> Encode.optional input.user_not_in ), ( "user_contains", Encode.string |> Encode.optional input.user_contains ), ( "user_not_contains", Encode.string |> Encode.optional input.user_not_contains ), ( "user_starts_with", Encode.string |> Encode.optional input.user_starts_with ), ( "user_not_starts_with", Encode.string |> Encode.optional input.user_not_starts_with ), ( "user_ends_with", Encode.string |> Encode.optional input.user_ends_with ), ( "user_not_ends_with", Encode.string |> Encode.optional input.user_not_ends_with ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "token0PriceUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD ), ( "token0PriceUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_not ), ( "token0PriceUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_gt ), ( "token0PriceUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_lt ), ( "token0PriceUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_gte ), ( "token0PriceUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_lte ), ( "token0PriceUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0PriceUSD_in ), ( "token0PriceUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0PriceUSD_not_in ), ( "token1PriceUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD ), ( "token1PriceUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_not ), ( "token1PriceUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_gt ), ( "token1PriceUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_lt ), ( "token1PriceUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_gte ), ( "token1PriceUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_lte ), ( "token1PriceUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1PriceUSD_in ), ( "token1PriceUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1PriceUSD_not_in ), ( "reserve0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "reserveUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "liquidityTokenTotalSupply", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply ), ( "liquidityTokenTotalSupply_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_not ), ( "liquidityTokenTotalSupply_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_gt ), ( "liquidityTokenTotalSupply_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_lt ), ( "liquidityTokenTotalSupply_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_gte ), ( "liquidityTokenTotalSupply_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_lte ), ( "liquidityTokenTotalSupply_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenTotalSupply_in ), ( "liquidityTokenTotalSupply_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenTotalSupply_not_in ), ( "liquidityTokenBalance", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance ), ( "liquidityTokenBalance_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_not ), ( "liquidityTokenBalance_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gt ), ( "liquidityTokenBalance_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lt ), ( "liquidityTokenBalance_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gte ), ( "liquidityTokenBalance_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lte ), ( "liquidityTokenBalance_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_in ), ( "liquidityTokenBalance_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "liquidityPosition", Encode.string |> Encode.optional input.liquidityPosition ), ( "liquidityPosition_not", Encode.string |> Encode.optional input.liquidityPosition_not ), ( "liquidityPosition_gt", Encode.string |> Encode.optional input.liquidityPosition_gt ), ( "liquidityPosition_lt", Encode.string |> Encode.optional input.liquidityPosition_lt ), ( "liquidityPosition_gte", Encode.string |> Encode.optional input.liquidityPosition_gte ), ( "liquidityPosition_lte", Encode.string |> Encode.optional input.liquidityPosition_lte ), ( "liquidityPosition_in", (Encode.string |> Encode.list) |> Encode.optional input.liquidityPosition_in ), ( "liquidityPosition_not_in", (Encode.string |> Encode.list) |> Encode.optional input.liquidityPosition_not_in ), ( "liquidityPosition_contains", Encode.string |> Encode.optional input.liquidityPosition_contains ), ( "liquidityPosition_not_contains", Encode.string |> Encode.optional input.liquidityPosition_not_contains ), ( "liquidityPosition_starts_with", Encode.string |> Encode.optional input.liquidityPosition_starts_with ), ( "liquidityPosition_not_starts_with", Encode.string |> Encode.optional input.liquidityPosition_not_starts_with ), ( "liquidityPosition_ends_with", Encode.string |> Encode.optional input.liquidityPosition_ends_with ), ( "liquidityPosition_not_ends_with", Encode.string |> Encode.optional input.liquidityPosition_not_ends_with ), ( "timestamp", Encode.int |> Encode.optional input.timestamp ), ( "timestamp_not", Encode.int |> Encode.optional input.timestamp_not ), ( "timestamp_gt", Encode.int |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", Encode.int |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", Encode.int |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", Encode.int |> Encode.optional input.timestamp_lte ), ( "timestamp_in", (Encode.int |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", (Encode.int |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "block", Encode.int |> Encode.optional input.block ), ( "block_not", Encode.int |> Encode.optional input.block_not ), ( "block_gt", Encode.int |> Encode.optional input.block_gt ), ( "block_lt", Encode.int |> Encode.optional input.block_lt ), ( "block_gte", Encode.int |> Encode.optional input.block_gte ), ( "block_lte", Encode.int |> Encode.optional input.block_lte ), ( "block_in", (Encode.int |> Encode.list) |> Encode.optional input.block_in ), ( "block_not_in", (Encode.int |> Encode.list) |> Encode.optional input.block_not_in ), ( "user", Encode.string |> Encode.optional input.user ), ( "user_not", Encode.string |> Encode.optional input.user_not ), ( "user_gt", Encode.string |> Encode.optional input.user_gt ), ( "user_lt", Encode.string |> Encode.optional input.user_lt ), ( "user_gte", Encode.string |> Encode.optional input.user_gte ), ( "user_lte", Encode.string |> Encode.optional input.user_lte ), ( "user_in", (Encode.string |> Encode.list) |> Encode.optional input.user_in ), ( "user_not_in", (Encode.string |> Encode.list) |> Encode.optional input.user_not_in ), ( "user_contains", Encode.string |> Encode.optional input.user_contains ), ( "user_not_contains", Encode.string |> Encode.optional input.user_not_contains ), ( "user_starts_with", Encode.string |> Encode.optional input.user_starts_with ), ( "user_not_starts_with", Encode.string |> Encode.optional input.user_not_starts_with ), ( "user_ends_with", Encode.string |> Encode.optional input.user_ends_with ), ( "user_not_ends_with", Encode.string |> Encode.optional input.user_not_ends_with ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "token0PriceUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD ), ( "token0PriceUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_not ), ( "token0PriceUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_gt ), ( "token0PriceUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_lt ), ( "token0PriceUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_gte ), ( "token0PriceUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0PriceUSD_lte ), ( "token0PriceUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0PriceUSD_in ), ( "token0PriceUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0PriceUSD_not_in ), ( "token1PriceUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD ), ( "token1PriceUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_not ), ( "token1PriceUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_gt ), ( "token1PriceUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_lt ), ( "token1PriceUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_gte ), ( "token1PriceUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1PriceUSD_lte ), ( "token1PriceUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1PriceUSD_in ), ( "token1PriceUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1PriceUSD_not_in ), ( "reserve0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "reserveUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "liquidityTokenTotalSupply", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply ), ( "liquidityTokenTotalSupply_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_not ), ( "liquidityTokenTotalSupply_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_gt ), ( "liquidityTokenTotalSupply_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_lt ), ( "liquidityTokenTotalSupply_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_gte ), ( "liquidityTokenTotalSupply_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenTotalSupply_lte ), ( "liquidityTokenTotalSupply_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenTotalSupply_in ), ( "liquidityTokenTotalSupply_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenTotalSupply_not_in ), ( "liquidityTokenBalance", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance ), ( "liquidityTokenBalance_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_not ), ( "liquidityTokenBalance_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gt ), ( "liquidityTokenBalance_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lt ), ( "liquidityTokenBalance_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gte ), ( "liquidityTokenBalance_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lte ), ( "liquidityTokenBalance_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_in ), ( "liquidityTokenBalance_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_not_in ) ]
 
 
 buildLiquidityPosition_filter :
@@ -658,14 +658,14 @@ buildLiquidityPosition_filter fillOptionals =
 
 
 type alias LiquidityPosition_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , user : OptionalArgument String
     , user_not : OptionalArgument String
     , user_gt : OptionalArgument String
@@ -694,28 +694,28 @@ type alias LiquidityPosition_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , liquidityTokenBalance : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the LiquidityPosition\_filter input object.
 -}
 type alias LiquidityPosition_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , user : OptionalArgument String
     , user_not : OptionalArgument String
     , user_gt : OptionalArgument String
@@ -744,14 +744,14 @@ type alias LiquidityPosition_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , liquidityTokenBalance : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidityTokenBalance_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidityTokenBalance_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidityTokenBalance_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidityTokenBalance_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -760,7 +760,7 @@ type alias LiquidityPosition_filter =
 encodeLiquidityPosition_filter : LiquidityPosition_filter -> Value
 encodeLiquidityPosition_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "user", Encode.string |> Encode.optional input.user ), ( "user_not", Encode.string |> Encode.optional input.user_not ), ( "user_gt", Encode.string |> Encode.optional input.user_gt ), ( "user_lt", Encode.string |> Encode.optional input.user_lt ), ( "user_gte", Encode.string |> Encode.optional input.user_gte ), ( "user_lte", Encode.string |> Encode.optional input.user_lte ), ( "user_in", (Encode.string |> Encode.list) |> Encode.optional input.user_in ), ( "user_not_in", (Encode.string |> Encode.list) |> Encode.optional input.user_not_in ), ( "user_contains", Encode.string |> Encode.optional input.user_contains ), ( "user_not_contains", Encode.string |> Encode.optional input.user_not_contains ), ( "user_starts_with", Encode.string |> Encode.optional input.user_starts_with ), ( "user_not_starts_with", Encode.string |> Encode.optional input.user_not_starts_with ), ( "user_ends_with", Encode.string |> Encode.optional input.user_ends_with ), ( "user_not_ends_with", Encode.string |> Encode.optional input.user_not_ends_with ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "liquidityTokenBalance", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance ), ( "liquidityTokenBalance_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_not ), ( "liquidityTokenBalance_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gt ), ( "liquidityTokenBalance_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lt ), ( "liquidityTokenBalance_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gte ), ( "liquidityTokenBalance_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lte ), ( "liquidityTokenBalance_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_in ), ( "liquidityTokenBalance_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "user", Encode.string |> Encode.optional input.user ), ( "user_not", Encode.string |> Encode.optional input.user_not ), ( "user_gt", Encode.string |> Encode.optional input.user_gt ), ( "user_lt", Encode.string |> Encode.optional input.user_lt ), ( "user_gte", Encode.string |> Encode.optional input.user_gte ), ( "user_lte", Encode.string |> Encode.optional input.user_lte ), ( "user_in", (Encode.string |> Encode.list) |> Encode.optional input.user_in ), ( "user_not_in", (Encode.string |> Encode.list) |> Encode.optional input.user_not_in ), ( "user_contains", Encode.string |> Encode.optional input.user_contains ), ( "user_not_contains", Encode.string |> Encode.optional input.user_not_contains ), ( "user_starts_with", Encode.string |> Encode.optional input.user_starts_with ), ( "user_not_starts_with", Encode.string |> Encode.optional input.user_not_starts_with ), ( "user_ends_with", Encode.string |> Encode.optional input.user_ends_with ), ( "user_not_ends_with", Encode.string |> Encode.optional input.user_not_ends_with ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "liquidityTokenBalance", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance ), ( "liquidityTokenBalance_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_not ), ( "liquidityTokenBalance_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gt ), ( "liquidityTokenBalance_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lt ), ( "liquidityTokenBalance_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_gte ), ( "liquidityTokenBalance_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidityTokenBalance_lte ), ( "liquidityTokenBalance_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_in ), ( "liquidityTokenBalance_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidityTokenBalance_not_in ) ]
 
 
 buildMint_filter :
@@ -776,14 +776,14 @@ buildMint_filter fillOptionals =
 
 
 type alias Mint_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -798,14 +798,14 @@ type alias Mint_filterOptionalFields =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -820,86 +820,86 @@ type alias Mint_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , liquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeTo : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , liquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeTo : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the Mint\_filter input object.
 -}
 type alias Mint_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -914,14 +914,14 @@ type alias Mint_filter =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -936,72 +936,72 @@ type alias Mint_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , liquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , liquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , liquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeTo : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , feeTo_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeTo_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , feeLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , feeLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , feeLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , liquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , liquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , liquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1 : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeTo : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , feeTo_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeTo_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , feeLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , feeLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , feeLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -1010,7 +1010,7 @@ type alias Mint_filter =
 encodeMint_filter : Mint_filter -> Value
 encodeMint_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "to", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "liquidity", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity ), ( "liquidity_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_not ), ( "liquidity_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gt ), ( "liquidity_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lt ), ( "liquidity_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gte ), ( "liquidity_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lte ), ( "liquidity_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_in ), ( "liquidity_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_not_in ), ( "sender", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0 ), ( "amount0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_not ), ( "amount0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gt ), ( "amount0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lt ), ( "amount0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gte ), ( "amount0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lte ), ( "amount0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_in ), ( "amount0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_not_in ), ( "amount1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1 ), ( "amount1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_not ), ( "amount1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gt ), ( "amount1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lt ), ( "amount1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gte ), ( "amount1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lte ), ( "amount1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_in ), ( "amount1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_not_in ), ( "logIndex", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ), ( "feeTo", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo ), ( "feeTo_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not ), ( "feeTo_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_in ), ( "feeTo_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_not_in ), ( "feeTo_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_contains ), ( "feeTo_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not_contains ), ( "feeLiquidity", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity ), ( "feeLiquidity_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_not ), ( "feeLiquidity_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gt ), ( "feeLiquidity_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lt ), ( "feeLiquidity_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gte ), ( "feeLiquidity_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lte ), ( "feeLiquidity_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_in ), ( "feeLiquidity_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "to", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "liquidity", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity ), ( "liquidity_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_not ), ( "liquidity_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gt ), ( "liquidity_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lt ), ( "liquidity_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_gte ), ( "liquidity_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.liquidity_lte ), ( "liquidity_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_in ), ( "liquidity_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.liquidity_not_in ), ( "sender", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0 ), ( "amount0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_not ), ( "amount0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gt ), ( "amount0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lt ), ( "amount0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_gte ), ( "amount0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0_lte ), ( "amount0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_in ), ( "amount0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0_not_in ), ( "amount1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1 ), ( "amount1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_not ), ( "amount1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gt ), ( "amount1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lt ), ( "amount1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_gte ), ( "amount1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1_lte ), ( "amount1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_in ), ( "amount1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1_not_in ), ( "logIndex", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ), ( "feeTo", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo ), ( "feeTo_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not ), ( "feeTo_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_in ), ( "feeTo_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.feeTo_not_in ), ( "feeTo_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_contains ), ( "feeTo_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.feeTo_not_contains ), ( "feeLiquidity", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity ), ( "feeLiquidity_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_not ), ( "feeLiquidity_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gt ), ( "feeLiquidity_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lt ), ( "feeLiquidity_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_gte ), ( "feeLiquidity_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.feeLiquidity_lte ), ( "feeLiquidity_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_in ), ( "feeLiquidity_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.feeLiquidity_not_in ) ]
 
 
 buildPairDayData_filter :
@@ -1026,14 +1026,14 @@ buildPairDayData_filter fillOptionals =
 
 
 type alias PairDayData_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -1042,12 +1042,12 @@ type alias PairDayData_filterOptionalFields =
     , date_lte : OptionalArgument Int
     , date_in : OptionalArgument (List Int)
     , date_not_in : OptionalArgument (List Int)
-    , pairAddress : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , pairAddress_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , pairAddress_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
+    , pairAddress : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_not : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , pairAddress_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , pairAddress_contains : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_not_contains : OptionalArgument ScalarCodecs.Bytes
     , token0 : OptionalArgument String
     , token0_not : OptionalArgument String
     , token0_gt : OptionalArgument String
@@ -1076,84 +1076,84 @@ type alias PairDayData_filterOptionalFields =
     , token1_not_starts_with : OptionalArgument String
     , token1_ends_with : OptionalArgument String
     , token1_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , dailyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyTxns : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , dailyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
 {-| Type for the PairDayData\_filter input object.
 -}
 type alias PairDayData_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -1162,12 +1162,12 @@ type alias PairDayData_filter =
     , date_lte : OptionalArgument Int
     , date_in : OptionalArgument (List Int)
     , date_not_in : OptionalArgument (List Int)
-    , pairAddress : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , pairAddress_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , pairAddress_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , pairAddress_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
+    , pairAddress : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_not : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , pairAddress_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , pairAddress_contains : OptionalArgument ScalarCodecs.Bytes
+    , pairAddress_not_contains : OptionalArgument ScalarCodecs.Bytes
     , token0 : OptionalArgument String
     , token0_not : OptionalArgument String
     , token0_gt : OptionalArgument String
@@ -1196,70 +1196,70 @@ type alias PairDayData_filter =
     , token1_not_starts_with : OptionalArgument String
     , token1_ends_with : OptionalArgument String
     , token1_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , dailyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyTxns : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , dailyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
@@ -1268,7 +1268,7 @@ type alias PairDayData_filter =
 encodePairDayData_filter : PairDayData_filter -> Value
 encodePairDayData_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "pairAddress", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress ), ( "pairAddress_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_not ), ( "pairAddress_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.pairAddress_in ), ( "pairAddress_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.pairAddress_not_in ), ( "pairAddress_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_contains ), ( "pairAddress_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_not_contains ), ( "token0", Encode.string |> Encode.optional input.token0 ), ( "token0_not", Encode.string |> Encode.optional input.token0_not ), ( "token0_gt", Encode.string |> Encode.optional input.token0_gt ), ( "token0_lt", Encode.string |> Encode.optional input.token0_lt ), ( "token0_gte", Encode.string |> Encode.optional input.token0_gte ), ( "token0_lte", Encode.string |> Encode.optional input.token0_lte ), ( "token0_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_in ), ( "token0_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_not_in ), ( "token0_contains", Encode.string |> Encode.optional input.token0_contains ), ( "token0_not_contains", Encode.string |> Encode.optional input.token0_not_contains ), ( "token0_starts_with", Encode.string |> Encode.optional input.token0_starts_with ), ( "token0_not_starts_with", Encode.string |> Encode.optional input.token0_not_starts_with ), ( "token0_ends_with", Encode.string |> Encode.optional input.token0_ends_with ), ( "token0_not_ends_with", Encode.string |> Encode.optional input.token0_not_ends_with ), ( "token1", Encode.string |> Encode.optional input.token1 ), ( "token1_not", Encode.string |> Encode.optional input.token1_not ), ( "token1_gt", Encode.string |> Encode.optional input.token1_gt ), ( "token1_lt", Encode.string |> Encode.optional input.token1_lt ), ( "token1_gte", Encode.string |> Encode.optional input.token1_gte ), ( "token1_lte", Encode.string |> Encode.optional input.token1_lte ), ( "token1_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_in ), ( "token1_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_not_in ), ( "token1_contains", Encode.string |> Encode.optional input.token1_contains ), ( "token1_not_contains", Encode.string |> Encode.optional input.token1_not_contains ), ( "token1_starts_with", Encode.string |> Encode.optional input.token1_starts_with ), ( "token1_not_starts_with", Encode.string |> Encode.optional input.token1_not_starts_with ), ( "token1_ends_with", Encode.string |> Encode.optional input.token1_ends_with ), ( "token1_not_ends_with", Encode.string |> Encode.optional input.token1_not_ends_with ), ( "reserve0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "totalSupply", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "reserveUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "dailyVolumeToken0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0 ), ( "dailyVolumeToken0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_not ), ( "dailyVolumeToken0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_gt ), ( "dailyVolumeToken0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_lt ), ( "dailyVolumeToken0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_gte ), ( "dailyVolumeToken0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_lte ), ( "dailyVolumeToken0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken0_in ), ( "dailyVolumeToken0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken0_not_in ), ( "dailyVolumeToken1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1 ), ( "dailyVolumeToken1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_not ), ( "dailyVolumeToken1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_gt ), ( "dailyVolumeToken1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_lt ), ( "dailyVolumeToken1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_gte ), ( "dailyVolumeToken1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_lte ), ( "dailyVolumeToken1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken1_in ), ( "dailyVolumeToken1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken1_not_in ), ( "dailyVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyTxns", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns ), ( "dailyTxns_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_not ), ( "dailyTxns_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gt ), ( "dailyTxns_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lt ), ( "dailyTxns_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gte ), ( "dailyTxns_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lte ), ( "dailyTxns_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_in ), ( "dailyTxns_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "pairAddress", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress ), ( "pairAddress_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_not ), ( "pairAddress_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.pairAddress_in ), ( "pairAddress_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.pairAddress_not_in ), ( "pairAddress_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_contains ), ( "pairAddress_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.pairAddress_not_contains ), ( "token0", Encode.string |> Encode.optional input.token0 ), ( "token0_not", Encode.string |> Encode.optional input.token0_not ), ( "token0_gt", Encode.string |> Encode.optional input.token0_gt ), ( "token0_lt", Encode.string |> Encode.optional input.token0_lt ), ( "token0_gte", Encode.string |> Encode.optional input.token0_gte ), ( "token0_lte", Encode.string |> Encode.optional input.token0_lte ), ( "token0_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_in ), ( "token0_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_not_in ), ( "token0_contains", Encode.string |> Encode.optional input.token0_contains ), ( "token0_not_contains", Encode.string |> Encode.optional input.token0_not_contains ), ( "token0_starts_with", Encode.string |> Encode.optional input.token0_starts_with ), ( "token0_not_starts_with", Encode.string |> Encode.optional input.token0_not_starts_with ), ( "token0_ends_with", Encode.string |> Encode.optional input.token0_ends_with ), ( "token0_not_ends_with", Encode.string |> Encode.optional input.token0_not_ends_with ), ( "token1", Encode.string |> Encode.optional input.token1 ), ( "token1_not", Encode.string |> Encode.optional input.token1_not ), ( "token1_gt", Encode.string |> Encode.optional input.token1_gt ), ( "token1_lt", Encode.string |> Encode.optional input.token1_lt ), ( "token1_gte", Encode.string |> Encode.optional input.token1_gte ), ( "token1_lte", Encode.string |> Encode.optional input.token1_lte ), ( "token1_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_in ), ( "token1_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_not_in ), ( "token1_contains", Encode.string |> Encode.optional input.token1_contains ), ( "token1_not_contains", Encode.string |> Encode.optional input.token1_not_contains ), ( "token1_starts_with", Encode.string |> Encode.optional input.token1_starts_with ), ( "token1_not_starts_with", Encode.string |> Encode.optional input.token1_not_starts_with ), ( "token1_ends_with", Encode.string |> Encode.optional input.token1_ends_with ), ( "token1_not_ends_with", Encode.string |> Encode.optional input.token1_not_ends_with ), ( "reserve0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "totalSupply", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "reserveUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "dailyVolumeToken0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0 ), ( "dailyVolumeToken0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_not ), ( "dailyVolumeToken0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_gt ), ( "dailyVolumeToken0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_lt ), ( "dailyVolumeToken0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_gte ), ( "dailyVolumeToken0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken0_lte ), ( "dailyVolumeToken0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken0_in ), ( "dailyVolumeToken0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken0_not_in ), ( "dailyVolumeToken1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1 ), ( "dailyVolumeToken1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_not ), ( "dailyVolumeToken1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_gt ), ( "dailyVolumeToken1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_lt ), ( "dailyVolumeToken1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_gte ), ( "dailyVolumeToken1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken1_lte ), ( "dailyVolumeToken1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken1_in ), ( "dailyVolumeToken1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken1_not_in ), ( "dailyVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyTxns", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns ), ( "dailyTxns_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_not ), ( "dailyTxns_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gt ), ( "dailyTxns_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lt ), ( "dailyTxns_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gte ), ( "dailyTxns_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lte ), ( "dailyTxns_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_in ), ( "dailyTxns_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_not_in ) ]
 
 
 buildPairHourData_filter :
@@ -1284,14 +1284,14 @@ buildPairHourData_filter fillOptionals =
 
 
 type alias PairHourData_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , hourStartUnix : OptionalArgument Int
     , hourStartUnix_not : OptionalArgument Int
     , hourStartUnix_gt : OptionalArgument Int
@@ -1314,76 +1314,76 @@ type alias PairHourData_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , hourlyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyTxns : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , hourlyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
 {-| Type for the PairHourData\_filter input object.
 -}
 type alias PairHourData_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , hourStartUnix : OptionalArgument Int
     , hourStartUnix_not : OptionalArgument Int
     , hourStartUnix_gt : OptionalArgument Int
@@ -1406,62 +1406,62 @@ type alias PairHourData_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , hourlyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , hourlyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , hourlyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , hourlyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , hourlyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , hourlyTxns : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , hourlyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , hourlyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
@@ -1470,7 +1470,7 @@ type alias PairHourData_filter =
 encodePairHourData_filter : PairHourData_filter -> Value
 encodePairHourData_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "hourStartUnix", Encode.int |> Encode.optional input.hourStartUnix ), ( "hourStartUnix_not", Encode.int |> Encode.optional input.hourStartUnix_not ), ( "hourStartUnix_gt", Encode.int |> Encode.optional input.hourStartUnix_gt ), ( "hourStartUnix_lt", Encode.int |> Encode.optional input.hourStartUnix_lt ), ( "hourStartUnix_gte", Encode.int |> Encode.optional input.hourStartUnix_gte ), ( "hourStartUnix_lte", Encode.int |> Encode.optional input.hourStartUnix_lte ), ( "hourStartUnix_in", (Encode.int |> Encode.list) |> Encode.optional input.hourStartUnix_in ), ( "hourStartUnix_not_in", (Encode.int |> Encode.list) |> Encode.optional input.hourStartUnix_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "reserve0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "reserveUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "hourlyVolumeToken0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0 ), ( "hourlyVolumeToken0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_not ), ( "hourlyVolumeToken0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_gt ), ( "hourlyVolumeToken0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_lt ), ( "hourlyVolumeToken0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_gte ), ( "hourlyVolumeToken0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_lte ), ( "hourlyVolumeToken0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken0_in ), ( "hourlyVolumeToken0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken0_not_in ), ( "hourlyVolumeToken1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1 ), ( "hourlyVolumeToken1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_not ), ( "hourlyVolumeToken1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_gt ), ( "hourlyVolumeToken1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_lt ), ( "hourlyVolumeToken1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_gte ), ( "hourlyVolumeToken1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_lte ), ( "hourlyVolumeToken1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken1_in ), ( "hourlyVolumeToken1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken1_not_in ), ( "hourlyVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD ), ( "hourlyVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_not ), ( "hourlyVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_gt ), ( "hourlyVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_lt ), ( "hourlyVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_gte ), ( "hourlyVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_lte ), ( "hourlyVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeUSD_in ), ( "hourlyVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeUSD_not_in ), ( "hourlyTxns", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns ), ( "hourlyTxns_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_not ), ( "hourlyTxns_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_gt ), ( "hourlyTxns_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_lt ), ( "hourlyTxns_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_gte ), ( "hourlyTxns_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_lte ), ( "hourlyTxns_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.hourlyTxns_in ), ( "hourlyTxns_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.hourlyTxns_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "hourStartUnix", Encode.int |> Encode.optional input.hourStartUnix ), ( "hourStartUnix_not", Encode.int |> Encode.optional input.hourStartUnix_not ), ( "hourStartUnix_gt", Encode.int |> Encode.optional input.hourStartUnix_gt ), ( "hourStartUnix_lt", Encode.int |> Encode.optional input.hourStartUnix_lt ), ( "hourStartUnix_gte", Encode.int |> Encode.optional input.hourStartUnix_gte ), ( "hourStartUnix_lte", Encode.int |> Encode.optional input.hourStartUnix_lte ), ( "hourStartUnix_in", (Encode.int |> Encode.list) |> Encode.optional input.hourStartUnix_in ), ( "hourStartUnix_not_in", (Encode.int |> Encode.list) |> Encode.optional input.hourStartUnix_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "reserve0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "reserveUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "hourlyVolumeToken0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0 ), ( "hourlyVolumeToken0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_not ), ( "hourlyVolumeToken0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_gt ), ( "hourlyVolumeToken0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_lt ), ( "hourlyVolumeToken0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_gte ), ( "hourlyVolumeToken0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken0_lte ), ( "hourlyVolumeToken0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken0_in ), ( "hourlyVolumeToken0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken0_not_in ), ( "hourlyVolumeToken1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1 ), ( "hourlyVolumeToken1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_not ), ( "hourlyVolumeToken1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_gt ), ( "hourlyVolumeToken1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_lt ), ( "hourlyVolumeToken1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_gte ), ( "hourlyVolumeToken1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeToken1_lte ), ( "hourlyVolumeToken1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken1_in ), ( "hourlyVolumeToken1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeToken1_not_in ), ( "hourlyVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD ), ( "hourlyVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_not ), ( "hourlyVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_gt ), ( "hourlyVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_lt ), ( "hourlyVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_gte ), ( "hourlyVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.hourlyVolumeUSD_lte ), ( "hourlyVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeUSD_in ), ( "hourlyVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.hourlyVolumeUSD_not_in ), ( "hourlyTxns", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns ), ( "hourlyTxns_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_not ), ( "hourlyTxns_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_gt ), ( "hourlyTxns_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_lt ), ( "hourlyTxns_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_gte ), ( "hourlyTxns_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.hourlyTxns_lte ), ( "hourlyTxns_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.hourlyTxns_in ), ( "hourlyTxns_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.hourlyTxns_not_in ) ]
 
 
 buildPair_filter :
@@ -1486,14 +1486,14 @@ buildPair_filter fillOptionals =
 
 
 type alias Pair_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , token0 : OptionalArgument String
     , token0_not : OptionalArgument String
     , token0_gt : OptionalArgument String
@@ -1522,148 +1522,148 @@ type alias Pair_filterOptionalFields =
     , token1_not_starts_with : OptionalArgument String
     , token1_ends_with : OptionalArgument String
     , token1_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , trackedReserveETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , trackedReserveETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0Price : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0Price_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1Price : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1Price_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtTimestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtTimestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtBlockNumber : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtBlockNumber_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , liquidityProviderCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , liquidityProviderCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveETH : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , trackedReserveETH : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , trackedReserveETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0Price : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0Price_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1Price : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1Price_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtTimestamp : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtTimestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtBlockNumber : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_not : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_gt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_lt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_gte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_lte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtBlockNumber_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , liquidityProviderCount : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_not : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , liquidityProviderCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
 {-| Type for the Pair\_filter input object.
 -}
 type alias Pair_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , token0 : OptionalArgument String
     , token0_not : OptionalArgument String
     , token0_gt : OptionalArgument String
@@ -1692,134 +1692,134 @@ type alias Pair_filter =
     , token1_not_starts_with : OptionalArgument String
     , token1_ends_with : OptionalArgument String
     , token1_not_ends_with : OptionalArgument String
-    , reserve0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserve1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserve1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , reserveUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , reserveUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , trackedReserveETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , trackedReserveETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , trackedReserveETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0Price : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token0Price_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token0Price_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1Price : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , token1Price_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , token1Price_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken0 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken0_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken0_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken1 : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeToken1_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeToken1_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , volumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , volumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtTimestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtTimestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtTimestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtBlockNumber : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , createdAtBlockNumber_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , createdAtBlockNumber_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , liquidityProviderCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , liquidityProviderCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , liquidityProviderCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , reserve0 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1 : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserve1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserve1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveETH : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , reserveUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , reserveUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , trackedReserveETH : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , trackedReserveETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , trackedReserveETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0Price : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token0Price_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token0Price_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1Price : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_not : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , token1Price_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , token1Price_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken0 : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken0_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken0_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken1 : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeToken1_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeToken1_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , volumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , volumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtTimestamp : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtTimestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtTimestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtBlockNumber : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_not : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_gt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_lt : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_gte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_lte : OptionalArgument ScalarCodecs.BigInt
+    , createdAtBlockNumber_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , createdAtBlockNumber_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , liquidityProviderCount : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_not : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , liquidityProviderCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , liquidityProviderCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
@@ -1828,7 +1828,7 @@ type alias Pair_filter =
 encodePair_filter : Pair_filter -> Value
 encodePair_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "token0", Encode.string |> Encode.optional input.token0 ), ( "token0_not", Encode.string |> Encode.optional input.token0_not ), ( "token0_gt", Encode.string |> Encode.optional input.token0_gt ), ( "token0_lt", Encode.string |> Encode.optional input.token0_lt ), ( "token0_gte", Encode.string |> Encode.optional input.token0_gte ), ( "token0_lte", Encode.string |> Encode.optional input.token0_lte ), ( "token0_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_in ), ( "token0_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_not_in ), ( "token0_contains", Encode.string |> Encode.optional input.token0_contains ), ( "token0_not_contains", Encode.string |> Encode.optional input.token0_not_contains ), ( "token0_starts_with", Encode.string |> Encode.optional input.token0_starts_with ), ( "token0_not_starts_with", Encode.string |> Encode.optional input.token0_not_starts_with ), ( "token0_ends_with", Encode.string |> Encode.optional input.token0_ends_with ), ( "token0_not_ends_with", Encode.string |> Encode.optional input.token0_not_ends_with ), ( "token1", Encode.string |> Encode.optional input.token1 ), ( "token1_not", Encode.string |> Encode.optional input.token1_not ), ( "token1_gt", Encode.string |> Encode.optional input.token1_gt ), ( "token1_lt", Encode.string |> Encode.optional input.token1_lt ), ( "token1_gte", Encode.string |> Encode.optional input.token1_gte ), ( "token1_lte", Encode.string |> Encode.optional input.token1_lte ), ( "token1_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_in ), ( "token1_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_not_in ), ( "token1_contains", Encode.string |> Encode.optional input.token1_contains ), ( "token1_not_contains", Encode.string |> Encode.optional input.token1_not_contains ), ( "token1_starts_with", Encode.string |> Encode.optional input.token1_starts_with ), ( "token1_not_starts_with", Encode.string |> Encode.optional input.token1_not_starts_with ), ( "token1_ends_with", Encode.string |> Encode.optional input.token1_ends_with ), ( "token1_not_ends_with", Encode.string |> Encode.optional input.token1_not_ends_with ), ( "reserve0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "totalSupply", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "reserveETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH ), ( "reserveETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_not ), ( "reserveETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_gt ), ( "reserveETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_lt ), ( "reserveETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_gte ), ( "reserveETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_lte ), ( "reserveETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveETH_in ), ( "reserveETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveETH_not_in ), ( "reserveUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "trackedReserveETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH ), ( "trackedReserveETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_not ), ( "trackedReserveETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_gt ), ( "trackedReserveETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_lt ), ( "trackedReserveETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_gte ), ( "trackedReserveETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_lte ), ( "trackedReserveETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.trackedReserveETH_in ), ( "trackedReserveETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.trackedReserveETH_not_in ), ( "token0Price", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price ), ( "token0Price_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_not ), ( "token0Price_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_gt ), ( "token0Price_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_lt ), ( "token0Price_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_gte ), ( "token0Price_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_lte ), ( "token0Price_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0Price_in ), ( "token0Price_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0Price_not_in ), ( "token1Price", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price ), ( "token1Price_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_not ), ( "token1Price_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_gt ), ( "token1Price_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_lt ), ( "token1Price_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_gte ), ( "token1Price_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_lte ), ( "token1Price_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1Price_in ), ( "token1Price_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1Price_not_in ), ( "volumeToken0", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0 ), ( "volumeToken0_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_not ), ( "volumeToken0_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_gt ), ( "volumeToken0_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_lt ), ( "volumeToken0_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_gte ), ( "volumeToken0_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_lte ), ( "volumeToken0_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken0_in ), ( "volumeToken0_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken0_not_in ), ( "volumeToken1", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1 ), ( "volumeToken1_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_not ), ( "volumeToken1_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_gt ), ( "volumeToken1_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_lt ), ( "volumeToken1_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_gte ), ( "volumeToken1_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_lte ), ( "volumeToken1_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken1_in ), ( "volumeToken1_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken1_not_in ), ( "volumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD ), ( "volumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_not ), ( "volumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_gt ), ( "volumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_lt ), ( "volumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_gte ), ( "volumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_lte ), ( "volumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeUSD_in ), ( "volumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeUSD_not_in ), ( "untrackedVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "txCount", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "createdAtTimestamp", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp ), ( "createdAtTimestamp_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_not ), ( "createdAtTimestamp_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_gt ), ( "createdAtTimestamp_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_lt ), ( "createdAtTimestamp_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_gte ), ( "createdAtTimestamp_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_lte ), ( "createdAtTimestamp_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtTimestamp_in ), ( "createdAtTimestamp_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtTimestamp_not_in ), ( "createdAtBlockNumber", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber ), ( "createdAtBlockNumber_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_not ), ( "createdAtBlockNumber_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_gt ), ( "createdAtBlockNumber_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_lt ), ( "createdAtBlockNumber_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_gte ), ( "createdAtBlockNumber_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_lte ), ( "createdAtBlockNumber_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtBlockNumber_in ), ( "createdAtBlockNumber_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtBlockNumber_not_in ), ( "liquidityProviderCount", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount ), ( "liquidityProviderCount_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_not ), ( "liquidityProviderCount_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_gt ), ( "liquidityProviderCount_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_lt ), ( "liquidityProviderCount_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_gte ), ( "liquidityProviderCount_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_lte ), ( "liquidityProviderCount_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.liquidityProviderCount_in ), ( "liquidityProviderCount_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.liquidityProviderCount_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "token0", Encode.string |> Encode.optional input.token0 ), ( "token0_not", Encode.string |> Encode.optional input.token0_not ), ( "token0_gt", Encode.string |> Encode.optional input.token0_gt ), ( "token0_lt", Encode.string |> Encode.optional input.token0_lt ), ( "token0_gte", Encode.string |> Encode.optional input.token0_gte ), ( "token0_lte", Encode.string |> Encode.optional input.token0_lte ), ( "token0_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_in ), ( "token0_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token0_not_in ), ( "token0_contains", Encode.string |> Encode.optional input.token0_contains ), ( "token0_not_contains", Encode.string |> Encode.optional input.token0_not_contains ), ( "token0_starts_with", Encode.string |> Encode.optional input.token0_starts_with ), ( "token0_not_starts_with", Encode.string |> Encode.optional input.token0_not_starts_with ), ( "token0_ends_with", Encode.string |> Encode.optional input.token0_ends_with ), ( "token0_not_ends_with", Encode.string |> Encode.optional input.token0_not_ends_with ), ( "token1", Encode.string |> Encode.optional input.token1 ), ( "token1_not", Encode.string |> Encode.optional input.token1_not ), ( "token1_gt", Encode.string |> Encode.optional input.token1_gt ), ( "token1_lt", Encode.string |> Encode.optional input.token1_lt ), ( "token1_gte", Encode.string |> Encode.optional input.token1_gte ), ( "token1_lte", Encode.string |> Encode.optional input.token1_lte ), ( "token1_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_in ), ( "token1_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token1_not_in ), ( "token1_contains", Encode.string |> Encode.optional input.token1_contains ), ( "token1_not_contains", Encode.string |> Encode.optional input.token1_not_contains ), ( "token1_starts_with", Encode.string |> Encode.optional input.token1_starts_with ), ( "token1_not_starts_with", Encode.string |> Encode.optional input.token1_not_starts_with ), ( "token1_ends_with", Encode.string |> Encode.optional input.token1_ends_with ), ( "token1_not_ends_with", Encode.string |> Encode.optional input.token1_not_ends_with ), ( "reserve0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0 ), ( "reserve0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_not ), ( "reserve0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gt ), ( "reserve0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lt ), ( "reserve0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_gte ), ( "reserve0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve0_lte ), ( "reserve0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_in ), ( "reserve0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve0_not_in ), ( "reserve1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1 ), ( "reserve1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_not ), ( "reserve1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gt ), ( "reserve1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lt ), ( "reserve1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_gte ), ( "reserve1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserve1_lte ), ( "reserve1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_in ), ( "reserve1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserve1_not_in ), ( "totalSupply", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "reserveETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH ), ( "reserveETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_not ), ( "reserveETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_gt ), ( "reserveETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_lt ), ( "reserveETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_gte ), ( "reserveETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveETH_lte ), ( "reserveETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveETH_in ), ( "reserveETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveETH_not_in ), ( "reserveUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD ), ( "reserveUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_not ), ( "reserveUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gt ), ( "reserveUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lt ), ( "reserveUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_gte ), ( "reserveUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.reserveUSD_lte ), ( "reserveUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_in ), ( "reserveUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.reserveUSD_not_in ), ( "trackedReserveETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH ), ( "trackedReserveETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_not ), ( "trackedReserveETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_gt ), ( "trackedReserveETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_lt ), ( "trackedReserveETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_gte ), ( "trackedReserveETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.trackedReserveETH_lte ), ( "trackedReserveETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.trackedReserveETH_in ), ( "trackedReserveETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.trackedReserveETH_not_in ), ( "token0Price", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price ), ( "token0Price_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_not ), ( "token0Price_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_gt ), ( "token0Price_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_lt ), ( "token0Price_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_gte ), ( "token0Price_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token0Price_lte ), ( "token0Price_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0Price_in ), ( "token0Price_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token0Price_not_in ), ( "token1Price", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price ), ( "token1Price_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_not ), ( "token1Price_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_gt ), ( "token1Price_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_lt ), ( "token1Price_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_gte ), ( "token1Price_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.token1Price_lte ), ( "token1Price_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1Price_in ), ( "token1Price_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.token1Price_not_in ), ( "volumeToken0", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0 ), ( "volumeToken0_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_not ), ( "volumeToken0_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_gt ), ( "volumeToken0_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_lt ), ( "volumeToken0_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_gte ), ( "volumeToken0_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken0_lte ), ( "volumeToken0_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken0_in ), ( "volumeToken0_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken0_not_in ), ( "volumeToken1", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1 ), ( "volumeToken1_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_not ), ( "volumeToken1_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_gt ), ( "volumeToken1_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_lt ), ( "volumeToken1_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_gte ), ( "volumeToken1_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeToken1_lte ), ( "volumeToken1_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken1_in ), ( "volumeToken1_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeToken1_not_in ), ( "volumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD ), ( "volumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_not ), ( "volumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_gt ), ( "volumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_lt ), ( "volumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_gte ), ( "volumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.volumeUSD_lte ), ( "volumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeUSD_in ), ( "volumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.volumeUSD_not_in ), ( "untrackedVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "txCount", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "createdAtTimestamp", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp ), ( "createdAtTimestamp_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_not ), ( "createdAtTimestamp_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_gt ), ( "createdAtTimestamp_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_lt ), ( "createdAtTimestamp_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_gte ), ( "createdAtTimestamp_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtTimestamp_lte ), ( "createdAtTimestamp_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtTimestamp_in ), ( "createdAtTimestamp_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtTimestamp_not_in ), ( "createdAtBlockNumber", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber ), ( "createdAtBlockNumber_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_not ), ( "createdAtBlockNumber_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_gt ), ( "createdAtBlockNumber_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_lt ), ( "createdAtBlockNumber_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_gte ), ( "createdAtBlockNumber_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.createdAtBlockNumber_lte ), ( "createdAtBlockNumber_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtBlockNumber_in ), ( "createdAtBlockNumber_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.createdAtBlockNumber_not_in ), ( "liquidityProviderCount", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount ), ( "liquidityProviderCount_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_not ), ( "liquidityProviderCount_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_gt ), ( "liquidityProviderCount_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_lt ), ( "liquidityProviderCount_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_gte ), ( "liquidityProviderCount_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.liquidityProviderCount_lte ), ( "liquidityProviderCount_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.liquidityProviderCount_in ), ( "liquidityProviderCount_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.liquidityProviderCount_not_in ) ]
 
 
 buildSwap_filter :
@@ -1844,14 +1844,14 @@ buildSwap_filter fillOptionals =
 
 
 type alias Swap_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -1866,14 +1866,14 @@ type alias Swap_filterOptionalFields =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -1888,80 +1888,80 @@ type alias Swap_filterOptionalFields =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0In : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0In_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1In : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1In_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0Out : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0Out_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1Out : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1Out_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0In : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0In_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1In : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1In_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0Out : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0Out_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1Out : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1Out_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the Swap\_filter input object.
 -}
 type alias Swap_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , transaction : OptionalArgument String
     , transaction_not : OptionalArgument String
     , transaction_gt : OptionalArgument String
@@ -1976,14 +1976,14 @@ type alias Swap_filter =
     , transaction_not_starts_with : OptionalArgument String
     , transaction_ends_with : OptionalArgument String
     , transaction_not_ends_with : OptionalArgument String
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , pair : OptionalArgument String
     , pair_not : OptionalArgument String
     , pair_gt : OptionalArgument String
@@ -1998,66 +1998,66 @@ type alias Swap_filter =
     , pair_not_starts_with : OptionalArgument String
     , pair_ends_with : OptionalArgument String
     , pair_not_ends_with : OptionalArgument String
-    , sender : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , sender_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , sender_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , amount0In : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0In_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0In_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1In : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1In_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1In_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0Out : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount0Out_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount0Out_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1Out : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amount1Out_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amount1Out_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , to : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Bytes)
-    , to_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , to_not_contains : OptionalArgument UniSwapGraph.ScalarCodecs.Bytes
-    , logIndex : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , logIndex_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , logIndex_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , amountUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , amountUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , amountUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , sender : OptionalArgument ScalarCodecs.Bytes
+    , sender_not : OptionalArgument ScalarCodecs.Bytes
+    , sender_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , sender_contains : OptionalArgument ScalarCodecs.Bytes
+    , sender_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , amount0In : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0In_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0In_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1In : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1In_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1In_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0Out : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount0Out_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount0Out_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1Out : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amount1Out_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amount1Out_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , to : OptionalArgument ScalarCodecs.Bytes
+    , to_not : OptionalArgument ScalarCodecs.Bytes
+    , to_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_not_in : OptionalArgument (List ScalarCodecs.Bytes)
+    , to_contains : OptionalArgument ScalarCodecs.Bytes
+    , to_not_contains : OptionalArgument ScalarCodecs.Bytes
+    , logIndex : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_not : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lt : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_gte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_lte : OptionalArgument ScalarCodecs.BigInt
+    , logIndex_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , logIndex_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , amountUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , amountUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , amountUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -2066,7 +2066,7 @@ type alias Swap_filter =
 encodeSwap_filter : Swap_filter -> Value
 encodeSwap_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "sender", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0In", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In ), ( "amount0In_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_not ), ( "amount0In_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_gt ), ( "amount0In_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_lt ), ( "amount0In_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_gte ), ( "amount0In_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_lte ), ( "amount0In_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0In_in ), ( "amount0In_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0In_not_in ), ( "amount1In", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In ), ( "amount1In_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_not ), ( "amount1In_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_gt ), ( "amount1In_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_lt ), ( "amount1In_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_gte ), ( "amount1In_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_lte ), ( "amount1In_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1In_in ), ( "amount1In_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1In_not_in ), ( "amount0Out", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out ), ( "amount0Out_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_not ), ( "amount0Out_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_gt ), ( "amount0Out_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_lt ), ( "amount0Out_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_gte ), ( "amount0Out_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_lte ), ( "amount0Out_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0Out_in ), ( "amount0Out_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0Out_not_in ), ( "amount1Out", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out ), ( "amount1Out_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_not ), ( "amount1Out_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_gt ), ( "amount1Out_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_lt ), ( "amount1Out_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_gte ), ( "amount1Out_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_lte ), ( "amount1Out_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1Out_in ), ( "amount1Out_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1Out_not_in ), ( "to", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "logIndex", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "transaction", Encode.string |> Encode.optional input.transaction ), ( "transaction_not", Encode.string |> Encode.optional input.transaction_not ), ( "transaction_gt", Encode.string |> Encode.optional input.transaction_gt ), ( "transaction_lt", Encode.string |> Encode.optional input.transaction_lt ), ( "transaction_gte", Encode.string |> Encode.optional input.transaction_gte ), ( "transaction_lte", Encode.string |> Encode.optional input.transaction_lte ), ( "transaction_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_in ), ( "transaction_not_in", (Encode.string |> Encode.list) |> Encode.optional input.transaction_not_in ), ( "transaction_contains", Encode.string |> Encode.optional input.transaction_contains ), ( "transaction_not_contains", Encode.string |> Encode.optional input.transaction_not_contains ), ( "transaction_starts_with", Encode.string |> Encode.optional input.transaction_starts_with ), ( "transaction_not_starts_with", Encode.string |> Encode.optional input.transaction_not_starts_with ), ( "transaction_ends_with", Encode.string |> Encode.optional input.transaction_ends_with ), ( "transaction_not_ends_with", Encode.string |> Encode.optional input.transaction_not_ends_with ), ( "timestamp", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "pair", Encode.string |> Encode.optional input.pair ), ( "pair_not", Encode.string |> Encode.optional input.pair_not ), ( "pair_gt", Encode.string |> Encode.optional input.pair_gt ), ( "pair_lt", Encode.string |> Encode.optional input.pair_lt ), ( "pair_gte", Encode.string |> Encode.optional input.pair_gte ), ( "pair_lte", Encode.string |> Encode.optional input.pair_lte ), ( "pair_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_in ), ( "pair_not_in", (Encode.string |> Encode.list) |> Encode.optional input.pair_not_in ), ( "pair_contains", Encode.string |> Encode.optional input.pair_contains ), ( "pair_not_contains", Encode.string |> Encode.optional input.pair_not_contains ), ( "pair_starts_with", Encode.string |> Encode.optional input.pair_starts_with ), ( "pair_not_starts_with", Encode.string |> Encode.optional input.pair_not_starts_with ), ( "pair_ends_with", Encode.string |> Encode.optional input.pair_ends_with ), ( "pair_not_ends_with", Encode.string |> Encode.optional input.pair_not_ends_with ), ( "sender", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender ), ( "sender_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not ), ( "sender_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_in ), ( "sender_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.sender_not_in ), ( "sender_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_contains ), ( "sender_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.sender_not_contains ), ( "amount0In", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In ), ( "amount0In_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_not ), ( "amount0In_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_gt ), ( "amount0In_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_lt ), ( "amount0In_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_gte ), ( "amount0In_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0In_lte ), ( "amount0In_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0In_in ), ( "amount0In_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0In_not_in ), ( "amount1In", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In ), ( "amount1In_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_not ), ( "amount1In_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_gt ), ( "amount1In_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_lt ), ( "amount1In_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_gte ), ( "amount1In_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1In_lte ), ( "amount1In_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1In_in ), ( "amount1In_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1In_not_in ), ( "amount0Out", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out ), ( "amount0Out_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_not ), ( "amount0Out_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_gt ), ( "amount0Out_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_lt ), ( "amount0Out_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_gte ), ( "amount0Out_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount0Out_lte ), ( "amount0Out_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0Out_in ), ( "amount0Out_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount0Out_not_in ), ( "amount1Out", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out ), ( "amount1Out_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_not ), ( "amount1Out_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_gt ), ( "amount1Out_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_lt ), ( "amount1Out_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_gte ), ( "amount1Out_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amount1Out_lte ), ( "amount1Out_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1Out_in ), ( "amount1Out_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amount1Out_not_in ), ( "to", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to ), ( "to_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not ), ( "to_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_in ), ( "to_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.list) |> Encode.optional input.to_not_in ), ( "to_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_contains ), ( "to_not_contains", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBytes) |> Encode.optional input.to_not_contains ), ( "logIndex", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex ), ( "logIndex_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_not ), ( "logIndex_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gt ), ( "logIndex_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lt ), ( "logIndex_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_gte ), ( "logIndex_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.logIndex_lte ), ( "logIndex_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_in ), ( "logIndex_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.logIndex_not_in ), ( "amountUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD ), ( "amountUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_not ), ( "amountUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gt ), ( "amountUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lt ), ( "amountUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_gte ), ( "amountUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.amountUSD_lte ), ( "amountUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_in ), ( "amountUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.amountUSD_not_in ) ]
 
 
 buildTokenDayData_filter :
@@ -2082,14 +2082,14 @@ buildTokenDayData_filter fillOptionals =
 
 
 type alias TokenDayData_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -2112,70 +2112,70 @@ type alias TokenDayData_filterOptionalFields =
     , token_not_starts_with : OptionalArgument String
     , token_ends_with : OptionalArgument String
     , token_not_ends_with : OptionalArgument String
-    , dailyVolumeToken : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , dailyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalLiquidityToken : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityToken_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , priceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , priceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , dailyVolumeToken : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyTxns : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , dailyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalLiquidityToken : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityToken_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , priceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , priceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , maxStored : OptionalArgument Int
     , maxStored_not : OptionalArgument Int
     , maxStored_gt : OptionalArgument Int
@@ -2194,14 +2194,14 @@ type alias TokenDayData_filterOptionalFields =
 {-| Type for the TokenDayData\_filter input object.
 -}
 type alias TokenDayData_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -2224,70 +2224,70 @@ type alias TokenDayData_filter =
     , token_not_starts_with : OptionalArgument String
     , token_ends_with : OptionalArgument String
     , token_not_ends_with : OptionalArgument String
-    , dailyVolumeToken : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeToken_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeToken_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyTxns : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , dailyTxns_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , dailyTxns_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalLiquidityToken : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityToken_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityToken_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , priceUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , priceUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , priceUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , dailyVolumeToken : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeToken_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeToken_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyTxns : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_not : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lt : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_gte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_lte : OptionalArgument ScalarCodecs.BigInt
+    , dailyTxns_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , dailyTxns_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalLiquidityToken : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityToken_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityToken_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , priceUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , priceUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , priceUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , maxStored : OptionalArgument Int
     , maxStored_not : OptionalArgument Int
     , maxStored_gt : OptionalArgument Int
@@ -2308,7 +2308,7 @@ type alias TokenDayData_filter =
 encodeTokenDayData_filter : TokenDayData_filter -> Value
 encodeTokenDayData_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "token", Encode.string |> Encode.optional input.token ), ( "token_not", Encode.string |> Encode.optional input.token_not ), ( "token_gt", Encode.string |> Encode.optional input.token_gt ), ( "token_lt", Encode.string |> Encode.optional input.token_lt ), ( "token_gte", Encode.string |> Encode.optional input.token_gte ), ( "token_lte", Encode.string |> Encode.optional input.token_lte ), ( "token_in", (Encode.string |> Encode.list) |> Encode.optional input.token_in ), ( "token_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token_not_in ), ( "token_contains", Encode.string |> Encode.optional input.token_contains ), ( "token_not_contains", Encode.string |> Encode.optional input.token_not_contains ), ( "token_starts_with", Encode.string |> Encode.optional input.token_starts_with ), ( "token_not_starts_with", Encode.string |> Encode.optional input.token_not_starts_with ), ( "token_ends_with", Encode.string |> Encode.optional input.token_ends_with ), ( "token_not_ends_with", Encode.string |> Encode.optional input.token_not_ends_with ), ( "dailyVolumeToken", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken ), ( "dailyVolumeToken_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_not ), ( "dailyVolumeToken_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_gt ), ( "dailyVolumeToken_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_lt ), ( "dailyVolumeToken_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_gte ), ( "dailyVolumeToken_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_lte ), ( "dailyVolumeToken_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken_in ), ( "dailyVolumeToken_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken_not_in ), ( "dailyVolumeETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH ), ( "dailyVolumeETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_not ), ( "dailyVolumeETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gt ), ( "dailyVolumeETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lt ), ( "dailyVolumeETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gte ), ( "dailyVolumeETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lte ), ( "dailyVolumeETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_in ), ( "dailyVolumeETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_not_in ), ( "dailyVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyTxns", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns ), ( "dailyTxns_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_not ), ( "dailyTxns_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gt ), ( "dailyTxns_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lt ), ( "dailyTxns_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gte ), ( "dailyTxns_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lte ), ( "dailyTxns_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_in ), ( "dailyTxns_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_not_in ), ( "totalLiquidityToken", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken ), ( "totalLiquidityToken_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_not ), ( "totalLiquidityToken_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_gt ), ( "totalLiquidityToken_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_lt ), ( "totalLiquidityToken_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_gte ), ( "totalLiquidityToken_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_lte ), ( "totalLiquidityToken_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityToken_in ), ( "totalLiquidityToken_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityToken_not_in ), ( "totalLiquidityETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "totalLiquidityUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "priceUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD ), ( "priceUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_not ), ( "priceUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_gt ), ( "priceUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_lt ), ( "priceUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_gte ), ( "priceUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_lte ), ( "priceUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.priceUSD_in ), ( "priceUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.priceUSD_not_in ), ( "maxStored", Encode.int |> Encode.optional input.maxStored ), ( "maxStored_not", Encode.int |> Encode.optional input.maxStored_not ), ( "maxStored_gt", Encode.int |> Encode.optional input.maxStored_gt ), ( "maxStored_lt", Encode.int |> Encode.optional input.maxStored_lt ), ( "maxStored_gte", Encode.int |> Encode.optional input.maxStored_gte ), ( "maxStored_lte", Encode.int |> Encode.optional input.maxStored_lte ), ( "maxStored_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_in ), ( "maxStored_not_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_not_in ), ( "mostLiquidPairs", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs ), ( "mostLiquidPairs_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not ), ( "mostLiquidPairs_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_contains ), ( "mostLiquidPairs_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not_contains ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "token", Encode.string |> Encode.optional input.token ), ( "token_not", Encode.string |> Encode.optional input.token_not ), ( "token_gt", Encode.string |> Encode.optional input.token_gt ), ( "token_lt", Encode.string |> Encode.optional input.token_lt ), ( "token_gte", Encode.string |> Encode.optional input.token_gte ), ( "token_lte", Encode.string |> Encode.optional input.token_lte ), ( "token_in", (Encode.string |> Encode.list) |> Encode.optional input.token_in ), ( "token_not_in", (Encode.string |> Encode.list) |> Encode.optional input.token_not_in ), ( "token_contains", Encode.string |> Encode.optional input.token_contains ), ( "token_not_contains", Encode.string |> Encode.optional input.token_not_contains ), ( "token_starts_with", Encode.string |> Encode.optional input.token_starts_with ), ( "token_not_starts_with", Encode.string |> Encode.optional input.token_not_starts_with ), ( "token_ends_with", Encode.string |> Encode.optional input.token_ends_with ), ( "token_not_ends_with", Encode.string |> Encode.optional input.token_not_ends_with ), ( "dailyVolumeToken", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken ), ( "dailyVolumeToken_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_not ), ( "dailyVolumeToken_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_gt ), ( "dailyVolumeToken_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_lt ), ( "dailyVolumeToken_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_gte ), ( "dailyVolumeToken_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeToken_lte ), ( "dailyVolumeToken_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken_in ), ( "dailyVolumeToken_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeToken_not_in ), ( "dailyVolumeETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH ), ( "dailyVolumeETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_not ), ( "dailyVolumeETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gt ), ( "dailyVolumeETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lt ), ( "dailyVolumeETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gte ), ( "dailyVolumeETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lte ), ( "dailyVolumeETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_in ), ( "dailyVolumeETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_not_in ), ( "dailyVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyTxns", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns ), ( "dailyTxns_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_not ), ( "dailyTxns_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gt ), ( "dailyTxns_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lt ), ( "dailyTxns_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_gte ), ( "dailyTxns_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.dailyTxns_lte ), ( "dailyTxns_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_in ), ( "dailyTxns_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.dailyTxns_not_in ), ( "totalLiquidityToken", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken ), ( "totalLiquidityToken_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_not ), ( "totalLiquidityToken_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_gt ), ( "totalLiquidityToken_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_lt ), ( "totalLiquidityToken_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_gte ), ( "totalLiquidityToken_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityToken_lte ), ( "totalLiquidityToken_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityToken_in ), ( "totalLiquidityToken_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityToken_not_in ), ( "totalLiquidityETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "totalLiquidityUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "priceUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD ), ( "priceUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_not ), ( "priceUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_gt ), ( "priceUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_lt ), ( "priceUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_gte ), ( "priceUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.priceUSD_lte ), ( "priceUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.priceUSD_in ), ( "priceUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.priceUSD_not_in ), ( "maxStored", Encode.int |> Encode.optional input.maxStored ), ( "maxStored_not", Encode.int |> Encode.optional input.maxStored_not ), ( "maxStored_gt", Encode.int |> Encode.optional input.maxStored_gt ), ( "maxStored_lt", Encode.int |> Encode.optional input.maxStored_lt ), ( "maxStored_gte", Encode.int |> Encode.optional input.maxStored_gte ), ( "maxStored_lte", Encode.int |> Encode.optional input.maxStored_lte ), ( "maxStored_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_in ), ( "maxStored_not_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_not_in ), ( "mostLiquidPairs", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs ), ( "mostLiquidPairs_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not ), ( "mostLiquidPairs_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_contains ), ( "mostLiquidPairs_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not_contains ) ]
 
 
 buildToken_filter :
@@ -2324,14 +2324,14 @@ buildToken_filter fillOptionals =
 
 
 type alias Token_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , symbol : OptionalArgument String
     , symbol_not : OptionalArgument String
     , symbol_gt : OptionalArgument String
@@ -2360,70 +2360,70 @@ type alias Token_filterOptionalFields =
     , name_not_starts_with : OptionalArgument String
     , name_ends_with : OptionalArgument String
     , name_not_ends_with : OptionalArgument String
-    , decimals : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , decimals_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , tradeVolume : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolume_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , derivedETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , derivedETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , decimals : OptionalArgument ScalarCodecs.BigInt
+    , decimals_not : OptionalArgument ScalarCodecs.BigInt
+    , decimals_gt : OptionalArgument ScalarCodecs.BigInt
+    , decimals_lt : OptionalArgument ScalarCodecs.BigInt
+    , decimals_gte : OptionalArgument ScalarCodecs.BigInt
+    , decimals_lte : OptionalArgument ScalarCodecs.BigInt
+    , decimals_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , decimals_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalSupply : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , tradeVolume : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_not : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolume_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , derivedETH : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , derivedETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , mostLiquidPairs : OptionalArgument (List String)
     , mostLiquidPairs_not : OptionalArgument (List String)
     , mostLiquidPairs_contains : OptionalArgument (List String)
@@ -2434,14 +2434,14 @@ type alias Token_filterOptionalFields =
 {-| Type for the Token\_filter input object.
 -}
 type alias Token_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , symbol : OptionalArgument String
     , symbol_not : OptionalArgument String
     , symbol_gt : OptionalArgument String
@@ -2470,70 +2470,70 @@ type alias Token_filter =
     , name_not_starts_with : OptionalArgument String
     , name_ends_with : OptionalArgument String
     , name_not_ends_with : OptionalArgument String
-    , decimals : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , decimals_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , decimals_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalSupply : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , totalSupply_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalSupply_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , tradeVolume : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolume_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolume_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , tradeVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , tradeVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , totalLiquidity : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidity_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidity_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , derivedETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , derivedETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , derivedETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , decimals : OptionalArgument ScalarCodecs.BigInt
+    , decimals_not : OptionalArgument ScalarCodecs.BigInt
+    , decimals_gt : OptionalArgument ScalarCodecs.BigInt
+    , decimals_lt : OptionalArgument ScalarCodecs.BigInt
+    , decimals_gte : OptionalArgument ScalarCodecs.BigInt
+    , decimals_lte : OptionalArgument ScalarCodecs.BigInt
+    , decimals_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , decimals_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalSupply : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_not : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_gt : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_lt : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_gte : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_lte : OptionalArgument ScalarCodecs.BigInt
+    , totalSupply_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalSupply_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , tradeVolume : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_not : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolume_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolume_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , tradeVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , tradeVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , totalLiquidity : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidity_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidity_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , derivedETH : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , derivedETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , derivedETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , mostLiquidPairs : OptionalArgument (List String)
     , mostLiquidPairs_not : OptionalArgument (List String)
     , mostLiquidPairs_contains : OptionalArgument (List String)
@@ -2546,7 +2546,7 @@ type alias Token_filter =
 encodeToken_filter : Token_filter -> Value
 encodeToken_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "symbol", Encode.string |> Encode.optional input.symbol ), ( "symbol_not", Encode.string |> Encode.optional input.symbol_not ), ( "symbol_gt", Encode.string |> Encode.optional input.symbol_gt ), ( "symbol_lt", Encode.string |> Encode.optional input.symbol_lt ), ( "symbol_gte", Encode.string |> Encode.optional input.symbol_gte ), ( "symbol_lte", Encode.string |> Encode.optional input.symbol_lte ), ( "symbol_in", (Encode.string |> Encode.list) |> Encode.optional input.symbol_in ), ( "symbol_not_in", (Encode.string |> Encode.list) |> Encode.optional input.symbol_not_in ), ( "symbol_contains", Encode.string |> Encode.optional input.symbol_contains ), ( "symbol_not_contains", Encode.string |> Encode.optional input.symbol_not_contains ), ( "symbol_starts_with", Encode.string |> Encode.optional input.symbol_starts_with ), ( "symbol_not_starts_with", Encode.string |> Encode.optional input.symbol_not_starts_with ), ( "symbol_ends_with", Encode.string |> Encode.optional input.symbol_ends_with ), ( "symbol_not_ends_with", Encode.string |> Encode.optional input.symbol_not_ends_with ), ( "name", Encode.string |> Encode.optional input.name ), ( "name_not", Encode.string |> Encode.optional input.name_not ), ( "name_gt", Encode.string |> Encode.optional input.name_gt ), ( "name_lt", Encode.string |> Encode.optional input.name_lt ), ( "name_gte", Encode.string |> Encode.optional input.name_gte ), ( "name_lte", Encode.string |> Encode.optional input.name_lte ), ( "name_in", (Encode.string |> Encode.list) |> Encode.optional input.name_in ), ( "name_not_in", (Encode.string |> Encode.list) |> Encode.optional input.name_not_in ), ( "name_contains", Encode.string |> Encode.optional input.name_contains ), ( "name_not_contains", Encode.string |> Encode.optional input.name_not_contains ), ( "name_starts_with", Encode.string |> Encode.optional input.name_starts_with ), ( "name_not_starts_with", Encode.string |> Encode.optional input.name_not_starts_with ), ( "name_ends_with", Encode.string |> Encode.optional input.name_ends_with ), ( "name_not_ends_with", Encode.string |> Encode.optional input.name_not_ends_with ), ( "decimals", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals ), ( "decimals_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_not ), ( "decimals_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_gt ), ( "decimals_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_lt ), ( "decimals_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_gte ), ( "decimals_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_lte ), ( "decimals_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.decimals_in ), ( "decimals_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.decimals_not_in ), ( "totalSupply", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "tradeVolume", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume ), ( "tradeVolume_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_not ), ( "tradeVolume_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_gt ), ( "tradeVolume_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_lt ), ( "tradeVolume_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_gte ), ( "tradeVolume_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_lte ), ( "tradeVolume_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolume_in ), ( "tradeVolume_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolume_not_in ), ( "tradeVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD ), ( "tradeVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_not ), ( "tradeVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_gt ), ( "tradeVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_lt ), ( "tradeVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_gte ), ( "tradeVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_lte ), ( "tradeVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolumeUSD_in ), ( "tradeVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolumeUSD_not_in ), ( "untrackedVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "txCount", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "totalLiquidity", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity ), ( "totalLiquidity_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_not ), ( "totalLiquidity_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_gt ), ( "totalLiquidity_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_lt ), ( "totalLiquidity_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_gte ), ( "totalLiquidity_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_lte ), ( "totalLiquidity_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidity_in ), ( "totalLiquidity_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidity_not_in ), ( "derivedETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH ), ( "derivedETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_not ), ( "derivedETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_gt ), ( "derivedETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_lt ), ( "derivedETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_gte ), ( "derivedETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_lte ), ( "derivedETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.derivedETH_in ), ( "derivedETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.derivedETH_not_in ), ( "mostLiquidPairs", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs ), ( "mostLiquidPairs_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not ), ( "mostLiquidPairs_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_contains ), ( "mostLiquidPairs_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not_contains ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "symbol", Encode.string |> Encode.optional input.symbol ), ( "symbol_not", Encode.string |> Encode.optional input.symbol_not ), ( "symbol_gt", Encode.string |> Encode.optional input.symbol_gt ), ( "symbol_lt", Encode.string |> Encode.optional input.symbol_lt ), ( "symbol_gte", Encode.string |> Encode.optional input.symbol_gte ), ( "symbol_lte", Encode.string |> Encode.optional input.symbol_lte ), ( "symbol_in", (Encode.string |> Encode.list) |> Encode.optional input.symbol_in ), ( "symbol_not_in", (Encode.string |> Encode.list) |> Encode.optional input.symbol_not_in ), ( "symbol_contains", Encode.string |> Encode.optional input.symbol_contains ), ( "symbol_not_contains", Encode.string |> Encode.optional input.symbol_not_contains ), ( "symbol_starts_with", Encode.string |> Encode.optional input.symbol_starts_with ), ( "symbol_not_starts_with", Encode.string |> Encode.optional input.symbol_not_starts_with ), ( "symbol_ends_with", Encode.string |> Encode.optional input.symbol_ends_with ), ( "symbol_not_ends_with", Encode.string |> Encode.optional input.symbol_not_ends_with ), ( "name", Encode.string |> Encode.optional input.name ), ( "name_not", Encode.string |> Encode.optional input.name_not ), ( "name_gt", Encode.string |> Encode.optional input.name_gt ), ( "name_lt", Encode.string |> Encode.optional input.name_lt ), ( "name_gte", Encode.string |> Encode.optional input.name_gte ), ( "name_lte", Encode.string |> Encode.optional input.name_lte ), ( "name_in", (Encode.string |> Encode.list) |> Encode.optional input.name_in ), ( "name_not_in", (Encode.string |> Encode.list) |> Encode.optional input.name_not_in ), ( "name_contains", Encode.string |> Encode.optional input.name_contains ), ( "name_not_contains", Encode.string |> Encode.optional input.name_not_contains ), ( "name_starts_with", Encode.string |> Encode.optional input.name_starts_with ), ( "name_not_starts_with", Encode.string |> Encode.optional input.name_not_starts_with ), ( "name_ends_with", Encode.string |> Encode.optional input.name_ends_with ), ( "name_not_ends_with", Encode.string |> Encode.optional input.name_not_ends_with ), ( "decimals", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals ), ( "decimals_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_not ), ( "decimals_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_gt ), ( "decimals_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_lt ), ( "decimals_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_gte ), ( "decimals_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.decimals_lte ), ( "decimals_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.decimals_in ), ( "decimals_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.decimals_not_in ), ( "totalSupply", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply ), ( "totalSupply_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_not ), ( "totalSupply_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_gt ), ( "totalSupply_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_lt ), ( "totalSupply_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_gte ), ( "totalSupply_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.totalSupply_lte ), ( "totalSupply_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.totalSupply_in ), ( "totalSupply_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.totalSupply_not_in ), ( "tradeVolume", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume ), ( "tradeVolume_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_not ), ( "tradeVolume_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_gt ), ( "tradeVolume_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_lt ), ( "tradeVolume_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_gte ), ( "tradeVolume_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolume_lte ), ( "tradeVolume_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolume_in ), ( "tradeVolume_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolume_not_in ), ( "tradeVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD ), ( "tradeVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_not ), ( "tradeVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_gt ), ( "tradeVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_lt ), ( "tradeVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_gte ), ( "tradeVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.tradeVolumeUSD_lte ), ( "tradeVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolumeUSD_in ), ( "tradeVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.tradeVolumeUSD_not_in ), ( "untrackedVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "txCount", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "totalLiquidity", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity ), ( "totalLiquidity_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_not ), ( "totalLiquidity_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_gt ), ( "totalLiquidity_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_lt ), ( "totalLiquidity_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_gte ), ( "totalLiquidity_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidity_lte ), ( "totalLiquidity_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidity_in ), ( "totalLiquidity_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidity_not_in ), ( "derivedETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH ), ( "derivedETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_not ), ( "derivedETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_gt ), ( "derivedETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_lt ), ( "derivedETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_gte ), ( "derivedETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.derivedETH_lte ), ( "derivedETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.derivedETH_in ), ( "derivedETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.derivedETH_not_in ), ( "mostLiquidPairs", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs ), ( "mostLiquidPairs_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not ), ( "mostLiquidPairs_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_contains ), ( "mostLiquidPairs_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidPairs_not_contains ) ]
 
 
 buildTransaction_filter :
@@ -2562,30 +2562,30 @@ buildTransaction_filter fillOptionals =
 
 
 type alias Transaction_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , blockNumber : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , blockNumber_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , blockNumber : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_not : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_gt : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_lt : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_gte : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_lte : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , blockNumber_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , mints : OptionalArgument (List String)
     , mints_not : OptionalArgument (List String)
     , mints_contains : OptionalArgument (List String)
@@ -2604,30 +2604,30 @@ type alias Transaction_filterOptionalFields =
 {-| Type for the Transaction\_filter input object.
 -}
 type alias Transaction_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , blockNumber : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , blockNumber_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , blockNumber_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , timestamp_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , timestamp_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , blockNumber : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_not : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_gt : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_lt : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_gte : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_lte : OptionalArgument ScalarCodecs.BigInt
+    , blockNumber_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , blockNumber_not_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_not : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lt : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_gte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_lte : OptionalArgument ScalarCodecs.BigInt
+    , timestamp_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , timestamp_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , mints : OptionalArgument (List String)
     , mints_not : OptionalArgument (List String)
     , mints_contains : OptionalArgument (List String)
@@ -2648,7 +2648,7 @@ type alias Transaction_filter =
 encodeTransaction_filter : Transaction_filter -> Value
 encodeTransaction_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "blockNumber", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber ), ( "blockNumber_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_not ), ( "blockNumber_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_gt ), ( "blockNumber_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_lt ), ( "blockNumber_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_gte ), ( "blockNumber_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_lte ), ( "blockNumber_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.blockNumber_in ), ( "blockNumber_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.blockNumber_not_in ), ( "timestamp", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "mints", (Encode.string |> Encode.list) |> Encode.optional input.mints ), ( "mints_not", (Encode.string |> Encode.list) |> Encode.optional input.mints_not ), ( "mints_contains", (Encode.string |> Encode.list) |> Encode.optional input.mints_contains ), ( "mints_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mints_not_contains ), ( "burns", (Encode.string |> Encode.list) |> Encode.optional input.burns ), ( "burns_not", (Encode.string |> Encode.list) |> Encode.optional input.burns_not ), ( "burns_contains", (Encode.string |> Encode.list) |> Encode.optional input.burns_contains ), ( "burns_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.burns_not_contains ), ( "swaps", (Encode.string |> Encode.list) |> Encode.optional input.swaps ), ( "swaps_not", (Encode.string |> Encode.list) |> Encode.optional input.swaps_not ), ( "swaps_contains", (Encode.string |> Encode.list) |> Encode.optional input.swaps_contains ), ( "swaps_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.swaps_not_contains ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "blockNumber", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber ), ( "blockNumber_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_not ), ( "blockNumber_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_gt ), ( "blockNumber_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_lt ), ( "blockNumber_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_gte ), ( "blockNumber_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.blockNumber_lte ), ( "blockNumber_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.blockNumber_in ), ( "blockNumber_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.blockNumber_not_in ), ( "timestamp", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp ), ( "timestamp_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_not ), ( "timestamp_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gt ), ( "timestamp_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lt ), ( "timestamp_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_gte ), ( "timestamp_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.timestamp_lte ), ( "timestamp_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_in ), ( "timestamp_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.timestamp_not_in ), ( "mints", (Encode.string |> Encode.list) |> Encode.optional input.mints ), ( "mints_not", (Encode.string |> Encode.list) |> Encode.optional input.mints_not ), ( "mints_contains", (Encode.string |> Encode.list) |> Encode.optional input.mints_contains ), ( "mints_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mints_not_contains ), ( "burns", (Encode.string |> Encode.list) |> Encode.optional input.burns ), ( "burns_not", (Encode.string |> Encode.list) |> Encode.optional input.burns_not ), ( "burns_contains", (Encode.string |> Encode.list) |> Encode.optional input.burns_contains ), ( "burns_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.burns_not_contains ), ( "swaps", (Encode.string |> Encode.list) |> Encode.optional input.swaps ), ( "swaps_not", (Encode.string |> Encode.list) |> Encode.optional input.swaps_not ), ( "swaps_contains", (Encode.string |> Encode.list) |> Encode.optional input.swaps_contains ), ( "swaps_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.swaps_not_contains ) ]
 
 
 buildUniswapDayData_filter :
@@ -2664,14 +2664,14 @@ buildUniswapDayData_filter fillOptionals =
 
 
 type alias UniswapDayData_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -2680,62 +2680,62 @@ type alias UniswapDayData_filterOptionalFields =
     , date_lte : OptionalArgument Int
     , date_in : OptionalArgument (List Int)
     , date_not_in : OptionalArgument (List Int)
-    , dailyVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUntracked : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUntracked_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , dailyVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUntracked : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUntracked_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , maxStored : OptionalArgument Int
     , maxStored_not : OptionalArgument Int
     , maxStored_gt : OptionalArgument Int
@@ -2748,28 +2748,28 @@ type alias UniswapDayData_filterOptionalFields =
     , mostLiquidTokens_not : OptionalArgument (List String)
     , mostLiquidTokens_contains : OptionalArgument (List String)
     , mostLiquidTokens_not_contains : OptionalArgument (List String)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
 {-| Type for the UniswapDayData\_filter input object.
 -}
 type alias UniswapDayData_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , date : OptionalArgument Int
     , date_not : OptionalArgument Int
     , date_gt : OptionalArgument Int
@@ -2778,62 +2778,62 @@ type alias UniswapDayData_filter =
     , date_lte : OptionalArgument Int
     , date_in : OptionalArgument (List Int)
     , date_not_in : OptionalArgument (List Int)
-    , dailyVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUntracked : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , dailyVolumeUntracked_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , dailyVolumeUntracked_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    , dailyVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUntracked : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_not : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , dailyVolumeUntracked_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , dailyVolumeUntracked_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     , maxStored : OptionalArgument Int
     , maxStored_not : OptionalArgument Int
     , maxStored_gt : OptionalArgument Int
@@ -2846,14 +2846,14 @@ type alias UniswapDayData_filter =
     , mostLiquidTokens_not : OptionalArgument (List String)
     , mostLiquidTokens_contains : OptionalArgument (List String)
     , mostLiquidTokens_not_contains : OptionalArgument (List String)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     }
 
 
@@ -2862,7 +2862,7 @@ type alias UniswapDayData_filter =
 encodeUniswapDayData_filter : UniswapDayData_filter -> Value
 encodeUniswapDayData_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "dailyVolumeETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH ), ( "dailyVolumeETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_not ), ( "dailyVolumeETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gt ), ( "dailyVolumeETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lt ), ( "dailyVolumeETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gte ), ( "dailyVolumeETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lte ), ( "dailyVolumeETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_in ), ( "dailyVolumeETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_not_in ), ( "dailyVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyVolumeUntracked", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked ), ( "dailyVolumeUntracked_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_not ), ( "dailyVolumeUntracked_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_gt ), ( "dailyVolumeUntracked_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_lt ), ( "dailyVolumeUntracked_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_gte ), ( "dailyVolumeUntracked_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_lte ), ( "dailyVolumeUntracked_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUntracked_in ), ( "dailyVolumeUntracked_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUntracked_not_in ), ( "totalVolumeETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH ), ( "totalVolumeETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_not ), ( "totalVolumeETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gt ), ( "totalVolumeETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lt ), ( "totalVolumeETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gte ), ( "totalVolumeETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lte ), ( "totalVolumeETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_in ), ( "totalVolumeETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_not_in ), ( "totalLiquidityETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "totalVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD ), ( "totalVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_not ), ( "totalVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gt ), ( "totalVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lt ), ( "totalVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gte ), ( "totalVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lte ), ( "totalVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_in ), ( "totalVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_not_in ), ( "totalLiquidityUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "maxStored", Encode.int |> Encode.optional input.maxStored ), ( "maxStored_not", Encode.int |> Encode.optional input.maxStored_not ), ( "maxStored_gt", Encode.int |> Encode.optional input.maxStored_gt ), ( "maxStored_lt", Encode.int |> Encode.optional input.maxStored_lt ), ( "maxStored_gte", Encode.int |> Encode.optional input.maxStored_gte ), ( "maxStored_lte", Encode.int |> Encode.optional input.maxStored_lte ), ( "maxStored_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_in ), ( "maxStored_not_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_not_in ), ( "mostLiquidTokens", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens ), ( "mostLiquidTokens_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not ), ( "mostLiquidTokens_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_contains ), ( "mostLiquidTokens_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not_contains ), ( "txCount", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "date", Encode.int |> Encode.optional input.date ), ( "date_not", Encode.int |> Encode.optional input.date_not ), ( "date_gt", Encode.int |> Encode.optional input.date_gt ), ( "date_lt", Encode.int |> Encode.optional input.date_lt ), ( "date_gte", Encode.int |> Encode.optional input.date_gte ), ( "date_lte", Encode.int |> Encode.optional input.date_lte ), ( "date_in", (Encode.int |> Encode.list) |> Encode.optional input.date_in ), ( "date_not_in", (Encode.int |> Encode.list) |> Encode.optional input.date_not_in ), ( "dailyVolumeETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH ), ( "dailyVolumeETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_not ), ( "dailyVolumeETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gt ), ( "dailyVolumeETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lt ), ( "dailyVolumeETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_gte ), ( "dailyVolumeETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeETH_lte ), ( "dailyVolumeETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_in ), ( "dailyVolumeETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeETH_not_in ), ( "dailyVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD ), ( "dailyVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_not ), ( "dailyVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gt ), ( "dailyVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lt ), ( "dailyVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_gte ), ( "dailyVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUSD_lte ), ( "dailyVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_in ), ( "dailyVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUSD_not_in ), ( "dailyVolumeUntracked", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked ), ( "dailyVolumeUntracked_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_not ), ( "dailyVolumeUntracked_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_gt ), ( "dailyVolumeUntracked_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_lt ), ( "dailyVolumeUntracked_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_gte ), ( "dailyVolumeUntracked_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.dailyVolumeUntracked_lte ), ( "dailyVolumeUntracked_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUntracked_in ), ( "dailyVolumeUntracked_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.dailyVolumeUntracked_not_in ), ( "totalVolumeETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH ), ( "totalVolumeETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_not ), ( "totalVolumeETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gt ), ( "totalVolumeETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lt ), ( "totalVolumeETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gte ), ( "totalVolumeETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lte ), ( "totalVolumeETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_in ), ( "totalVolumeETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_not_in ), ( "totalLiquidityETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "totalVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD ), ( "totalVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_not ), ( "totalVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gt ), ( "totalVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lt ), ( "totalVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gte ), ( "totalVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lte ), ( "totalVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_in ), ( "totalVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_not_in ), ( "totalLiquidityUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "maxStored", Encode.int |> Encode.optional input.maxStored ), ( "maxStored_not", Encode.int |> Encode.optional input.maxStored_not ), ( "maxStored_gt", Encode.int |> Encode.optional input.maxStored_gt ), ( "maxStored_lt", Encode.int |> Encode.optional input.maxStored_lt ), ( "maxStored_gte", Encode.int |> Encode.optional input.maxStored_gte ), ( "maxStored_lte", Encode.int |> Encode.optional input.maxStored_lte ), ( "maxStored_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_in ), ( "maxStored_not_in", (Encode.int |> Encode.list) |> Encode.optional input.maxStored_not_in ), ( "mostLiquidTokens", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens ), ( "mostLiquidTokens_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not ), ( "mostLiquidTokens_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_contains ), ( "mostLiquidTokens_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not_contains ), ( "txCount", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ) ]
 
 
 buildUniswapFactory_filter :
@@ -2878,14 +2878,14 @@ buildUniswapFactory_filter fillOptionals =
 
 
 type alias UniswapFactory_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , pairCount : OptionalArgument Int
     , pairCount_not : OptionalArgument Int
     , pairCount_gt : OptionalArgument Int
@@ -2894,54 +2894,54 @@ type alias UniswapFactory_filterOptionalFields =
     , pairCount_lte : OptionalArgument Int
     , pairCount_in : OptionalArgument (List Int)
     , pairCount_not_in : OptionalArgument (List Int)
-    , totalVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , totalVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , mostLiquidTokens : OptionalArgument (List String)
     , mostLiquidTokens_not : OptionalArgument (List String)
     , mostLiquidTokens_contains : OptionalArgument (List String)
@@ -2952,14 +2952,14 @@ type alias UniswapFactory_filterOptionalFields =
 {-| Type for the UniswapFactory\_filter input object.
 -}
 type alias UniswapFactory_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
     , pairCount : OptionalArgument Int
     , pairCount_not : OptionalArgument Int
     , pairCount_gt : OptionalArgument Int
@@ -2968,54 +2968,54 @@ type alias UniswapFactory_filter =
     , pairCount_lte : OptionalArgument Int
     , pairCount_in : OptionalArgument (List Int)
     , pairCount_not_in : OptionalArgument (List Int)
-    , totalVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalVolumeETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalVolumeETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , untrackedVolumeUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , untrackedVolumeUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityUSD_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityUSD_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , totalLiquidityETH_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , totalLiquidityETH_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , txCount : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigInt
-    , txCount_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
-    , txCount_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigInt)
+    , totalVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalVolumeETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalVolumeETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , untrackedVolumeUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , untrackedVolumeUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityUSD_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityUSD_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_not : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , totalLiquidityETH_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , totalLiquidityETH_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , txCount : OptionalArgument ScalarCodecs.BigInt
+    , txCount_not : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lt : OptionalArgument ScalarCodecs.BigInt
+    , txCount_gte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_lte : OptionalArgument ScalarCodecs.BigInt
+    , txCount_in : OptionalArgument (List ScalarCodecs.BigInt)
+    , txCount_not_in : OptionalArgument (List ScalarCodecs.BigInt)
     , mostLiquidTokens : OptionalArgument (List String)
     , mostLiquidTokens_not : OptionalArgument (List String)
     , mostLiquidTokens_contains : OptionalArgument (List String)
@@ -3028,7 +3028,7 @@ type alias UniswapFactory_filter =
 encodeUniswapFactory_filter : UniswapFactory_filter -> Value
 encodeUniswapFactory_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "pairCount", Encode.int |> Encode.optional input.pairCount ), ( "pairCount_not", Encode.int |> Encode.optional input.pairCount_not ), ( "pairCount_gt", Encode.int |> Encode.optional input.pairCount_gt ), ( "pairCount_lt", Encode.int |> Encode.optional input.pairCount_lt ), ( "pairCount_gte", Encode.int |> Encode.optional input.pairCount_gte ), ( "pairCount_lte", Encode.int |> Encode.optional input.pairCount_lte ), ( "pairCount_in", (Encode.int |> Encode.list) |> Encode.optional input.pairCount_in ), ( "pairCount_not_in", (Encode.int |> Encode.list) |> Encode.optional input.pairCount_not_in ), ( "totalVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD ), ( "totalVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_not ), ( "totalVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gt ), ( "totalVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lt ), ( "totalVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gte ), ( "totalVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lte ), ( "totalVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_in ), ( "totalVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_not_in ), ( "totalVolumeETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH ), ( "totalVolumeETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_not ), ( "totalVolumeETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gt ), ( "totalVolumeETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lt ), ( "totalVolumeETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gte ), ( "totalVolumeETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lte ), ( "totalVolumeETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_in ), ( "totalVolumeETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_not_in ), ( "untrackedVolumeUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "totalLiquidityUSD", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "totalLiquidityETH", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "txCount", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "mostLiquidTokens", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens ), ( "mostLiquidTokens_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not ), ( "mostLiquidTokens_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_contains ), ( "mostLiquidTokens_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not_contains ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "pairCount", Encode.int |> Encode.optional input.pairCount ), ( "pairCount_not", Encode.int |> Encode.optional input.pairCount_not ), ( "pairCount_gt", Encode.int |> Encode.optional input.pairCount_gt ), ( "pairCount_lt", Encode.int |> Encode.optional input.pairCount_lt ), ( "pairCount_gte", Encode.int |> Encode.optional input.pairCount_gte ), ( "pairCount_lte", Encode.int |> Encode.optional input.pairCount_lte ), ( "pairCount_in", (Encode.int |> Encode.list) |> Encode.optional input.pairCount_in ), ( "pairCount_not_in", (Encode.int |> Encode.list) |> Encode.optional input.pairCount_not_in ), ( "totalVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD ), ( "totalVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_not ), ( "totalVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gt ), ( "totalVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lt ), ( "totalVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_gte ), ( "totalVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeUSD_lte ), ( "totalVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_in ), ( "totalVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeUSD_not_in ), ( "totalVolumeETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH ), ( "totalVolumeETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_not ), ( "totalVolumeETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gt ), ( "totalVolumeETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lt ), ( "totalVolumeETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_gte ), ( "totalVolumeETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalVolumeETH_lte ), ( "totalVolumeETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_in ), ( "totalVolumeETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalVolumeETH_not_in ), ( "untrackedVolumeUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD ), ( "untrackedVolumeUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_not ), ( "untrackedVolumeUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gt ), ( "untrackedVolumeUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lt ), ( "untrackedVolumeUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_gte ), ( "untrackedVolumeUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.untrackedVolumeUSD_lte ), ( "untrackedVolumeUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_in ), ( "untrackedVolumeUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.untrackedVolumeUSD_not_in ), ( "totalLiquidityUSD", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD ), ( "totalLiquidityUSD_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_not ), ( "totalLiquidityUSD_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gt ), ( "totalLiquidityUSD_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lt ), ( "totalLiquidityUSD_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_gte ), ( "totalLiquidityUSD_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityUSD_lte ), ( "totalLiquidityUSD_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_in ), ( "totalLiquidityUSD_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityUSD_not_in ), ( "totalLiquidityETH", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH ), ( "totalLiquidityETH_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_not ), ( "totalLiquidityETH_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gt ), ( "totalLiquidityETH_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lt ), ( "totalLiquidityETH_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_gte ), ( "totalLiquidityETH_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.totalLiquidityETH_lte ), ( "totalLiquidityETH_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_in ), ( "totalLiquidityETH_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.totalLiquidityETH_not_in ), ( "txCount", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount ), ( "txCount_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_not ), ( "txCount_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gt ), ( "txCount_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lt ), ( "txCount_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_gte ), ( "txCount_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.optional input.txCount_lte ), ( "txCount_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_in ), ( "txCount_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigInt) |> Encode.list) |> Encode.optional input.txCount_not_in ), ( "mostLiquidTokens", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens ), ( "mostLiquidTokens_not", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not ), ( "mostLiquidTokens_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_contains ), ( "mostLiquidTokens_not_contains", (Encode.string |> Encode.list) |> Encode.optional input.mostLiquidTokens_not_contains ) ]
 
 
 buildUser_filter :
@@ -3044,44 +3044,44 @@ buildUser_filter fillOptionals =
 
 
 type alias User_filterOptionalFields =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , usdSwapped : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , usdSwapped_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , usdSwapped : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_not : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , usdSwapped_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
 {-| Type for the User\_filter input object.
 -}
 type alias User_filter =
-    { id : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_not : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lt : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_gte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_lte : OptionalArgument UniSwapGraph.ScalarCodecs.Id
-    , id_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , id_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.Id)
-    , usdSwapped : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_not : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_gt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_lt : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_gte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_lte : OptionalArgument UniSwapGraph.ScalarCodecs.BigDecimal
-    , usdSwapped_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
-    , usdSwapped_not_in : OptionalArgument (List UniSwapGraph.ScalarCodecs.BigDecimal)
+    { id : OptionalArgument ScalarCodecs.Id
+    , id_not : OptionalArgument ScalarCodecs.Id
+    , id_gt : OptionalArgument ScalarCodecs.Id
+    , id_lt : OptionalArgument ScalarCodecs.Id
+    , id_gte : OptionalArgument ScalarCodecs.Id
+    , id_lte : OptionalArgument ScalarCodecs.Id
+    , id_in : OptionalArgument (List ScalarCodecs.Id)
+    , id_not_in : OptionalArgument (List ScalarCodecs.Id)
+    , usdSwapped : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_not : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_gt : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_lt : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_gte : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_lte : OptionalArgument ScalarCodecs.BigDecimal
+    , usdSwapped_in : OptionalArgument (List ScalarCodecs.BigDecimal)
+    , usdSwapped_not_in : OptionalArgument (List ScalarCodecs.BigDecimal)
     }
 
 
@@ -3090,4 +3090,4 @@ type alias User_filter =
 encodeUser_filter : User_filter -> Value
 encodeUser_filter input =
     Encode.maybeObject
-        [ ( "id", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "usdSwapped", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped ), ( "usdSwapped_not", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_not ), ( "usdSwapped_gt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_gt ), ( "usdSwapped_lt", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_lt ), ( "usdSwapped_gte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_gte ), ( "usdSwapped_lte", (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_lte ), ( "usdSwapped_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.usdSwapped_in ), ( "usdSwapped_not_in", ((UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.usdSwapped_not_in ) ]
+        [ ( "id", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id ), ( "id_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_not ), ( "id_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gt ), ( "id_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lt ), ( "id_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_gte ), ( "id_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.optional input.id_lte ), ( "id_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_in ), ( "id_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecId) |> Encode.list) |> Encode.optional input.id_not_in ), ( "usdSwapped", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped ), ( "usdSwapped_not", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_not ), ( "usdSwapped_gt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_gt ), ( "usdSwapped_lt", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_lt ), ( "usdSwapped_gte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_gte ), ( "usdSwapped_lte", (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.optional input.usdSwapped_lte ), ( "usdSwapped_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.usdSwapped_in ), ( "usdSwapped_not_in", ((ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapEncoder .codecBigDecimal) |> Encode.list) |> Encode.optional input.usdSwapped_not_in ) ]

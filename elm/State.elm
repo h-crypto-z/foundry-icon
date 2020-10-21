@@ -15,6 +15,9 @@ import Eth.Sentry.Tx as TxSentry
 import Eth.Sentry.Wallet as WalletSentry
 import Eth.Types exposing (Address, TxHash)
 import Eth.Utils
+import Graphql.Http
+import Graphql.Http.GraphqlError exposing (GraphqlError)
+import Graphql.SelectionSet as SelectionSet
 import Helpers.Element as EH exposing (DisplayProfile(..))
 import Helpers.Time as TimeHelpers
 import Json.Decode
@@ -27,6 +30,7 @@ import Task
 import Time
 import TokenValue exposing (TokenValue)
 import Types exposing (..)
+import UniSwapGraph.Scalar as Scalar
 import Url exposing (Url)
 
 
@@ -51,16 +55,35 @@ update msg model =
                 cmd =
                     fetchTotalValueEnteredCmd model.currentBucketId
 
-                cmd2 =
-                    --fetchUniswapGraphInfo
-                    Cmd.none
+                getEthPrice =
+                    fetchEthPrice
+
+                getDaiPrice =
+                    fetchDaiPrice
+
+                getFryPrice =
+                    fetchFryPrice
             in
             ( { model
                 | currentTime = Time.posixToMillis i
                 , currentBucketId = getCurrentBucketId <| Time.posixToMillis i
               }
-            , Cmd.batch [ cmd, cmd2 ]
+            , Cmd.batch [ cmd, getEthPrice, getDaiPrice, getFryPrice ]
             )
+
+        FetchedEthPrice fetchResult ->
+            case fetchResult of
+                Err error ->
+                    let
+                        _ =
+                            Debug.log "GraphQL error" fetchResult
+                    in
+                    ( model, Cmd.none )
+
+                Ok ethValue ->
+                    ( { model | currentEthPriceUsd = ethValue }
+                    , Cmd.none
+                    )
 
         LinkClicked i ->
             ( model, Cmd.none )

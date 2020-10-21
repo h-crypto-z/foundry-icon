@@ -11,17 +11,17 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
+import ScalarCodecs
 import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
-import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
-id : SelectionSet UniSwapGraph.ScalarCodecs.Id UniSwapGraph.Object.Burn
+id : SelectionSet ScalarCodecs.Id UniSwapGraph.Object.Burn
 id =
-    Object.selectionForField "ScalarCodecs.Id" "id" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
+    Object.selectionForField "ScalarCodecs.Id" "id" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
 
 
 transaction :
@@ -31,9 +31,9 @@ transaction object_ =
     Object.selectionForCompositeField "transaction" [] object_ identity
 
 
-timestamp : SelectionSet UniSwapGraph.ScalarCodecs.BigInt UniSwapGraph.Object.Burn
+timestamp : SelectionSet ScalarCodecs.BigInt UniSwapGraph.Object.Burn
 timestamp =
-    Object.selectionForField "ScalarCodecs.BigInt" "timestamp" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigInt" "timestamp" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)
 
 
 pair :
@@ -43,39 +43,39 @@ pair object_ =
     Object.selectionForCompositeField "pair" [] object_ identity
 
 
-liquidity : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.Burn
+liquidity : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.Burn
 liquidity =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidity" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidity" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-sender : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
+sender : SelectionSet (Maybe ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
 sender =
-    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "sender" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "sender" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
 
 
-amount0 : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
+amount0 : SelectionSet (Maybe ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
 amount0 =
-    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amount0" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amount0" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
 
 
-amount1 : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
+amount1 : SelectionSet (Maybe ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
 amount1 =
-    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amount1" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amount1" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
 
 
-to : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
+to : SelectionSet (Maybe ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
 to =
-    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "to" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "to" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
 
 
-logIndex : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.BigInt) UniSwapGraph.Object.Burn
+logIndex : SelectionSet (Maybe ScalarCodecs.BigInt) UniSwapGraph.Object.Burn
 logIndex =
-    Object.selectionForField "(Maybe ScalarCodecs.BigInt)" "logIndex" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.BigInt)" "logIndex" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder |> Decode.nullable)
 
 
-amountUSD : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
+amountUSD : SelectionSet (Maybe ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
 amountUSD =
-    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amountUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "amountUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
 
 
 needsComplete : SelectionSet Bool UniSwapGraph.Object.Burn
@@ -83,11 +83,11 @@ needsComplete =
     Object.selectionForField "Bool" "needsComplete" [] Decode.bool
 
 
-feeTo : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
+feeTo : SelectionSet (Maybe ScalarCodecs.Bytes) UniSwapGraph.Object.Burn
 feeTo =
-    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "feeTo" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.Bytes)" "feeTo" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBytes |> .decoder |> Decode.nullable)
 
 
-feeLiquidity : SelectionSet (Maybe UniSwapGraph.ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
+feeLiquidity : SelectionSet (Maybe ScalarCodecs.BigDecimal) UniSwapGraph.Object.Burn
 feeLiquidity =
-    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "feeLiquidity" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)
+    Object.selectionForField "(Maybe ScalarCodecs.BigDecimal)" "feeLiquidity" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder |> Decode.nullable)

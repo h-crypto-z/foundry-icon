@@ -11,19 +11,19 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
+import ScalarCodecs
 import UniSwapGraph.Enum.OrderDirection
 import UniSwapGraph.Enum.TokenDayData_orderBy
 import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
-import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
-id : SelectionSet UniSwapGraph.ScalarCodecs.Id UniSwapGraph.Object.UniswapFactory
+id : SelectionSet ScalarCodecs.Id UniSwapGraph.Object.UniswapFactory
 id =
-    Object.selectionForField "ScalarCodecs.Id" "id" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
+    Object.selectionForField "ScalarCodecs.Id" "id" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
 
 
 pairCount : SelectionSet Int UniSwapGraph.Object.UniswapFactory
@@ -31,34 +31,34 @@ pairCount =
     Object.selectionForField "Int" "pairCount" [] Decode.int
 
 
-totalVolumeUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
+totalVolumeUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
 totalVolumeUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "totalVolumeUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "totalVolumeUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-totalVolumeETH : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
+totalVolumeETH : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
 totalVolumeETH =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "totalVolumeETH" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "totalVolumeETH" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-untrackedVolumeUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
+untrackedVolumeUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
 untrackedVolumeUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "untrackedVolumeUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "untrackedVolumeUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-totalLiquidityUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
+totalLiquidityUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
 totalLiquidityUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "totalLiquidityUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "totalLiquidityUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-totalLiquidityETH : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
+totalLiquidityETH : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.UniswapFactory
 totalLiquidityETH =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "totalLiquidityETH" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "totalLiquidityETH" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-txCount : SelectionSet UniSwapGraph.ScalarCodecs.BigInt UniSwapGraph.Object.UniswapFactory
+txCount : SelectionSet ScalarCodecs.BigInt UniSwapGraph.Object.UniswapFactory
 txCount =
-    Object.selectionForField "ScalarCodecs.BigInt" "txCount" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigInt" "txCount" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)
 
 
 type alias MostLiquidTokensOptionalArguments =

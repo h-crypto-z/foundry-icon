@@ -11,19 +11,19 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
+import ScalarCodecs
 import UniSwapGraph.Enum.LiquidityPosition_orderBy
 import UniSwapGraph.Enum.OrderDirection
 import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
-import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
-id : SelectionSet UniSwapGraph.ScalarCodecs.Id UniSwapGraph.Object.User
+id : SelectionSet ScalarCodecs.Id UniSwapGraph.Object.User
 id =
-    Object.selectionForField "ScalarCodecs.Id" "id" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
+    Object.selectionForField "ScalarCodecs.Id" "id" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
 
 
 type alias LiquidityPositionsOptionalArguments =
@@ -51,6 +51,6 @@ liquidityPositions fillInOptionals object_ =
     Object.selectionForCompositeField "liquidityPositions" optionalArgs object_ (identity >> Decode.list >> Decode.nullable)
 
 
-usdSwapped : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.User
+usdSwapped : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.User
 usdSwapped =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "usdSwapped" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "usdSwapped" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
