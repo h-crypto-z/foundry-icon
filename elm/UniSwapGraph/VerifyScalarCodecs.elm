@@ -4,15 +4,7 @@
 
 module UniSwapGraph.VerifyScalarCodecs exposing (..)
 
-{-
-   This file is intended to be used to ensure that custom scalar decoder
-   files are valid. It is compiled using `elm make` by the CLI.
--}
 
-import ScalarCodecs
-import UniSwapGraph.Scalar
-
-
-verify : UniSwapGraph.Scalar.Codecs ScalarCodecs.BigDecimal ScalarCodecs.BigInt ScalarCodecs.Bytes ScalarCodecs.Id
-verify =
-    ScalarCodecs.codecs
+placeholder : String
+placeholder =
+    ""

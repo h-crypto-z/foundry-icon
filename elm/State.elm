@@ -30,6 +30,8 @@ import Task
 import Time
 import TokenValue exposing (TokenValue)
 import Types exposing (..)
+import UniSwapGraph.Object exposing (Bundle)
+import UniSwapGraph.Query exposing (bundle)
 import UniSwapGraph.Scalar as Scalar
 import Url exposing (Url)
 
@@ -41,7 +43,7 @@ init flags url key =
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
       , currentEthPriceUsd = 0.0
       , currentDaiPriceEth = 1.0
-      , currentFryPriceEth = 0.0
+      , currentFryPriceEth = 1.0
       }
     , Cmd.none
     )
@@ -76,12 +78,67 @@ update msg model =
                 Err error ->
                     let
                         _ =
-                            Debug.log "GraphQL error" fetchResult
+                            Debug.log "GraphQL error" ( fetchResult, error )
                     in
                     ( model, Cmd.none )
 
-                Ok ethValue ->
-                    ( { model | currentEthPriceUsd = ethValue }
+                Ok bundle1 ->
+                    let
+                        v =
+                            case bundle1 of
+                                Just val ->
+                                    val
+
+                                Nothing ->
+                                    Value 0
+                    in
+                    ( { model | currentEthPriceUsd = v.ethPrice }
+                    , Cmd.none
+                    )
+
+        FetchedDaiPrice fetchResult ->
+            case fetchResult of
+                Err error ->
+                    let
+                        _ =
+                            Debug.log "GraphQL error" ( fetchResult, error )
+                    in
+                    ( model, Cmd.none )
+
+                Ok value ->
+                    let
+                        v =
+                            case value of
+                                Just val ->
+                                    val
+
+                                Nothing ->
+                                    Value 0
+                    in
+                    ( { model | currentDaiPriceEth = v.ethPrice }
+                    , Cmd.none
+                    )
+
+        FetchedFryPrice fetchResult ->
+            case fetchResult of
+                Err error ->
+                    let
+                        _ =
+                            Debug.log "GraphQL error" ( fetchResult, error )
+                    in
+                    ( model, Cmd.none )
+
+                Ok value ->
+                    let
+                        v =
+                            case value of
+                                Just val ->
+                                    val
+
+                                Nothing ->
+                                    Value 0
+                    in
+                    ( { model | currentFryPriceEth = v.ethPrice }
                     , Cmd.none
                     )
 

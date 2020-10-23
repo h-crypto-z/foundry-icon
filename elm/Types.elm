@@ -23,10 +23,12 @@ import Http
 import Json.Decode exposing (Decoder, field, float, int, map3)
 import Json.Encode
 import List.Extra
+import Random exposing (Seed)
 import Time
 import TokenValue exposing (TokenValue)
 import UniSwapGraph.Object exposing (..)
 import UniSwapGraph.Object.Bundle as Bundle
+import UniSwapGraph.Object.Token as Token
 import UniSwapGraph.Query as Query
 import UniSwapGraph.Scalar exposing (Id(..))
 import UniSwapGraph.ScalarCodecs exposing (..)
@@ -58,59 +60,70 @@ type Msg
     | Tick Time.Posix
     | Resize Int Int
     | BucketValueEnteredFetched Int (Result Http.Error TokenValue)
-    | FetchedEthPrice (Result (Graphql.Http.Error (Maybe Bundle)) (Maybe Bundle))
-      --| DataReceived (Result Http.Error GraphQlInfo)
+    | FetchedEthPrice (Result (Graphql.Http.Error (Maybe Value)) (Maybe Value))
+    | FetchedDaiPrice (Result (Graphql.Http.Error (Maybe Value)) (Maybe Value))
+    | FetchedFryPrice (Result (Graphql.Http.Error (Maybe Value)) (Maybe Value))
     | NoOp
 
 
-type alias GraphQlInfo =
+type alias Value =
     { ethPrice : Float
-    , daiPrice : Float
-    , fryPrice : Float
     }
 
 
-type alias Bundle =
-    { ethPrice : Float }
+resultBundle : SelectionSet Value UniSwapGraph.Object.Bundle
+resultBundle =
+    SelectionSet.map Value
+        (Bundle.ethPrice
+            |> SelectionSet.map
+                (\(UniSwapGraph.Scalar.BigDecimal dec) ->
+                    String.toFloat dec
+                        |> Maybe.withDefault 0
+                )
+        )
 
 
-queryEth : SelectionSet (Maybe Bundle) RootQuery
-queryEth =
-    Query.bundle identity { id = Id "1" } resultEth
-
-
-resultEth : SelectionSet Bundle UniSwapGraph.Object.Bundle
-resultEth =
-    SelectionSet.map Bundle
-        Bundle.ethPrice
+resultToken : SelectionSet Value UniSwapGraph.Object.Token
+resultToken =
+    SelectionSet.map Value
+        (Token.derivedETH
+            |> SelectionSet.map
+                (\(UniSwapGraph.Scalar.BigDecimal dec) ->
+                    String.toFloat dec
+                        |> Maybe.withDefault 0
+                )
+        )
 
 
 fetchEthPrice : Cmd Msg
 fetchEthPrice =
-    Query.bundle identity { id = Id "1" } resultEth
+    Query.bundle identity { id = Id "1" } resultBundle
         |> Graphql.Http.queryRequest Config.uniswapGraphQL
         |> Graphql.Http.send FetchedEthPrice
 
 
 fetchDaiPrice : Cmd Msg
 fetchDaiPrice =
-    Cmd.none
+    Query.token identity
+        { id =
+            Id <|
+                Eth.Utils.addressToString Config.daiContractAddress
+        }
+        resultToken
+        |> Graphql.Http.queryRequest Config.uniswapGraphQL
+        |> Graphql.Http.send FetchedDaiPrice
 
 
 fetchFryPrice : Cmd Msg
 fetchFryPrice =
-    Cmd.none
-
-
-graphJson : Decoder GraphQlInfo
-graphJson =
-    map3 GraphQlInfo
-        -- eth
-        (field "data" (field "bundle" (field "ethPrice" float)))
-        -- dai
-        (field "data" (field "token" (field "derivedEth" float)))
-        -- fry
-        (field "data" (field "tokens" (field "derivedEth" float)))
+    Query.token identity
+        { id =
+            Id <|
+                Eth.Utils.addressToString Config.fryTokenAddress
+        }
+        resultToken
+        |> Graphql.Http.queryRequest Config.uniswapGraphQL
+        |> Graphql.Http.send FetchedFryPrice
 
 
 getCurrentBucketId : Int -> Int
@@ -158,17 +171,3 @@ fetchTotalValueEnteredCmd id =
     BucketSaleWrappers.getTotalValueEnteredForBucket
         id
         (BucketValueEnteredFetched id)
-
-
-
--- fetchUniswapGraphInfo : Cmd Msg
--- fetchUniswapGraphInfo =
---     Http.request
---         { method = "POST"
---         , url = Config.uniswapGraphQL
---         , body = Http.stringBody "application/json" "{bundle (id: 1){ethPrice},tokens(where: {name: \"Dai Stablecoin\"}){derivedETH}  ,token(id: \"0x6c972b70c533e2e045f333ee28b9ffb8d717be69\"){derivedETH}}"
---         , expect = Http.expectJson DataReceived graphJson
---         , headers = [ Http.header "Access-Control-Allow-Origin" "*" ]
---         , timeout = Nothing
---         , tracker = Nothing
---         }

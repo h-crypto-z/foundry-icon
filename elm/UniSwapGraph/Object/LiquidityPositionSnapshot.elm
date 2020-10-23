@@ -11,17 +11,17 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
-import ScalarCodecs
 import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
+import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
-id : SelectionSet ScalarCodecs.Id UniSwapGraph.Object.LiquidityPositionSnapshot
+id : SelectionSet UniSwapGraph.ScalarCodecs.Id UniSwapGraph.Object.LiquidityPositionSnapshot
 id =
-    Object.selectionForField "ScalarCodecs.Id" "id" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
+    Object.selectionForField "ScalarCodecs.Id" "id" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
 
 
 liquidityPosition :
@@ -55,36 +55,36 @@ pair object_ =
     Object.selectionForCompositeField "pair" [] object_ identity
 
 
-token0PriceUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+token0PriceUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 token0PriceUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "token0PriceUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "token0PriceUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-token1PriceUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+token1PriceUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 token1PriceUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "token1PriceUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "token1PriceUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-reserve0 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+reserve0 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 reserve0 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve0" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve0" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-reserve1 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+reserve1 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 reserve1 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve1" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve1" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-reserveUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+reserveUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 reserveUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserveUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserveUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-liquidityTokenTotalSupply : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+liquidityTokenTotalSupply : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 liquidityTokenTotalSupply =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidityTokenTotalSupply" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidityTokenTotalSupply" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-liquidityTokenBalance : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
+liquidityTokenBalance : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.LiquidityPositionSnapshot
 liquidityTokenBalance =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidityTokenBalance" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "liquidityTokenBalance" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)

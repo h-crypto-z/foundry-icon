@@ -11,17 +11,17 @@ import Graphql.Operation exposing (RootMutation, RootQuery, RootSubscription)
 import Graphql.OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet exposing (SelectionSet)
 import Json.Decode as Decode
-import ScalarCodecs
 import UniSwapGraph.InputObject
 import UniSwapGraph.Interface
 import UniSwapGraph.Object
 import UniSwapGraph.Scalar
+import UniSwapGraph.ScalarCodecs
 import UniSwapGraph.Union
 
 
-id : SelectionSet ScalarCodecs.Id UniSwapGraph.Object.PairHourData
+id : SelectionSet UniSwapGraph.ScalarCodecs.Id UniSwapGraph.Object.PairHourData
 id =
-    Object.selectionForField "ScalarCodecs.Id" "id" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
+    Object.selectionForField "ScalarCodecs.Id" "id" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecId |> .decoder)
 
 
 hourStartUnix : SelectionSet Int UniSwapGraph.Object.PairHourData
@@ -36,36 +36,36 @@ pair object_ =
     Object.selectionForCompositeField "pair" [] object_ identity
 
 
-reserve0 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+reserve0 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 reserve0 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve0" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve0" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-reserve1 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+reserve1 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 reserve1 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve1" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserve1" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-reserveUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+reserveUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 reserveUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "reserveUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "reserveUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-hourlyVolumeToken0 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+hourlyVolumeToken0 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 hourlyVolumeToken0 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeToken0" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeToken0" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-hourlyVolumeToken1 : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+hourlyVolumeToken1 : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 hourlyVolumeToken1 =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeToken1" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeToken1" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-hourlyVolumeUSD : SelectionSet ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
+hourlyVolumeUSD : SelectionSet UniSwapGraph.ScalarCodecs.BigDecimal UniSwapGraph.Object.PairHourData
 hourlyVolumeUSD =
-    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeUSD" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigDecimal" "hourlyVolumeUSD" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigDecimal |> .decoder)
 
 
-hourlyTxns : SelectionSet ScalarCodecs.BigInt UniSwapGraph.Object.PairHourData
+hourlyTxns : SelectionSet UniSwapGraph.ScalarCodecs.BigInt UniSwapGraph.Object.PairHourData
 hourlyTxns =
-    Object.selectionForField "ScalarCodecs.BigInt" "hourlyTxns" [] (ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)
+    Object.selectionForField "ScalarCodecs.BigInt" "hourlyTxns" [] (UniSwapGraph.ScalarCodecs.codecs |> UniSwapGraph.Scalar.unwrapCodecs |> .codecBigInt |> .decoder)

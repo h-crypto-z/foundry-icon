@@ -62,7 +62,7 @@ body model =
         [ Element.row
             [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0 } ]
             [ Element.newTabLink [ Element.Font.color Theme.lightBlue ]
-                { url = Config.uniswapPoolLink
+                { url = Config.foundrySaleLink
                 , label = textExtraLarge "BUY FRY"
                 }
             , Element.column
@@ -91,7 +91,7 @@ body model =
                         ]
                         (columnItems
                             (TokenValue.toConciseString <|
-                                calcEffectivePricePerToken model.currentBucketTotalEntered model.currentDaiPriceEth
+                                calcEffectivePricePerToken model.currentBucketTotalEntered 1
                             )
                             (TokenValue.toConciseString <| TokenValue.fromFloatWithWarning (model.currentFryPriceEth * model.currentEthPriceUsd))
                         )
