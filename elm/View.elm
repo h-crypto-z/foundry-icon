@@ -91,14 +91,20 @@ body model =
                         ]
                         (columnItems
                             (TokenValue.toConciseString <|
-                                calcEffectivePricePerToken model.currentBucketTotalEntered 1
+                                calcEffectivePricePerToken
+                                    (calcEffectivePricePerToken model.currentBucketTotalEntered model.currentDaiPriceEth)
+                                    model.currentEthPriceUsd
                             )
-                            (TokenValue.toConciseString <| TokenValue.fromFloatWithWarning (model.currentFryPriceEth * model.currentEthPriceUsd))
+                            (TokenValue.toConciseString <|
+                                TokenValue.fromFloatWithWarning <|
+                                    model.currentFryPriceEth
+                                        * model.currentEthPriceUsd
+                            )
                         )
                     , Element.column
                         []
-                        [ textLarge "DAI/FRY"
-                        , textLarge "DAI/FRY"
+                        [ textLarge "USD"
+                        , textLarge "USD"
                         ]
                     ]
                 ]

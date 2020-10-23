@@ -159,9 +159,9 @@ getBucketEndTime bucketId =
 
 
 calcEffectivePricePerToken : TokenValue -> Float -> TokenValue
-calcEffectivePricePerToken totalValueEntered daiEthValue =
+calcEffectivePricePerToken totalValueEntered tokenValue =
     TokenValue.toFloatWithWarning totalValueEntered
-        * daiEthValue
+        * tokenValue
         / (TokenValue.toFloatWithWarning <| Config.bucketSaleTokensPerBucket)
         |> TokenValue.fromFloatWithWarning
 

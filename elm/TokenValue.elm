@@ -94,8 +94,15 @@ toFloatString maxDigitsAfterDecimal tokens =
 
 toConciseString : TokenValue -> String
 toConciseString tv =
-    toFloatWithWarning tv
-        |> autoFormatFloat
+    let
+        val =
+            toFloatWithWarning tv
+    in
+    if val == 0 then
+        "Loading..."
+
+    else
+        val |> autoFormatFloat
 
 
 negate : TokenValue -> TokenValue

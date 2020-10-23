@@ -42,10 +42,20 @@ init flags url key =
       , currentBucketId = getCurrentBucketId flags.nowInMillis
       , currentBucketTotalEntered = TokenValue.fromIntTokenValue 0
       , currentEthPriceUsd = 0.0
-      , currentDaiPriceEth = 1.0
-      , currentFryPriceEth = 1.0
+      , currentDaiPriceEth = 0.0
+      , currentFryPriceEth = 0.0
       }
-    , Cmd.none
+    , let
+        getEthPrice =
+            fetchEthPrice
+
+        getDaiPrice =
+            fetchDaiPrice
+
+        getFryPrice =
+            fetchFryPrice
+      in
+      Cmd.batch [ getEthPrice, getDaiPrice, getFryPrice ]
     )
 
 
