@@ -173,22 +173,6 @@ update msg model =
                 Ok valueEntered ->
                     ( { model | currentBucketTotalEntered = valueEntered }, Cmd.none )
 
-        -- DataReceived fetchResult ->
-        --     case fetchResult of
-        --         Err httpErr ->
-        --             let
-        --                 _ =
-        --                     Debug.log "http error when fetching data from Uniswap graph" fetchResult
-        --             in
-        --             ( model, Cmd.none )
-        --         Ok data ->
-        --             ( { model
-        --                 | currentDaiPriceEth = data.daiPrice
-        --                 , currentFryPriceEth = data.fryPrice
-        --                 , currentEthPriceUsd = data.ethPrice
-        --               }
-        --             , Cmd.none
-        --             )
         NoOp ->
             ( model, Cmd.none )
 
