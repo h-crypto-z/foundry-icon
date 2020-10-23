@@ -86,10 +86,10 @@ update msg model =
         FetchedEthPrice fetchResult ->
             case fetchResult of
                 Err error ->
-                    let
-                        _ =
-                            Debug.log "GraphQL error" ( fetchResult, error )
-                    in
+                    -- let
+                    --     _ =
+                    --         Debug.log "GraphQL error" ( fetchResult, error )
+                    -- in
                     ( model, Cmd.none )
 
                 Ok bundle1 ->
@@ -109,10 +109,10 @@ update msg model =
         FetchedDaiPrice fetchResult ->
             case fetchResult of
                 Err error ->
-                    let
-                        _ =
-                            Debug.log "GraphQL error" ( fetchResult, error )
-                    in
+                    -- let
+                    --     _ =
+                    --         Debug.log "GraphQL error" ( fetchResult, error )
+                    -- in
                     ( model, Cmd.none )
 
                 Ok value ->
@@ -132,10 +132,10 @@ update msg model =
         FetchedFryPrice fetchResult ->
             case fetchResult of
                 Err error ->
-                    let
-                        _ =
-                            Debug.log "GraphQL error" ( fetchResult, error )
-                    in
+                    -- let
+                    --     _ =
+                    --         Debug.log "GraphQL error" ( fetchResult, error )
+                    -- in
                     ( model, Cmd.none )
 
                 Ok value ->
@@ -164,10 +164,10 @@ update msg model =
         BucketValueEnteredFetched bucketId fetchResult ->
             case fetchResult of
                 Err httpErr ->
-                    let
-                        _ =
-                            Debug.log "http error when fetching total bucket value entered" ( bucketId, fetchResult )
-                    in
+                    -- let
+                    --     _ =
+                    --         Debug.log "http error when fetching total bucket value entered" ( bucketId, fetchResult )
+                    -- in
                     ( model, Cmd.none )
 
                 Ok valueEntered ->
