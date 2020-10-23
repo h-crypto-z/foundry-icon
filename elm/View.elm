@@ -61,7 +61,7 @@ body model =
         ]
         [ Element.row
             [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0 } ]
-            [ Element.newTabLink [ Element.Font.color Theme.lightBlue ]
+            [ Element.newTabLink []
                 { url = Config.foundrySaleLink
                 , label = textExtraLarge "BUY FRY"
                 }
