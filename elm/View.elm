@@ -77,8 +77,7 @@ body model =
                 ]
             , Element.column
                 []
-                [ textSmall "PRICE"
-                , Element.row
+                [ Element.row
                     []
                     [ Element.column
                         [ Element.padding 5 ]
