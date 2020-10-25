@@ -44,6 +44,8 @@ init flags url key =
       , currentEthPriceUsd = 0.0
       , currentDaiPriceEth = 0.0
       , currentFryPriceEth = 0.0
+      , circSupply = 0.0
+      , marketCap = 0.0
       }
     , let
         getEthPrice =
@@ -102,7 +104,11 @@ update msg model =
                                 Nothing ->
                                     Value 0
                     in
-                    ( { model | currentEthPriceUsd = v.ethPrice }
+                    ( { model
+                        | currentEthPriceUsd = v.ethPrice
+                        , circSupply = calcCircSupply model
+                        , marketCap = calcMarketCap model
+                      }
                     , Cmd.none
                     )
 
@@ -125,7 +131,11 @@ update msg model =
                                 Nothing ->
                                     Value 0
                     in
-                    ( { model | currentDaiPriceEth = v.ethPrice }
+                    ( { model
+                        | currentDaiPriceEth = v.ethPrice
+                        , circSupply = calcCircSupply model
+                        , marketCap = calcMarketCap model
+                      }
                     , Cmd.none
                     )
 
@@ -148,7 +158,11 @@ update msg model =
                                 Nothing ->
                                     Value 0
                     in
-                    ( { model | currentFryPriceEth = v.ethPrice }
+                    ( { model
+                        | currentFryPriceEth = v.ethPrice
+                        , circSupply = calcCircSupply model
+                        , marketCap = calcMarketCap model
+                      }
                     , Cmd.none
                     )
 

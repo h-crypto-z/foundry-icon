@@ -14,6 +14,7 @@ import Element.Lazy
 import ElementMarkdown
 import Eth.Types exposing (Address, Hex, TxHash)
 import Eth.Utils
+import FormatFloat exposing (autoFormatFloat)
 import Helpers.Element as EH exposing (DisplayProfile(..), changeForMobile, responsiveVal)
 import Helpers.Eth as EthHelpers
 import Helpers.List as ListHelpers
@@ -39,7 +40,8 @@ root model =
         [ Element.layout
             [ Element.width Element.fill
             , Element.Background.color Theme.blue
-            , Element.htmlAttribute <| Html.Attributes.style "height" "100vh"
+            , Html.Attributes.style "height" "100vh"
+                |> Element.htmlAttribute
             , Element.Font.family
                 [ Element.Font.typeface "DM Sans"
                 , Element.Font.sansSerif
@@ -63,17 +65,25 @@ body model =
             [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0 } ]
             [ Element.newTabLink []
                 { url = Config.foundrySaleLink
-                , label = textExtraLarge "BUY FRY"
+                , label =
+                    "BUY FRY"
+                        |> textExtraLarge
                 }
             , Element.column
                 [ Element.padding 20 ]
-                [ textSmall "BUCKET #"
-                , textLarge <| String.fromInt model.currentBucketId
+                [ "BUCKET #"
+                    |> textSmall
+                , String.fromInt model.currentBucketId
+                    |> textLarge
                 ]
             , Element.column
                 [ Element.padding 20 ]
-                [ textSmall "TIME LEFT"
-                , textLarge <| getBucketRemainingTimeText model.currentBucketId model.currentTime
+                [ "TIME LEFT"
+                    |> textSmall
+                , getBucketRemainingTimeText
+                    model.currentBucketId
+                    model.currentTime
+                    |> textLarge
                 ]
             , Element.column
                 []
@@ -81,36 +91,61 @@ body model =
                     []
                     [ Element.column
                         [ Element.padding 5 ]
-                        [ textLarge "SALE"
-                        , textLarge "UNISWAP"
-                        ]
+                        (columnItems
+                            "SALE"
+                            "UNISWAP"
+                        )
                     , Element.column
                         [ Element.padding 5
                         , Element.alignRight
                         ]
                         (columnItems
-                            (TokenValue.toConciseString <|
-                                calcEffectivePricePerToken
-                                    (calcEffectivePricePerToken model.currentBucketTotalEntered
-                                        (if model.currentDaiPriceEth == 0 then
-                                            1.01
+                            ("$ "
+                                ++ (calcEffectivePricePerToken
+                                        (calcEffectivePricePerToken model.currentBucketTotalEntered
+                                            (if model.currentDaiPriceEth == 0 then
+                                                1.01
 
-                                         else
-                                            model.currentDaiPriceEth
+                                             else
+                                                model.currentDaiPriceEth
+                                            )
                                         )
-                                    )
-                                    model.currentEthPriceUsd
+                                        model.currentEthPriceUsd
+                                        |> TokenValue.toConciseString
+                                   )
                             )
-                            (TokenValue.toConciseString <|
-                                TokenValue.fromFloatWithWarning <|
-                                    model.currentFryPriceEth
+                            ("$ "
+                                ++ (model.currentFryPriceEth
                                         * model.currentEthPriceUsd
+                                        |> TokenValue.fromFloatWithWarning
+                                        |> TokenValue.toConciseString
+                                   )
                             )
                         )
+                    ]
+                ]
+            , Element.column
+                []
+                [ Element.row
+                    []
+                    [ Element.column
+                        [ Element.padding 5 ]
+                        (columnItems
+                            "CIRC SUPPLY"
+                            "MARKET CAP"
+                        )
                     , Element.column
-                        []
-                        [ textLarge "USD"
-                        , textLarge "USD"
+                        [ Element.padding 5
+                        , Element.alignRight
+                        ]
+                        [ model.circSupply
+                            |> autoFormatFloat
+                            |> textLarge
+                        , "$ "
+                            ++ (model.marketCap
+                                    |> autoFormatFloat
+                               )
+                            |> textLarge
                         ]
                     ]
                 ]

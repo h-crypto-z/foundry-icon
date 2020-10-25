@@ -7,12 +7,14 @@ import Browser.Navigation
 import Config
 import Contracts.BucketSale.Generated.BucketSale exposing (currentBucket)
 import Contracts.BucketSale.Wrappers as BucketSaleWrappers
+import Css exposing (calc)
 import Dict exposing (Dict)
 import Eth.Sentry.Event as EventSentry exposing (EventSentry)
 import Eth.Sentry.Tx as TxSentry exposing (TxSentry)
 import Eth.Sentry.Wallet as WalletSentry exposing (WalletSentry)
 import Eth.Types exposing (Address, Hex, Tx, TxHash, TxReceipt)
 import Eth.Utils
+import FormatFloat exposing (autoFormatFloat)
 import Graphql.Http
 import Graphql.Operation exposing (RootQuery)
 import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
@@ -51,6 +53,8 @@ type alias Model =
     , currentEthPriceUsd : Float
     , currentDaiPriceEth : Float
     , currentFryPriceEth : Float
+    , circSupply : Float
+    , marketCap : Float
     }
 
 
@@ -171,3 +175,20 @@ fetchTotalValueEnteredCmd id =
     BucketSaleWrappers.getTotalValueEnteredForBucket
         id
         (BucketValueEnteredFetched id)
+
+
+calcCircSupply : Model -> Float
+calcCircSupply model =
+    (Config.bucketSaleTokensPerBucket
+        |> TokenValue.toFloatWithWarning
+    )
+        * (model.currentBucketId
+            |> toFloat
+          )
+
+
+calcMarketCap : Model -> Float
+calcMarketCap model =
+    calcCircSupply model
+        * model.currentFryPriceEth
+        * model.currentEthPriceUsd
