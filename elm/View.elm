@@ -93,7 +93,7 @@ body model =
                                 calcEffectivePricePerToken
                                     (calcEffectivePricePerToken model.currentBucketTotalEntered
                                         (if model.currentDaiPriceEth == 0 then
-                                            1
+                                            1.01
 
                                          else
                                             model.currentDaiPriceEth

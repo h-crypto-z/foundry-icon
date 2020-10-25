@@ -180,7 +180,7 @@ update msg model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
-        [ Time.every 1000 Tick ]
+        [ Time.every 5000 Tick ]
 
 
 port walletSentryPort : (Json.Decode.Value -> msg) -> Sub msg
