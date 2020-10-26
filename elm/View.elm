@@ -102,15 +102,15 @@ body model =
                         (columnItems
                             ("$ "
                                 ++ (calcEffectivePricePerToken
-                                        (calcEffectivePricePerToken model.currentBucketTotalEntered
-                                            (if model.currentDaiPriceEth == 0 then
-                                                1.01
+                                        model.currentBucketTotalEntered
+                                        ((if model.currentDaiPriceEth == 0 then
+                                            1.01
 
-                                             else
-                                                model.currentDaiPriceEth
-                                            )
+                                          else
+                                            model.currentDaiPriceEth
+                                         )
+                                            * model.currentEthPriceUsd
                                         )
-                                        model.currentEthPriceUsd
                                         |> TokenValue.toConciseString
                                    )
                             )
