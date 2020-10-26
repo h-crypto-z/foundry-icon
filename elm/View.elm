@@ -62,18 +62,25 @@ body model =
         , Element.Border.rounded 50
         ]
         [ Element.row
-            [ Element.paddingEach { left = 15, top = 0, right = 0, bottom = 0 } ]
+            [ Element.paddingEach
+                { left = 15
+                , top = 0
+                , right = 0
+                , bottom = 0
+                }
+            , Element.centerX
+            ]
             [ Element.column
                 [ Element.padding 20 ]
                 [ "BUCKET #"
-                    |> textSmall
+                    |> textLarge
                 , String.fromInt model.currentBucketId
                     |> textLarge
                 ]
             , Element.column
                 [ Element.padding 20 ]
                 [ "TIME LEFT"
-                    |> textSmall
+                    |> textLarge
                 , getBucketRemainingTimeText
                     model.currentBucketId
                     model.currentTime
@@ -87,13 +94,6 @@ body model =
                         [ Element.padding 5 ]
                         (columnItems
                             "SALE"
-                            "UNISWAP"
-                        )
-                    , Element.column
-                        [ Element.padding 5
-                        , Element.alignRight
-                        ]
-                        (columnItems
                             ("$ "
                                 ++ (calcEffectivePricePerToken
                                         model.currentBucketTotalEntered
@@ -108,6 +108,13 @@ body model =
                                         |> TokenValue.toConciseString
                                    )
                             )
+                        )
+                    , Element.column
+                        [ Element.padding 5
+                        , Element.alignRight
+                        ]
+                        (columnItems
+                            "UNISWAP"
                             ("$ "
                                 ++ (model.currentFryPriceEth
                                         * model.currentEthPriceUsd
@@ -125,22 +132,14 @@ body model =
                     [ Element.column
                         [ Element.padding 5 ]
                         (columnItems
-                            "CIRC SUPPLY"
                             "MARKET CAP"
+                            ("$ "
+                                ++ (model.marketCap
+                                        |> TokenValue.fromFloatWithWarning
+                                        |> TokenValue.toConciseString
+                                   )
+                            )
                         )
-                    , Element.column
-                        [ Element.padding 5
-                        , Element.alignRight
-                        ]
-                        [ model.circSupply
-                            |> autoFormatFloat
-                            |> textLarge
-                        , "$ "
-                            ++ (model.marketCap
-                                    |> autoFormatFloat
-                               )
-                            |> textLarge
-                        ]
                     ]
                 ]
             ]
